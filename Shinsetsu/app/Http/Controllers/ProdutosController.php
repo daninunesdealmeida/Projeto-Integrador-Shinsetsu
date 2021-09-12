@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Produto;
 
 class ProdutosController extends Controller
 {
-   public function index(){
-       $nome = "Kimono Mizuno";
-       return view('produtos', ['nome'=>$nome]);
+    public function index(){
+        $produtos = Produto::All();
+        return view('produtos', ['produtos'=>$produtos]);
    }
 }
