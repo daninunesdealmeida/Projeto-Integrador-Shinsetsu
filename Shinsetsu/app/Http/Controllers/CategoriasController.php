@@ -13,7 +13,7 @@ class CategoriasController extends Controller
 }
 
 public function create(){
-    return view('atores.create');
+    return view('categorias.create');
 }
 
 

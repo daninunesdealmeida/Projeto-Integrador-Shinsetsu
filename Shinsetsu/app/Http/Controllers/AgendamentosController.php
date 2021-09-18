@@ -16,5 +16,7 @@ public function create(){
     return view('agendamentos.create');
 }
 
+
+
 }
 
