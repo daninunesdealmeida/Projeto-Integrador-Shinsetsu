@@ -7,7 +7,10 @@ Route::get('/', function () {
 
 });
 
+
 Route::get('agendamentos', 'App\Http\Controllers\AgendamentosController@index');
+Route::get('agendamentos/create', [App\Http\Controllers\HomeController::class, 'create'])->name('agendamentos');
+
 Route::get('users', 'App\Http\Controllers\UsersController@index');
 Route::get('pessoas', 'App\Http\Controllers\PessoasController@index');
 Route::get('vendas', 'App\Http\Controllers\VendasController@index');

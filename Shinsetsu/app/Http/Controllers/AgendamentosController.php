@@ -9,7 +9,12 @@ class AgendamentosController extends Controller
 {
     public function index(){
         $agendamentos = Agendamento::All();
-        return view('agendamentos', ['agendamentos'=>$agendamentos]);
+        return view('agendamentos.index', ['agendamentos'=>$agendamentos]);
 }
+
+public function create(){
+    return view('agendamentos.create');
+}
+
 }
 

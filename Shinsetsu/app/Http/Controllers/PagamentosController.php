@@ -9,6 +9,11 @@ class PagamentosController extends Controller
 {
     public function index(){
         $pagamentos = Pagamento::All();
-        return view('pagamentos', ['pagamentos'=>$pagamentos]);
+        return view('pagamentos.index', ['pagamentos'=>$pagamentos]);
 }
+
+public function create(){
+    return view('pagamentos.create');
+}
+
 }
