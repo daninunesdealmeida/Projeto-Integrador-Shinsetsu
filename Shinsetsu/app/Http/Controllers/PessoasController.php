@@ -17,4 +17,11 @@ public function create(){
       return view('pessoas.create');
   }
   
+  public function store(Request $request){
+    $nova_pessoa = $request->all();
+    Pessoa::create($nova_pessoa);
+    
+    return redirect('pessoas');
+    }
+
 }

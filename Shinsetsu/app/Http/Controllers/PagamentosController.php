@@ -16,4 +16,11 @@ public function create(){
     return view('pagamentos.create');
 }
 
+public function store(Request $request){
+    $novo_pagamento = $request->all();
+    Pagamento::create($novo_pagamento);
+    
+    return redirect('pagamentos');
+    }
+
 }

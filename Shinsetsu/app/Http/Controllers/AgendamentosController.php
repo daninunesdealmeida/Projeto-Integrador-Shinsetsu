@@ -16,7 +16,12 @@ public function create(){
     return view('agendamentos.create');
 }
 
+public function store(Request $request){
+$novo_agendamento = $request->all();
+Agendamento::create($novo_agendamento);
 
+return redirect('agendamentos');
+}
 
 }
 

@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Categoria extends Model
 {
     protected $table = "categorias";
+    protected $fillable = ['id_categorias', 'nome', 'fk_produtos'];
 }

@@ -16,6 +16,12 @@ public function create(){
     return view('categorias.create');
 }
 
+public function store(Request $request){
+    $nova_categoria = $request->all();
+    Categoria::create($nova_categoria);
+    
+    return redirect('categorias');
+    }
 
 
 }

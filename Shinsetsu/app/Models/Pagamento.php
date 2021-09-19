@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Pagamento extends Model
 {
     protected $table = "pagamentos";
+    protected $fillable = ['id_pagamentos', 'cartao', 'nome_cartao', 'dt_vencimento', 'boleto', 'fk_vendas'];
 }
+
+
