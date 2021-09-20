@@ -27,7 +27,7 @@
 </div>
 
 <div class="form-group">
-{!! Form::submit('Criar Agendamento', ['class'=>'btn btn-primary']) !!}
+{!! Form::submit('Criar Venda', ['class'=>'btn btn-primary']) !!}
 {!! Form::reset('Limpar', ['class'=>'btn btn-default']) !!}
 
 </div>

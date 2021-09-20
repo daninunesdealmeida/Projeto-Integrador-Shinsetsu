@@ -2,28 +2,49 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\VendaItemRequest;
 use App\Models\Venda_Item;
 use Illuminate\Support\Facades\DB;
 
 class Venda_ItensController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $venda_itens = Venda_Item::all();
         //dd($venda_itens);
-        return view('venda_Itens.Index', compact('venda_itens'));//
-}
-
-public function create(){
-    return view('venda_Itens.create');
-}
-
-public function store(Request $request){
-    $nova_vendaItens = $request->all();
-    venda_Item::create($nova_vendaItens);
-    
-    return redirect('venda_Itens');
+        return view('venda_Itens.Index', compact('venda_itens')); //
     }
 
+    public function create()
+    {
+        return view('venda_Itens.create');
+    }
 
+    public function store(VendaItemRequest $request)
+    {
+        $nova_vendaItens = $request->all();
+        venda_Item::create($nova_vendaItens);
+
+        return redirect('venda_Itens');
+    }
+
+    public function destroy($id_vendaItens)
+    {
+        venda_Item::find($id_vendaItens)->delete();
+
+        return redirect('venda_Itens');
+    }
+
+    public function edit($venda_Item)
+    {
+        $venda_Item = Venda_Item::find($venda_Item);
+        return view('venda_Itens.edit', compact('venda_Itens'));
+    }
+
+    public function update(VendaItemRequest $request, $venda_Item)
+    {
+        Venda_Item::find($venda_Item)->update($request->all());
+
+        return redirect('venda_Itens');
+    }
 }

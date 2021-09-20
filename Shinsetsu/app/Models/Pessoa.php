@@ -9,4 +9,5 @@ class Pessoa extends Model
 {
     protected $table = 'pessoas';
     protected $fillable = ['id_pessoas', 'nome', 'telefone', 'Rua', 'Bairro', 'Cidade', 'CEP', 'Complemento', 'CPF', 'RG'];
+    protected $primaryKey = 'id_pessoas';
 }
