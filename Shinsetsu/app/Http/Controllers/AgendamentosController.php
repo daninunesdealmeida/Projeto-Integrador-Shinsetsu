@@ -35,7 +35,7 @@ public function edit($id_agendamentos){
  }
 
  public function update(AgendamentoRequest $request, $id_agendamentos){
-    Agendamento::find($id_agendamentos)->update($request->all());
+    $agendamentos = Agendamento::find($id_agendamentos)->update($request->all());
      
    return redirect('agendamentos');
  }
