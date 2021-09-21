@@ -41,7 +41,7 @@ class ProdutosController extends Controller
 
     public function update(ProdutoRequest $request, $id_produtos)
     {
-        Produto::find($id_produtos)->update($request->all());
+        $produto = Produto::find($id_produtos)->update($request->all());
 
         return redirect('produtos');
     }

@@ -11,7 +11,7 @@
 </ul>
 @endif
 
-{!!  Form::open(['url'=>'produtos/$produtos->id/update', 'method'=>'put'])   !!}
+{!!  Form::open(["route" => ["produtos.update", $produtos->id_produtos], "method" => "put"])!!} 
 
 <div class="form-group">
 

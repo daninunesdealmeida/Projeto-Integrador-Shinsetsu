@@ -36,7 +36,7 @@ public function edit($id_pessoas){
      }
     
 public function update(PessoaRequest $request, $id_pessoas){
-  Pessoa::find($id_pessoas)->update($request->all());
+        $pessoas = Pessoa::find($id_pessoas)->update($request->all());
          
        return redirect('pessoas');
      }       
