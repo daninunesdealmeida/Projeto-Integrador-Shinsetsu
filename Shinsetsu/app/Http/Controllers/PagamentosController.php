@@ -9,7 +9,7 @@ use App\Http\Requests\PagamentoRequest;
 class PagamentosController extends Controller
 {
     public function index(){
-        $pagamentos = Pagamento::All();
+        $pagamentos = Pagamento::orderBy('id_pagamentos')->paginate(10);
         return view('pagamentos.index', ['pagamentos'=>$pagamentos]);
 }
 
@@ -21,13 +21,13 @@ public function store(Request $request){
     $novo_pagamento = $request->all();
     Pagamento::create($novo_pagamento);
     
-    return redirect('pagamentos');
+         return redirect()->route('pagamentos');
     }
 
 public function destroy($id_pagamentos){
         Pagamento::find($id_pagamentos)->delete();
             
-            return redirect('pagamentos');
+                 return redirect()->route('pagamentos');
          }    
 
 public function edit($id_pagamentos){
@@ -38,7 +38,7 @@ public function edit($id_pagamentos){
 public function update(PagamentoRequest $request, $id_pagamentos){
     Pagamento::find($id_pagamentos)->update($request->all());
              
-           return redirect('pagamentos');
+                return redirect()->route('pagamentos');
          }
         
 

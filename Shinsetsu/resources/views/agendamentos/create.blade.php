@@ -3,7 +3,7 @@
 @section('content')
 <h3>Novo Agendamento</h3>
 
-{!!  Form::open(['url'=>'agendamentos/store'])   !!}
+{!!  Form::open(['route'=>'agendamentos.store'])   !!}
 
 <div class="form-group">
 

@@ -8,7 +8,7 @@ use App\Models\Pessoa;
 class PessoasController extends Controller
 {
     public function index(){
-      $pessoas = Pessoa::All();
+      $pessoas = Pessoa::orderBy('nome')->paginate(10);
       return view('pessoas.index', ['pessoas'=>$pessoas]);
 
     }
@@ -21,13 +21,13 @@ public function create(){
     $nova_pessoa = $request->all();
     Pessoa::create($nova_pessoa);
     
-    return redirect('pessoas');
+        return redirect()->route('pessoas');
     }
 
 public function destroy($id_pessoas){
   Pessoa::find($id_pessoas)->delete();
           
-          return redirect('pessoas');
+              return redirect()->route('pessoas');
        }    
 
 public function edit($id_pessoas){
@@ -38,7 +38,7 @@ public function edit($id_pessoas){
 public function update(PessoaRequest $request, $id_pessoas){
         $pessoas = Pessoa::find($id_pessoas)->update($request->all());
          
-       return redirect('pessoas');
+           return redirect()->route('pessoas');
      }       
 
 

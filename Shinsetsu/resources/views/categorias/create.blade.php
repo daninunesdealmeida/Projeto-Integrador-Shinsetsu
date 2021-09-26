@@ -2,7 +2,7 @@
 
 @section('content')
 <h3>Nova Categoria</h3>
-{!!  Form::open(['url'=>'categorias/store'])   !!}
+{!!  Form::open(['route'=>'categorias.store'])   !!}
 
 <div class="form-group">
 

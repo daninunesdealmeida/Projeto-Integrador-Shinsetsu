@@ -10,7 +10,7 @@ class Venda_ItensController extends Controller
 {
     public function index()
     {
-        $venda_itens = Venda_Item::all();
+        $venda_itens = Venda_Item::orderBy('id_vendaItens')->paginate(10);
         //dd($venda_itens);
         return view('venda_Itens.Index', compact('venda_itens')); //
     }
@@ -25,14 +25,14 @@ class Venda_ItensController extends Controller
         $nova_vendaItens = $request->all();
         venda_Item::create($nova_vendaItens);
 
-        return redirect('venda_Itens');
+          return redirect()->route('venda_Itens');
     }
 
     public function destroy($id_vendaItens)
     {
         venda_Item::find($id_vendaItens)->delete();
 
-        return redirect('venda_Itens');
+          return redirect()->route('venda_Itens');
     }
 
     public function edit($venda_Item)
@@ -45,6 +45,6 @@ class Venda_ItensController extends Controller
     {
         Venda_Item::find($venda_Item)->update($request->all());
 
-        return redirect('venda_Itens');
+          return redirect()->route('venda_Itens');
     }
 }

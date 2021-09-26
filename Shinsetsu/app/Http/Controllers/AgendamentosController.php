@@ -8,7 +8,7 @@ use App\Models\Agendamento;
 class AgendamentosController extends Controller
 {
     public function index(){
-        $agendamentos = Agendamento::All();
+        $agendamentos = Agendamento::orderBy('modalidade')->paginate(10);
         return view('agendamentos.index', ['agendamentos'=>$agendamentos]);
 }
 
@@ -20,13 +20,13 @@ public function store(AgendamentoRequest $request){
 $novo_agendamento = $request->all();
 Agendamento::create($novo_agendamento);
 
-return redirect('agendamentos');
+return redirect()->route('agendamentos');
 }
 
 public function destroy($id_agendamentos){
    Agendamento::find($id_agendamentos)->delete();
    
-   return redirect('agendamentos');
+   return redirect()->route('agendamentos');
 }
 
 public function edit($id_agendamentos){
@@ -37,7 +37,7 @@ public function edit($id_agendamentos){
  public function update(AgendamentoRequest $request, $id_agendamentos){
     $agendamentos = Agendamento::find($id_agendamentos)->update($request->all());
      
-   return redirect('agendamentos');
+   return redirect()->route('agendamentos');
  }
 
 

@@ -9,7 +9,7 @@ class ProdutosController extends Controller
 {
     public function index()
     {
-        $produtos = Produto::All();
+        $produtos = Produto::orderBy('nome')->paginate(10);
         return view('produtos.index', ['produtos' => $produtos]);
     }
 
@@ -23,14 +23,14 @@ class ProdutosController extends Controller
         $novo_produto = $request->all();
         Produto::create($novo_produto);
 
-        return redirect('produtos');
+            return redirect()->route('produtos');
     }
 
     public function destroy($id_produtos)
     {
         Produto::find($id_produtos)->delete();
 
-        return redirect('produtos');
+            return redirect()->route('produtos');
     }
 
     public function edit($id_produtos)
@@ -43,6 +43,6 @@ class ProdutosController extends Controller
     {
         $produto = Produto::find($id_produtos)->update($request->all());
 
-        return redirect('produtos');
+            return redirect()->route('produtos');
     }
 }

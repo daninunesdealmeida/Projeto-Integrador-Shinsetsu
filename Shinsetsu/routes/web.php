@@ -34,15 +34,6 @@ Route::group(["prefix" => "pessoas", "where" => ["id" => "[0-9]+"]], function ()
 });
 
 
-// Route::get('vendas', 'App\Http\Controllers\VendasController@index');
-// Route::get('vendas/create', [App\Http\Controllers\VendasController::class, 'create'])->name('vendas');
-// Route::post('vendas/store', [App\Http\Controllers\VendasController::class, 'store'])->name('vendas');
-// Route::get('vendas/{id}/destroy', 'App\Http\Controllers\VendasController@destroy');
-// Route::get('vendas/{id}/edit', 'App\Http\Controllers\VendasController@edit');
-// Route::put('vendas/{id}/update', 'App\Http\Controllers\VendasController@update');
-
-
-
 // Rotas do model vendas
 Route::group(["prefix" => "vendas", "where" => ["id" => "[0-9]+"]], function () {
     Route::get("",              ['as' => 'vendas',         'uses' => "App\Http\Controllers\VendasController@index"]);
@@ -53,15 +44,15 @@ Route::group(["prefix" => "vendas", "where" => ["id" => "[0-9]+"]], function () 
     Route::put("/{id}/update",  ['as' => 'vendas.update',  'uses' => "App\Http\Controllers\VendasController@update"]);
 });
 
-
-
-Route::get('venda_Itens', 'App\Http\Controllers\Venda_ItensController@index');
-Route::get('venda_Itens/create', [App\Http\Controllers\Venda_ItensController::class, 'create'])->name('venda_Itens');
-Route::post('venda_Itens/store', [App\Http\Controllers\Venda_ItensController::class, 'store'])->name('venda_Itens');
-Route::get('venda_Itens/{id}/destroy', 'App\Http\Controllers\Venda_ItensController@destroy');
-Route::get('venda_Itens/{id}/edit', 'App\Http\Controllers\Venda_ItensController@edit');
-Route::put('venda_Itens/{id}/update', 'App\Http\Controllers\Venda_ItensController@update');
-
+//Rotas do model venda_Itens
+Route::group(["prefix" => "venda_Itens", "where" => ["id" => "[0-9]+"]], function () {
+    Route::get("",              ['as' => 'venda_Itens',         'uses' => "App\Http\Controllers\Venda_ItensController@index"]);
+    Route::get("/create",       ['as' => 'venda_Itens.create',  'uses' => "App\Http\Controllers\Venda_ItensController@create"]);
+    Route::post("/store",       ['as' => 'venda_Itens.store',   'uses' => "App\Http\Controllers\Venda_ItensController@store"]);
+    Route::get("/{id}/destroy", ['as' => 'venda_Itens.destroy', 'uses' => "App\Http\Controllers\Venda_ItensController@destroy"]);
+    Route::get("/{id}/edit",    ['as' => 'venda_Itens.edit',    'uses' => "App\Http\Controllers\Venda_ItensController@edit"]);
+    Route::put("/{id}/update",  ['as' => 'venda_Itens.update',  'uses' => "App\Http\Controllers\Venda_ItensController@update"]);
+});
 
 
 //Rotas do model produtos
@@ -75,25 +66,26 @@ Route::group(["prefix" => "produtos", "where" => ["id" => "[0-9]+"]], function (
 });
 
 
-
-Route::get('categorias', 'App\Http\Controllers\CategoriasController@index');
-Route::get('categorias/create', [App\Http\Controllers\CategoriasController::class, 'create'])->name('categorias');
-Route::post('categorias/store', [App\Http\Controllers\CategoriasController::class, 'store'])->name('categorias');
-Route::get('categorias/{id}/destroy', 'App\Http\Controllers\CategoriasController@destroy');
-Route::get('categorias/{id}/edit', 'App\Http\Controllers\CategoriasController@edit');
-Route::put('categorias/{id}/update', 'App\Http\Controllers\CategoriasController@update');
-
-
-
-
-Route::get('pagamentos', 'App\Http\Controllers\PagamentosController@index');
-Route::get('pagamentos/create', [App\Http\Controllers\PagamentosController::class, 'create'])->name('pagamentos');
-Route::post('pagamentos/store', [App\Http\Controllers\PagamentosController::class, 'store'])->name('pagamentos');
-Route::get('pagamentos/{id}/destroy', 'App\Http\Controllers\PagamentosController@destroy');
-Route::get('pagamentos/{id}/edit', 'App\Http\Controllers\PagamentosController@edit');
-Route::put('pagamentos/{id}/update', 'App\Http\Controllers\PagamentosController@update');
+//Rotas do model categorias
+Route::group(["prefix" => "categorias", "where" => ["id" => "[0-9]+"]], function () {
+    Route::get("",              ['as' => 'categorias',         'uses' => "App\Http\Controllers\CategoriasController@index"]);
+    Route::get("/create",       ['as' => 'categorias.create',  'uses' => "App\Http\Controllers\CategoriasController@create"]);
+    Route::post("/store",       ['as' => 'categorias.store',   'uses' => "App\Http\Controllers\CategoriasController@store"]);
+    Route::get("/{id}/destroy", ['as' => 'categorias.destroy', 'uses' => "App\Http\Controllers\CategoriasController@destroy"]);
+    Route::get("/{id}/edit",    ['as' => 'categorias.edit',    'uses' => "App\Http\Controllers\CategoriasController@edit"]);
+    Route::put("/{id}/update",  ['as' => 'categorias.update',  'uses' => "App\Http\Controllers\CategoriasController@update"]);
+});
 
 
+//Rotas do model pagamentos
+Route::group(["prefix" => "pagamentos", "where" => ["id" => "[0-9]+"]], function () {
+    Route::get("",              ['as' => 'pagamentos',         'uses' => "App\Http\Controllers\PagamentosController@index"]);
+    Route::get("/create",       ['as' => 'pagamentos.create',  'uses' => "App\Http\Controllers\PagamentosController@create"]);
+    Route::post("/store",       ['as' => 'pagamentos.store',   'uses' => "App\Http\Controllers\PagamentosController@store"]);
+    Route::get("/{id}/destroy", ['as' => 'pagamentos.destroy', 'uses' => "App\Http\Controllers\PagamentosController@destroy"]);
+    Route::get("/{id}/edit",    ['as' => 'pagamentos.edit',    'uses' => "App\Http\Controllers\PagamentosController@edit"]);
+    Route::put("/{id}/update",  ['as' => 'pagamentos.update',  'uses' => "App\Http\Controllers\PagamentosController@update"]);
+});
 
 Auth::routes();
 

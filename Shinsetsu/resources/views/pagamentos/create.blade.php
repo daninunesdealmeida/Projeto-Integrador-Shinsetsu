@@ -2,7 +2,7 @@
 
 @section('content')
 <h3>Novo Pagamento</h3>
-{!!  Form::open(['url'=>'pagamentos/store'])   !!}
+{!!  Form::open(['route'=>'pagamentos.store'])   !!}
 
 <div class="form-group">
 

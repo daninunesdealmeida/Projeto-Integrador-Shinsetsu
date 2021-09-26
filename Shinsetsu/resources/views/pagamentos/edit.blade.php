@@ -11,7 +11,7 @@
 </ul>
 @endif
 
-{!!  Form::open(['url'=>'pagamentos/$pagamentos->id/update', 'method'=>'put'])   !!}
+{!!  Form::open(['route'=>["pagamentos.update", 'id'=>$pagamentos->id_pagamentos], 'method'=>'put'])   !!}
 
 <div class="form-group">
 {!! Form::label ('id_pagamentos', 'id_pagamentos:') !!}

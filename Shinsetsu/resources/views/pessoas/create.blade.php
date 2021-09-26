@@ -2,7 +2,7 @@
 
 @section('content')
 <h3>Nova Pessoa</h3>
-{!!  Form::open(['url'=>'pessoas/store'])   !!}
+{!!  Form::open(['route'=>'pessoas.store'])   !!}
 
 <div class="form-group">
 

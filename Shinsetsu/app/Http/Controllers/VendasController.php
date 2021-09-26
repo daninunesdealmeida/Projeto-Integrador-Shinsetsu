@@ -9,7 +9,7 @@ class VendasController extends Controller
 {
     public function index()
     {
-        $vendas = Venda::All();
+        $vendas = Venda::orderBy('id_vendas')->paginate(10);
         return view('vendas.index', ['vendas' => $vendas]); //
     }
 
@@ -22,8 +22,8 @@ class VendasController extends Controller
     {
         $nova_venda = $request->all();
         Venda::create($nova_venda);
-
-        return redirect('vendas');
+        
+        return redirect()->route('vendas');
     }
 
 
@@ -31,7 +31,7 @@ class VendasController extends Controller
     {
         Venda::find($id_vendas)->delete();
 
-        return redirect('vendas');
+        return redirect()->route('vendas');
     }
 
     public function edit($id_vendas)
@@ -44,7 +44,7 @@ class VendasController extends Controller
     {
         Venda::find($id_vendas)->update($request->all());
 
-        return redirect('vendas');
+        return redirect()->route('vendas');
     }
 
 }

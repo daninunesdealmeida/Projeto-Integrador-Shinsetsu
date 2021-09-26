@@ -13,6 +13,7 @@
         <th>CEP</th>
         <th>CPF</th>
         <th>RG</th>
+        <th>Ações</th>
 </thead>
 <tbody>
 @foreach($pessoas as $pessoa)
@@ -25,8 +26,14 @@
         <td>{{$pessoa ->Cidade}}</td>
         <td>{{$pessoa ->CEP}}</td>
         <td>{{$pessoa ->CPF}}</td>
-        <td>{{$pessoa ->RG}}</td>      
+        <td>{{$pessoa ->RG}}</td>  
+        <td>
+         <a href="{{ route('pessoas.edit', ['id'=>$pessoa->id_pessoas]) }}" class="btn-sm btn-success">Editar</a>
+         <a href="{{ route('pessoas.destroy', ['id'=>$pessoa->id_pessoas]) }}" class="btn-sm btn-danger">Remover</a>
+        </td>    
         @endforeach
         </tbody>
 </table>
+{{$pessoas->links()}}
+<a href="{{ route('pessoas.create', []) }}" class="btn btn-info"> Adicionar</a>
 @stop
