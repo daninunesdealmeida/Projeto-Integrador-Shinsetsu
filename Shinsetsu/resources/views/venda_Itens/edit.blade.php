@@ -1,7 +1,7 @@
 @extends('adminlte::page')
 
 @section('content')
-<h3>Editando Venda Ítem: {{$venda_Item->id_venda_Item}}</h3>
+<h3>Editando Venda Ítem: {{$venda_Item->id_vendaItens}}</h3>
 
 @if($errors->any())
 <ul class="alert alert-danger">
@@ -11,7 +11,7 @@
 </ul>
 @endif
 
-{!!  Form::open(['route'=>["venda_Item.update", 'id'=>$venda_Item->id_venda_Item], 'method'=>'put'])   !!}
+{!!  Form::open(['route'=>["venda_Itens.update", 'id'=>$venda_Item->id_vendaItens], 'method'=>'put'])   !!}
 
 <div class="form-group">
 

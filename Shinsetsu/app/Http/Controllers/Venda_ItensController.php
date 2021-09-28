@@ -38,8 +38,15 @@ class Venda_ItensController extends Controller
     public function edit($venda_Item)
     {
         $venda_Item = Venda_Item::find($venda_Item);
-        return view('venda_Itens.edit', compact('venda_Itens'));
+        return view('venda_Itens.edit', compact('venda_Item'));
     }
+
+    // public function edit($id_vendas)
+    // {
+    //     $vendas = Venda::find($id_vendas);
+    //     return view('vendas.edit', compact('vendas'));
+    // }
+
 
     public function update(VendaItemRequest $request, $venda_Item)
     {
