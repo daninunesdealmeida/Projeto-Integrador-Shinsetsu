@@ -10,5 +10,10 @@ class Produto extends Model
   protected $table = "produtos";
   protected $fillable = ['id_produtos', 'nome', 'especificacao', 'preco', 'qt_estoque', 'estoque_minimo'];
   protected $primaryKey = 'id_produtos';
+
+  public function categoria(){
+    return $this->hasMany('app\Models\Categoria.php');
+  }
+
 }
 

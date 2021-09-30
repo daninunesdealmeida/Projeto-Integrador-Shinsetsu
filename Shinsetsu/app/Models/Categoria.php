@@ -10,4 +10,8 @@ class Categoria extends Model
     protected $table = "categorias";
     protected $fillable = ['id_categorias', 'nome', 'fk_produtos'];
     protected $primaryKey = 'id_categorias';
+
+    public function produto(){
+        return $this->belongsTo('app\Models\Produto.php');
+    }
 }
