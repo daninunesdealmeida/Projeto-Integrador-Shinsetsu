@@ -21,9 +21,8 @@
 {!! Form::label ('valor_vendas', 'valor_vendas:') !!}
 {!! Form::text ('valor_vendas', null, ['class' => 'form-control']) !!}
 
-{!! Form::label ('fk_produtos', 'Produtos:') !!}
-{!! Form::text ('fk_produtos', null, ['class' => 'form-control', 'required' ]) !!}
-
+{!! Form::label ('fk_vendasItens', 'Itens:') !!}
+{!! Form::text ('fk_vendasItens', null, ['class' => 'form-control']) !!}
 </div>
 
 <div class="form-group">

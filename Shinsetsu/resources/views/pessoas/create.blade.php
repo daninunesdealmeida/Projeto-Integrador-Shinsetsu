@@ -36,6 +36,9 @@
 {!! Form::label ('RG', 'RG:') !!}
 {!! Form::text ('RG', null, ['class' => 'form-control', 'required' ]) !!}
 
+{!! Form::label ('Usuario', 'Usuario:') !!}
+{!! Form::text ('fk_usuarios', null, ['class' => 'form-control', 'required' ]) !!}
+
 </div>
 
 <div class="form-group">

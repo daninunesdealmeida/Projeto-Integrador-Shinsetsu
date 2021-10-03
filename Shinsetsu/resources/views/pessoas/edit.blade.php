@@ -44,6 +44,9 @@
 
 {!! Form::label ('RG', 'RG:') !!}
 {!! Form::text ('RG', $pessoas->RG, ['class' => 'form-control', 'required' ]) !!}
+
+{!! Form::label ('Usuario', 'Usuario:') !!}
+{!! Form::text ('Usuario', $pessoas->fk_usuarios, ['class' => 'form-control', 'required' ]) !!}
 </div>
 
 

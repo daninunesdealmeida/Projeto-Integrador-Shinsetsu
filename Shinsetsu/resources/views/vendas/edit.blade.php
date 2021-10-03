@@ -30,8 +30,11 @@
 {!! Form::label ('valor_vendas', 'valor_vendas:') !!}
 {!! Form::text ('valor_vendas', $vendas->valor_vendas, ['class' => 'form-control']) !!}
 
-{!! Form::label ('fk_produtos', 'Produtos:') !!}
-{!! Form::text ('fk_produtos', $vendas->fk_produtos, ['class' => 'form-control', 'required' ]) !!}
+{!! Form::label ('fk_vendasItens', 'Vendas Itens:') !!}
+{!! Form::text ('fk_vendasItens', $vendas->fk_vendasItens, ['class' => 'form-control']) !!}
+
+
+
 
 <div class="form-group">
 {!! Form::submit('Editar Vendas', ['class'=>'btn btn-primary']) !!}

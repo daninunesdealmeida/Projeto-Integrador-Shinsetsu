@@ -10,5 +10,14 @@ class Venda extends Model
     protected $table = "vendas";
     protected $fillable = ['id_vendas', 'dt_venda', 'documento', 'total_itens', 'valor_vendas', 'fk_produtos'];
     protected $primaryKey = 'id_vendas';
+
+    public function venda_itens(){
+        return $this->belongsTo('app\Models\Venda_Item.php');
+    }
+
+    public function pagamento(){
+        return $this->belongsTo('app\Models\Pagamento.php');
+    }
 }
+
 

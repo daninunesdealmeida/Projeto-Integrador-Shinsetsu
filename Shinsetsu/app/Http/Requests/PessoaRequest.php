@@ -33,6 +33,7 @@ class PessoaRequest extends FormRequest
             'CEP' => 'required',
             'CPF' => 'required',
             'RG' => 'required',
+            'fk_usuarios' => 'required',
         ];
     }
 }

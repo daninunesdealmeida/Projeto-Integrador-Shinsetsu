@@ -23,9 +23,12 @@ class CreatePessoasTable extends Migration
             $table->Integer("CEP");
             $table->String("Complemento");
             $table->Integer("CPF");
-            $table->Integer("RG");
+            $table->Integer("RG");            
+            $table->unsignedBigInteger('fk_usuarios');
             $table->timestamps();
 
+            $table->foreign('fk_usuarios')->references('id_usuarios')->on('usuarios');
+            
         });
     }
 

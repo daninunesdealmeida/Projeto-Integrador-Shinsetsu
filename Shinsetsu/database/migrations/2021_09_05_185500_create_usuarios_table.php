@@ -20,10 +20,7 @@ class CreateUsuariosTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('senha');
             $table->rememberToken();
-            $table->unsignedBigInteger('fk_pessoas');
             $table->timestamps();
-
-            $table->foreign('fk_pessoas')->references('id_pessoas')->on('pessoas');
         });
     }
 
