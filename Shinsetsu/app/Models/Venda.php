@@ -12,11 +12,11 @@ class Venda extends Model
     protected $primaryKey = 'id_vendas';
 
     public function venda_itens(){
-        return $this->belongsTo('app\Models\Venda_Item.php');
+        return $this->belongsTo('app\Models\Venda_Item');
     }
 
     public function pagamento(){
-        return $this->belongsTo('app\Models\Pagamento.php');
+        return $this->belongsTo('app\Models\Pagamento');
     }
 }
 

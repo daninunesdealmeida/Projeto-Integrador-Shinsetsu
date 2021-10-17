@@ -12,7 +12,7 @@ class Produto extends Model
   protected $primaryKey = 'id';
 
   public function categoria(){
-    return $this->belongsTo('app\Models\Categoria.php');
+    return $this->belongsTo('app\Models\Categoria');
   }
   
 

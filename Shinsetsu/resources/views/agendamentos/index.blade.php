@@ -50,7 +50,7 @@
                                         <td>{{$agendamento ->modalidade}}</td>
                                         <td>{{ Carbon\Carbon::parse($agendamento ->dia)->format('d/m/Y') }}</td>
                                         <td>{{$agendamento ->hora}}</td>
-                                        <td>{{$agendamento ->fk_pessoas}}</td>
+                                        <td>{{$agendamento ->pessoa->nome}}</td>
                                         <td>
                                                 <a href="{{ route('agendamentos.edit',    ['id'=>$agendamento->id_agendamentos]) }}" class="btn-sm btn-success">Editar</a>
                                                 <a href="{{ route('agendamentos.destroy', ['id'=>$agendamento->id_agendamentos]) }}" class="btn-sm btn-danger">Remover</a>

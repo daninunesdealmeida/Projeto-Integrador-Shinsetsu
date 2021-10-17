@@ -54,9 +54,12 @@ class AgendamentosController extends Controller
 
     public function edit($id_agendamentos)
     {
+
         $agendamentos = Agendamento::find($id_agendamentos);
-        return view('agendamentos.edit', compact('agendamentos'));
+        $pessoas = Pessoa::select(['id_pessoas', 'nome'])->orderBy('nome')->get();
+        return view('agendamentos.edit', ['agendamentos' => $agendamentos, 'pessoas' => $pessoas]);
     }
+
 
     public function update(AgendamentoRequest $request, $id_agendamentos)
     {

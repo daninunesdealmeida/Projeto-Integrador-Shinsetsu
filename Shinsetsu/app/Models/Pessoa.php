@@ -12,10 +12,10 @@ class Pessoa extends Model
     protected $primaryKey = 'id_pessoas';
 
     public function agendamento(){
-        return $this->hasMany('app\Models\Agendamento.php');
+        return $this->hasMany('App\Models\Agendamento');
     }
 
     public function usuario(){
-      return $this->hasOne('app\Models\Usuario.php');
+      return $this->hasOne('App\Models\Usuario');
     }
 }

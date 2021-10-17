@@ -12,11 +12,11 @@ class Produto extends Model
   protected $primaryKey = 'id_produtos';
 
   public function categoria(){
-    return $this->hasMany('app\Models\Categoria.php');
+    return $this->hasMany('app\Models\Categoria');
   }
 
   public function venda_itens(){
-    return $this->belongsTo('app\Models\Venda_Item.php');
+    return $this->belongsTo('app\Models\Venda_Item');
   }
 
 }

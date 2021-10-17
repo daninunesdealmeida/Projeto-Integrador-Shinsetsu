@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+
 use Illuminate\Database\Eloquent\Model;
 
 class Agendamento extends Model
@@ -12,7 +12,8 @@ class Agendamento extends Model
     protected $primaryKey = 'id_agendamentos';
 
     public function pessoa(){
-        return $this->belongsTo('app\Models\Pessoa.php');
+        return $this->belongsTo('App\Models\Pessoa', 'fk_pessoas', 'id_pessoas');
+       
     }
 }
 
