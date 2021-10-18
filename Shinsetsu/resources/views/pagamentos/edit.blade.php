@@ -29,8 +29,10 @@
 {!! Form::label ('boleto', 'Boleto:') !!}
 {!! Form::text ('boleto', $pagamentos->boleto, ['class' => 'form-control']) !!}
 
-{!! Form::label ('fk_vendas', 'Vendas:') !!}
-{!! Form::text ('fk_vendas', $pagamentos->fk_vendas, ['class' => 'form-control', 'required' ]) !!}    
+{!! Form::label ('fk_vendas', 'Venda:') !!}
+    {!! Form::select('fk_vendas',
+    \app\Models\Venda::orderBy('documento')->pluck('documento', 'id_vendas')->toArray(),
+    $agendamentos->fk_vendas, ['class' => 'form-control', 'required' ]) !!}
 
 
 </div>

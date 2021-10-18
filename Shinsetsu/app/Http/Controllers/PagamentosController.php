@@ -4,17 +4,25 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pagamento;
+use App\Models\Venda;
 use App\Http\Requests\PagamentoRequest;
 
 class PagamentosController extends Controller
 {
-    public function index(){
-        $pagamentos = Pagamento::orderBy('id_pagamentos')->paginate(10);
-        return view('pagamentos.index', ['pagamentos'=>$pagamentos]);
-}
+    public function index(Request $filter)
+    {
+        $search = $filter->get('filtragem');
+        if ($search == null) {
+            $pagamentos = Pagamento::orderBy('nome_cartao')->paginate(10);
+        } else {
+            $pagamentos = Pagamento::where('id_pagamentos', 'ilike', '%' . $search . '%')->orderBy('nome_cartao')->paginate(10);
+        }
+        return view("pagamentos.index", ["pagamentos" => $pagamentos]);
+    }
 
 public function create(){
-    return view('pagamentos.create');
+    $vendas = Venda::select(['id_vendas', 'documento'])->orderBy('documento')->get();
+    return view('pagamentos.create', compact('vendas', $vendas));
 }
 
 public function store(Request $request){
@@ -31,8 +39,9 @@ public function destroy($id_pagamentos){
          }    
 
 public function edit($id_pagamentos){
-            $pagamentos = Pagamento::find($id_pagamentos);  
-            return view('pagamentos.edit', compact('pagamentos'));
+    $pagamentos = Pagamento::find($id_pagamentos);
+    $vendas = Venda::select(['id_vendas', 'nome'])->orderBy('nome')->get();
+    return view('pagamentos.edit', ['pagamentos' => $pagamentos, 'vendas' => $vendas]);
          }
         
 public function update(PagamentoRequest $request, $id_pagamentos){

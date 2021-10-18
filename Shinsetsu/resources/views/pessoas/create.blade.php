@@ -36,8 +36,10 @@
 {!! Form::label ('RG', 'RG:') !!}
 {!! Form::text ('RG', null, ['class' => 'form-control', 'required' ]) !!}
 
-{!! Form::label ('Usuario', 'Usuario:') !!}
-{!! Form::text ('fk_usuarios', null, ['class' => 'form-control', 'required' ]) !!}
+{!! Form::label ('fk_usuarios', 'Usuario:') !!}
+    {!! Form::select('fk_usuarios',
+    \app\Models\Usuario::orderbY('nome')->pluck('nome', 'id_usuarios')->toArray(),
+    null, ['class' => 'form-control', 'required' ]) !!}
 
 </div>
 

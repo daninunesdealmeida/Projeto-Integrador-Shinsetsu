@@ -21,8 +21,10 @@
 {!! Form::label ('valor_vendas', 'valor_vendas:') !!}
 {!! Form::text ('valor_vendas', null, ['class' => 'form-control']) !!}
 
-{!! Form::label ('fk_vendasItens', 'Itens:') !!}
-{!! Form::text ('fk_vendasItens', null, ['class' => 'form-control']) !!}
+{!! Form::label ('fk_produtos', 'Produto:') !!}
+    {!! Form::select('fk_produtos',
+    \app\Models\Pessoa::orderbY('nome')->pluck('nome', 'id_produtos')->toArray(),
+    null, ['class' => 'form-control', 'required' ]) !!}
 </div>
 
 <div class="form-group">

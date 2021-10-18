@@ -4,17 +4,25 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\PessoaRequest;
 use App\Models\Pessoa;
+use Illuminate\Http\Request;
 
 class PessoasController extends Controller
 {
-    public function index(){
-      $pessoas = Pessoa::orderBy('nome')->paginate(10);
-      return view('pessoas.index', ['pessoas'=>$pessoas]);
-
-    }
+  
+  public function index(Request $filter)
+  {
+      $search = $filter->get('filtragem');
+      if ($search == null) {
+          $pessoas = Pessoa::orderBy('nome')->paginate(10);
+      } else {
+          $pessoas = Pessoa::where('id_pessoas', 'ilike', '%' . $search . '%')->orderBy('nome')->paginate(10);
+      }
+      return view("pessoas.index", ["pessoas" => $pessoas]);
+  }
 
 public function create(){
-      return view('pessoas.create');
+  $usuarios = Usuario::select(['id_usuarios', 'nome'])->orderBy('nome')->get();
+  return view('pessoas.create', compact('usuarios', $usuarios));
   }
   
   public function store(PessoaRequest $request){
@@ -31,8 +39,9 @@ public function destroy($id_pessoas){
        }    
 
 public function edit($id_pessoas){
-        $pessoas = Pessoa::find($id_pessoas);  
-        return view('pessoas.edit', compact('pessoas'));
+  $pessoas = Pessoa::find($id_pessoas);
+  $usuarios = Usuario::select(['id_usuarios', 'nome'])->orderBy('nome')->get();
+  return view('agendamentos.edit', ['pessoas' => $pessoas, 'usuarios' => $usuarios]);
      }
     
 public function update(PessoaRequest $request, $id_pessoas){

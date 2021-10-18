@@ -24,8 +24,10 @@
 {!! Form::label ('vlr_unitário', 'vlr_unitário:') !!}
 {!! Form::text ('vlr_unitário', $venda_Item->vlr_unitário, ['class' => 'form-control']) !!}
 
-{!! Form::label ('fk_produtos', 'Produtos:') !!}
-{!! Form::text ('fk_produtos', $venda_Item->fk_produtos, ['class' => 'form-control']) !!}
+{!! Form::label ('fk_produtos', 'Produto:') !!}
+    {!! Form::select('fk_produtos',
+    \app\Models\Produto::orderBy('nome')->pluck('nome', 'id_produtos')->toArray(),
+    $venda_Itens->fk_produtos, ['class' => 'form-control', 'required' ]) !!}
 
 
 

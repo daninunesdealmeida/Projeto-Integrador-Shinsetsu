@@ -45,8 +45,10 @@
 {!! Form::label ('RG', 'RG:') !!}
 {!! Form::text ('RG', $pessoas->RG, ['class' => 'form-control', 'required' ]) !!}
 
-{!! Form::label ('Usuario', 'Usuario:') !!}
-{!! Form::text ('Usuario', $pessoas->fk_usuarios, ['class' => 'form-control', 'required' ]) !!}
+{!! Form::label ('fk_usuarios', 'Pessoa:') !!}
+    {!! Form::select('fk_usuarios',
+    \app\Models\Usuario::orderBy('nome')->pluck('nome', 'id_usuarios')->toArray(),
+    $agendamentos->fk_usuarios, ['class' => 'form-control', 'required' ]) !!}
 </div>
 
 

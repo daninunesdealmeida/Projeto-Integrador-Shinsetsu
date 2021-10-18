@@ -12,7 +12,7 @@ class Agendamento extends Model
     protected $primaryKey = 'id_agendamentos';
 
     public function pessoa(){
-        return $this->belongsTo('App\Models\Pessoa', 'fk_pessoas', 'id_pessoas');
+        return $this->belongsTo('app\Models\Pessoa', 'fk_pessoas', 'id_pessoas');
        
     }
 }

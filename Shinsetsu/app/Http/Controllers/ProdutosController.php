@@ -4,14 +4,21 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ProdutoRequest;
 use App\Models\Produto;
+use Illuminate\Http\Request;
 
 class ProdutosController extends Controller
 {
-    public function index()
+    public function index(Request $filter)
     {
-        $produtos = Produto::orderBy('nome')->paginate(10);
-        return view('produtos.index', ['produtos' => $produtos]);
+        $search = $filter->get('filtragem');
+        if ($search == null) {
+            $produtos = Produto::orderBy('nome')->paginate(10);
+        } else {
+            $produtos = Produto::where('id_produtos', 'ilike', '%' . $search . '%')->orderBy('nome')->paginate(10);
+        }
+        return view("produtos.index", ["produtos" => $produtos]);
     }
+
 
     public function create()
     {

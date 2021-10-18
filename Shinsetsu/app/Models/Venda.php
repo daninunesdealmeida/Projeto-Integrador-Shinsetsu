@@ -16,7 +16,7 @@ class Venda extends Model
     }
 
     public function pagamento(){
-        return $this->belongsTo('app\Models\Pagamento');
+        return $this->belongsTo('app\Models\Pagamento', 'id_vendas', 'fk_produtos');
     }
 }
 

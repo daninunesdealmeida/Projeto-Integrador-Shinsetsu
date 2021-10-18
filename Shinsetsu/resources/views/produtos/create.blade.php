@@ -24,6 +24,7 @@
 {!! Form::label ('estoque_minimo', 'estoque_minimo:') !!}
 {!! Form::text ('estoque_minimo', null, ['class' => 'form-control', 'required' ]) !!}
 
+
 </div>
 
 <div class="form-group">

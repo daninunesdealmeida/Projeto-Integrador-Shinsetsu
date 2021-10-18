@@ -21,8 +21,6 @@
 {!! Form::label ('nome', 'Nome:') !!}
 {!! Form::text ('nome', $categorias->nome, ['class' => 'form-control', 'required' ]) !!}
 
-{!! Form::label ('fk_produtos', 'Produtos:') !!}
-{!! Form::text ('fk_produtos', $categorias->fk_produtos, ['class' => 'form-control', 'required' ]) !!}
 </div>
 
 

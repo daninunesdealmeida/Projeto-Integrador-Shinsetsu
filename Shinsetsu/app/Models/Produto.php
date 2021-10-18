@@ -16,7 +16,7 @@ class Produto extends Model
   }
 
   public function venda_itens(){
-    return $this->belongsTo('app\Models\Venda_Item');
+    return $this->belongsTo('app\Models\Venda_Item', 'id_produtos');
   }
 
 }

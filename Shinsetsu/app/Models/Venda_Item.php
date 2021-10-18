@@ -16,7 +16,7 @@ class Venda_item extends Model
     }   
 
     public function venda(){
-        return $this->belongsTo('app\Models\Venda');
+        return $this->belongsTo('app\Models\Venda', 'id_vendaItens', 'fk_produtos');
     }
     
 }

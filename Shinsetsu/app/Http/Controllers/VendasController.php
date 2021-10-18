@@ -4,18 +4,27 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\VendaRequest;
 use App\Models\Venda;
+use App\Models\Produto;
+use Illuminate\Http\Request;
 
 class VendasController extends Controller
 {
-    public function index()
+  public function index(Request $filter)
     {
-        $vendas = Venda::orderBy('id_vendas')->paginate(10);
-        return view('vendas.index', ['vendas' => $vendas]); //
+        $search = $filter->get('filtragem');
+        if ($search == null) {
+            $vendas = Venda::orderBy('documento')->paginate(10);
+        } else {
+            $vendas = Venda::where('id_vendas', 'ilike', '%' . $search . '%')->orderBy('documento')->paginate(10);
+        }
+        return view("vendas.index", ["vendas" => $vendas]);
     }
 
     public function create()
     {
-        return view('vendas.create');
+        $produtos = Produto::select(['id_produtos', 'nome'])->orderBy('nome')->get();
+        return view('agendamentos.create', compact('produtos', $produtos));
+  
     }
 
     public function store(VendaRequest $request)
@@ -37,7 +46,8 @@ class VendasController extends Controller
     public function edit($id_vendas)
     {
         $vendas = Venda::find($id_vendas);
-        return view('vendas.edit', compact('vendas'));
+        $produtos = Produto::select(['id_produtos', 'nome'])->orderBy('nome')->get();
+        return view('agendamentos.edit', ['vendas' => $vendas, 'produtos' => $produtos]);
     }
 
     public function update(VendaRequest $request, $id_vendas)

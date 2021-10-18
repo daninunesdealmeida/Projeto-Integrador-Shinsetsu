@@ -9,11 +9,7 @@ use Illuminate\Http\Request;
 
 class AgendamentosController extends Controller
 {
-    // public function index()
-    // {
-    //     $agendamentos = Agendamento::orderBy('modalidade')->paginate(10);
-    //     return view('agendamentos.index', ['agendamentos' => $agendamentos]);
-    // }
+
 
     public function index(Request $filter)
     {
@@ -26,15 +22,12 @@ class AgendamentosController extends Controller
         return view("agendamentos.index", ["agendamentos" => $agendamentos]);
     }
 
-    /*public function create(){
-    return view('agendamentos.create');
-}*/
+
     public function create()
     {
         $pessoas = Pessoa::select(['id_pessoas', 'nome'])->orderBy('nome')->get();
         return view('agendamentos.create', compact('pessoas', $pessoas));
-        // $pessoas = Pessoa::pluck('nome','id_pessoas');
-        // return view('agendamentos.create',compact('pessoas'));
+  
     }
 
     public function store(AgendamentoRequest $request)

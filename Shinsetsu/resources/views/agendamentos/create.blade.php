@@ -19,9 +19,6 @@
     {!! Form::label ('hora', 'Hora:') !!}
     {!! Form::text ('hora', null, ['class' => 'form-control', 'required' ]) !!}
 
-    <!-- {!! Form::label ('fk_pessoas', 'Pessoa:') !!}
-    {!! Form::select('fk_pessoas', $pessoas, null, ['class' => 'form-control']) !!} -->
-
     {!! Form::label ('fk_pessoas', 'Pessoa:') !!}
     {!! Form::select('fk_pessoas',
     \app\Models\Pessoa::orderbY('nome')->pluck('nome', 'id_pessoas')->toArray(),

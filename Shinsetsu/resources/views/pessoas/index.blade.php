@@ -1,9 +1,42 @@
 @extends('adminlte::page')
 
+@section('title', 'EasyService - pessoas')
+
+@section('content_header')
+<h1>Cadastros Gerais</h1>
+@stop
+
 @section('content')
-<h1>Pessoas</h1>
-<table class="table table-stripe table-bordered table-hover">
-<thead>
+<div class="box">
+        <div class="box-header with-border">
+                <h3 class="box-title">pessoas</h3>
+        </div>
+
+        <div class="box-body">
+
+                <div class="row">
+                        <div class="col-md-8">
+                                <a href="{{ route('pessoas.create') }}" class="btn btn-primary" style="margin-bottom: 5px;">Novo</a>
+                        </div>
+                        <div class="col-md-4">
+                                <form action="{{route('pessoas.index')}}" method="get">
+                                        <div class="form-group">
+                                                <div class="input-group input-group">
+                                                        <input type="text" name="filtragem" class="form-control" style="width:100%;" placeholder="Pesquisa...">
+                                                        <span class="input-group-btn">
+                                                                <button type="submit" name="search" id="search-btn" class="btn btn-primary">
+                                                                        <i class="fa fa-search"></i>
+                                                                </button>
+                                                        </span>
+                                                </div>
+                                        </div>
+                                </form>
+                        </div>
+                </div>
+
+                <table class="table table-striped">
+                        <tbody>
+                                <tr>
         <th>Id</th>
         <th>Nome</th>
         <th>Telefone</th>
@@ -27,6 +60,7 @@
         <td>{{$pessoa ->CEP}}</td>
         <td>{{$pessoa ->CPF}}</td>
         <td>{{$pessoa ->RG}}</td>  
+        <td>{{$pessoa ->usuario->nome}}</td>  
         <td>
          <a href="{{ route('pessoas.edit', ['id'=>$pessoa->id_pessoas]) }}" class="btn-sm btn-success">Editar</a>
          <a href="{{ route('pessoas.destroy', ['id'=>$pessoa->id_pessoas]) }}" class="btn-sm btn-danger">Remover</a>
@@ -35,5 +69,5 @@
         </tbody>
 </table>
 {{$pessoas->links()}}
-<a href="{{ route('pessoas.create', []) }}" class="btn btn-info"> Adicionar</a>
+
 @stop

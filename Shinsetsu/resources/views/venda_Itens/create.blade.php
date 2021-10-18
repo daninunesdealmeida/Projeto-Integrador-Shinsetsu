@@ -15,9 +15,10 @@
 {!! Form::label ('vlr_unitário', 'vlr_unitário:') !!}
 {!! Form::text ('vlr_unitário', null, ['class' => 'form-control']) !!}
 
-{!! Form::label ('fk_produtos', 'Produtos:') !!}
-{!! Form::text ('fk_produtos', null, ['class' => 'form-control']) !!}
-
+{!! Form::label ('fk_produtos', 'Pessoa:') !!}
+    {!! Form::select('fk_produtos',
+    \app\Models\Produto::orderbY('nome')->pluck('nome', 'fk_produtos')->toArray(),
+    null, ['class' => 'form-control', 'required' ]) !!}
 </div>
 
 
