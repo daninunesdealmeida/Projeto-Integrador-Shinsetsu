@@ -30,14 +30,14 @@ class Venda_ItensController extends Controller
     public function store(VendaItemRequest $request)
     {
         $nova_vendaItens = $request->all();
-        venda_Item::create($nova_vendaItens);
+        Venda_Item::create($nova_vendaItens);
 
           return redirect()->route('venda_Itens');
     }
 
     public function destroy($id_vendaItens)
     {
-        venda_Item::find($id_vendaItens)->delete();
+        Venda_Item::find($id_vendaItens)->delete();
 
           return redirect()->route('venda_Itens');
     }

@@ -15,9 +15,6 @@
 
 <div class="form-group">
 
-    {!! Form::label ('id_agendamentos', 'id_agendamentos:') !!}
-    {!! Form::text ('id_agendamentos', $agendamentos->id_agendamentos, ['class' => 'form-control', 'required' ]) !!}
-
     {!! Form::label ('modalidade', 'Modalidade:') !!}
     {!! Form::text ('modalidade', $agendamentos->modalidade, ['class' => 'form-control', 'required' ]) !!}
 

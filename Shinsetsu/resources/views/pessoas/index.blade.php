@@ -19,7 +19,7 @@
                                 <a href="{{ route('pessoas.create') }}" class="btn btn-primary" style="margin-bottom: 5px;">Novo</a>
                         </div>
                         <div class="col-md-4">
-                                <form action="{{route('pessoas.index')}}" method="get">
+                                <form action="{{route('pessoas')}}" method="get">
                                         <div class="form-group">
                                                 <div class="input-group input-group">
                                                         <input type="text" name="filtragem" class="form-control" style="width:100%;" placeholder="Pesquisa...">

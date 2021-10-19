@@ -6,9 +6,6 @@
 
 <div class="form-group">
 
-{!! Form::label ('id_produtos', 'id_produtos:') !!}
-{!! Form::text ('id_produtos', null, ['class' => 'form-control', 'required' ]) !!}
-
 {!! Form::label ('nome', 'Nome:') !!}
 {!! Form::text ('nome', null, ['class' => 'form-control']) !!}
 

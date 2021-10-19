@@ -1,17 +1,12 @@
 @extends('adminlte::page')
 
-@section('title', 'EasyService - venda_Item')
+@section('title', 'EasyService - venda_Itens')
 
 @section('content_header')
 <h1>Cadastros Gerais</h1>
 @stop
 
 @section('content')
-<div class="box">
-        <div class="box-header with-border">
-                <h3 class="box-title">venda_Item</h3>
-        </div>
-
         <div class="box-body">
 
                 <div class="row">
@@ -19,8 +14,8 @@
                                 <a href="{{ route('venda_Itens.create') }}" class="btn btn-primary" style="margin-bottom: 5px;">Novo</a>
                         </div>
                         <div class="col-md-4">
-                                <form action="{{route('venda_Item')}}" method="get">
-                                        <div class="form-group">
+                                <form action="{{route('venda_Itens')}}" method="get">
+                                        <div class="form-group"></div>
                                                 <div class="input-group input-group">
                                                         <input type="text" name="filtragem" class="form-control" style="width:100%;" placeholder="Pesquisa...">
                                                         <span class="input-group-btn">
@@ -61,3 +56,4 @@
 {{$venda_itens->links()}}
 
 @stop
+

@@ -6,8 +6,6 @@
 
 <div class="form-group">
 
-    {!! Form::label ('id_categorias', 'id_categorias:') !!}
-    {!! Form::text ('id_categorias', null, ['class' => 'form-control', 'required' ]) !!}
 
     {!! Form::label ('nome', 'Nome:') !!}
     {!! Form::text ('nome', null, ['class' => 'form-control', 'required' ]) !!}

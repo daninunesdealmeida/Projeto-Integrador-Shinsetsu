@@ -15,9 +15,6 @@
 
 <div class="form-group">
 
-{!! Form::label ('id_pessoas', 'id_pessoas:') !!}
-{!! Form::text ('id_pessoas', $pessoas->id_pessoas, ['class' => 'form-control', 'required' ]) !!}
-
 {!! Form::label ('nome', 'Nome:') !!}
 {!! Form::text ('nome',  $pessoas->nome, ['class' => 'form-control', 'required' ]) !!}
 

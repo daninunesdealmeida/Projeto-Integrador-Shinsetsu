@@ -6,9 +6,6 @@
 
 <div class="form-group">
 
-    {!! Form::label ('id_pagamentos', 'id_pagamentos:') !!}
-    {!! Form::text ('id_pagamentos', null, ['class' => 'form-control', 'required' ]) !!}
-
     {!! Form::label ('cartao', 'Número_Cartao:') !!}
     {!! Form::text ('cartao', null, ['class' => 'form-control']) !!}
 

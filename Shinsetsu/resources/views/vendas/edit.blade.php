@@ -15,9 +15,6 @@
 
 <div class="form-group">
 
-    {!! Form::label ('id_vendas', 'id_vendas:') !!}
-    {!! Form::text ('id_vendas', $vendas->id_vendas, ['class' => 'form-control', 'required' ]) !!}
-
     {!! Form::label ('dt_venda', 'dt_venda:') !!}
     {!! Form::date ('dt_venda', $vendas->dt_venda, ['class' => 'form-control']) !!}
 

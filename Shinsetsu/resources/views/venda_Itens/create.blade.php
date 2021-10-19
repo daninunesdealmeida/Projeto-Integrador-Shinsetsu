@@ -6,9 +6,6 @@
 
 <div class="form-group">
 
-{!! Form::label ('id_vendaItens', 'id_vendaItens:') !!}
-{!! Form::text ('id_vendaItens', null, ['class' => 'form-control', 'required' ]) !!}
-
 {!! Form::label ('quantidade', 'quantidade:') !!}
 {!! Form::text ('quantidade', null, ['class' => 'form-control']) !!}
 

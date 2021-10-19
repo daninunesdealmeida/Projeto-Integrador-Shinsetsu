@@ -14,8 +14,6 @@
 {!!  Form::open(['route'=>["pagamentos.update", 'id'=>$pagamentos->id_pagamentos], 'method'=>'put'])   !!}
 
 <div class="form-group">
-{!! Form::label ('id_pagamentos', 'id_pagamentos:') !!}
-{!! Form::text ('id_pagamentos', $pagamentos->id_pagamentos, ['class' => 'form-control', 'required' ]) !!}
 
 {!! Form::label ('cartao', 'Número_Cartao:') !!}
 {!! Form::text ('cartao', $pagamentos->cartao, ['class' => 'form-control']) !!}

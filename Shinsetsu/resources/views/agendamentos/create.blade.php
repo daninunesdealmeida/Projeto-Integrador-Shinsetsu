@@ -7,8 +7,6 @@
 
 <div class="form-group">
 
-    {!! Form::label ('id_agendamentos', 'id_agendamentos:') !!}
-    {!! Form::text ('id_agendamentos', null, ['class' => 'form-control', 'required' ]) !!}
 
     {!! Form::label ('modalidade', 'Modalidade:') !!}
     {!! Form::text ('modalidade', null, ['class' => 'form-control', 'required' ]) !!}
