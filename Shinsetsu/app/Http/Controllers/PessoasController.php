@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\PessoaRequest;
 use App\Models\Pessoa;
+use App\Models\Usuario;
 use Illuminate\Http\Request;
 
 class PessoasController extends Controller
@@ -41,7 +42,7 @@ public function destroy($id_pessoas){
 public function edit($id_pessoas){
   $pessoas = Pessoa::find($id_pessoas);
   $usuarios = Usuario::select(['id_usuarios', 'nome'])->orderBy('nome')->get();
-  return view('agendamentos.edit', ['pessoas' => $pessoas, 'usuarios' => $usuarios]);
+  return view('pessoas.edit', ['pessoas' => $pessoas, 'usuarios' => $usuarios]);
      }
     
 public function update(PessoaRequest $request, $id_pessoas){

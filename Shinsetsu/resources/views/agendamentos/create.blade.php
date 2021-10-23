@@ -7,7 +7,6 @@
 
 <div class="form-group">
 
-
     {!! Form::label ('modalidade', 'Modalidade:') !!}
     {!! Form::text ('modalidade', null, ['class' => 'form-control', 'required' ]) !!}
 
@@ -22,8 +21,6 @@
     \app\Models\Pessoa::orderbY('nome')->pluck('nome', 'id_pessoas')->toArray(),
     null, ['class' => 'form-control', 'required' ]) !!}
 
-
-
 </div>
 
 
@@ -33,7 +30,9 @@
 
 </div>
 
-
 {!! Form::close() !!}
 
 @stop
+
+
+

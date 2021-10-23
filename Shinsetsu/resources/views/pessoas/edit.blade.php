@@ -45,7 +45,7 @@
 {!! Form::label ('fk_usuarios', 'Pessoa:') !!}
     {!! Form::select('fk_usuarios',
     \app\Models\Usuario::orderBy('nome')->pluck('nome', 'id_usuarios')->toArray(),
-    $agendamentos->fk_usuarios, ['class' => 'form-control', 'required' ]) !!}
+    $pessoas->fk_usuarios, ['class' => 'form-control', 'required' ]) !!}
 </div>
 
 

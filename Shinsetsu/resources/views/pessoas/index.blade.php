@@ -46,6 +46,7 @@
         <th>CEP</th>
         <th>CPF</th>
         <th>RG</th>
+        <th>Usuario</th>
         <th>Ações</th>
 </thead>
 <tbody>

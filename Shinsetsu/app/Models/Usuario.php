@@ -12,6 +12,6 @@ class Usuario extends Model
     protected $primaryKey = 'id_usuarios';
 
     public function pessoa(){
-        return $this->hasOne('app\Models\Pessoa');
+        return $this->belongsTo(Pessoa::class);
       }
 }

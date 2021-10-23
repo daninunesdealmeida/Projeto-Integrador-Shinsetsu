@@ -12,7 +12,7 @@ class Pagamento extends Model
     protected $primaryKey = 'id_pagamentos';
 
     public function venda(){
-        return $this->belongsTo('app\Models\Venda', 'id_pagamentos', 'fk_vendas');
+        return $this->belongsTo(Venda::class, 'id_pagamentos', 'fk_vendas');
     }
 }
 

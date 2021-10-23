@@ -39,21 +39,21 @@
         <th>Ações</th>
 </thead>
 <tbody>
-@foreach($venda_itens as $venda_item)
+@foreach($venda_Itens as $venda_Item)
 <tr>
-        <td>{{$venda_item ->id_vendaItens}}</td>
-        <td>{{$venda_item ->quantidade}}</td>
-        <td>{{$venda_item ->vlr_unitário}}</td>
-        <td>{{$venda_item ->produtos->nome}}</td>
+        <td>{{$venda_Item ->id_vendaItens}}</td>
+        <td>{{$venda_Item ->quantidade}}</td>
+        <td>{{$venda_Item ->vlr_unitário}}</td>
+        <td>{{$venda_Item ->fk_produtos}}</td>
         <td>
-         <a href="{{ route('venda_Itens.edit', ['id'=>$venda_item->id_vendaItens]) }}" class="btn-sm btn-success">Editar</a>
-         <a href="{{ route('venda_Itens.destroy', ['id'=>$venda_item->id_vendaItens]) }}" class="btn-sm btn-danger">Remover</a>
+         <a href="{{ route('venda_Itens.edit', ['id'=>$venda_Item->id_vendaItens]) }}" class="btn-sm btn-success">Editar</a>
+         <a href="{{ route('venda_Itens.destroy', ['id'=>$venda_Item->id_vendaItens]) }}" class="btn-sm btn-danger">Remover</a>
         </td>
         <br>     
         @endforeach
         </tbody>
 </table>
-{{$venda_itens->links()}}
+{{$venda_Itens->links()}}
 
 @stop
 
