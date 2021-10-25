@@ -7,6 +7,7 @@
 
 <div class="form-group">
 
+
     {!! Form::label ('modalidade', 'Modalidade:') !!}
     {!! Form::text ('modalidade', null, ['class' => 'form-control', 'required' ]) !!}
 
@@ -14,7 +15,7 @@
     {!! Form::date ('dia', null, ['class' => 'form-control', 'required' ]) !!}
 
     {!! Form::label ('hora', 'Hora:') !!}
-    {!! Form::text ('hora', null, ['class' => 'form-control', 'required' ]) !!}
+    {!! Form::text ('hora', null, ['class' => 'form-control','id' => 'horas', 'required' ]) !!}
 
     {!! Form::label ('fk_pessoas', 'Pessoa:') !!}
     {!! Form::select('fk_pessoas',
@@ -34,5 +35,16 @@
 
 @stop
 
+@section('js')
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
+<script>
+$(document).ready(function(){
+    $('#horas').mask('00:00');
+});
+</script>
 
+@endsection
