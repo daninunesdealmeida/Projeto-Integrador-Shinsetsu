@@ -10,7 +10,7 @@ Route::get('/', function () {
 
 // Rotas do model agendamentos
 Route::group(["prefix" => "agendamentos", "where" => ["id" => "[0-9]+"]], function () {
-    Route::get("",              ['as' => 'agendamentos.index',         'uses' => "App\Http\Controllers\AgendamentosController@index"]);
+    Route::get("",              ['as' => 'agendamentos',         'uses' => "App\Http\Controllers\AgendamentosController@index"]);
     Route::get("/create",       ['as' => 'agendamentos.create',  'uses' => "App\Http\Controllers\AgendamentosController@create"]);
     Route::post("/store",       ['as' => 'agendamentos.store',   'uses' => "App\Http\Controllers\AgendamentosController@store"]);
     Route::get("/{id}/destroy", ['as' => 'agendamentos.destroy', 'uses' => "App\Http\Controllers\AgendamentosController@destroy"]);

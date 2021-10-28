@@ -35,14 +35,14 @@ class AgendamentosController extends Controller
         $novo_agendamento = $request->all();
         Agendamento::create($novo_agendamento);
 
-        return redirect()->route('agendamentos.index');
+        return redirect()->route('agendamentos');
     }
 
     public function destroy($id_agendamentos)
     {
         Agendamento::find($id_agendamentos)->delete();
 
-        return redirect()->route('agendamentos.index');
+        return redirect()->route('agendamentos');
     }
 
     public function edit($id_agendamentos)
@@ -58,6 +58,6 @@ class AgendamentosController extends Controller
     {
         $agendamentos = Agendamento::find($id_agendamentos)->update($request->all());
 
-        return redirect()->route('agendamentos.index');
+        return redirect()->route('agendamentos');
     }
 }

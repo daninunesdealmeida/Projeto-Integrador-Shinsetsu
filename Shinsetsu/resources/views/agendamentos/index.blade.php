@@ -8,9 +8,6 @@
 
 @section('content')
 <div class="box">
-        <div class="box-header with-border">
-                <h3 class="box-title">Agendamentos</h3>
-        </div>
 
         <div class="box-body">
 
@@ -19,7 +16,7 @@
                                 <a href="{{ route('agendamentos.create') }}" class="btn btn-primary" style="margin-bottom: 5px;">Novo</a>
                         </div>
                         <div class="col-md-4">
-                                <form action="{{route('agendamentos.index')}}" method="get">
+                                <form action="{{route('agendamentos')}}" method="get">
                                         <div class="form-group">
                                                 <div class="input-group input-group">
                                                         <input type="text" name="filtragem" class="form-control" style="width:100%;" placeholder="Pesquisa...">

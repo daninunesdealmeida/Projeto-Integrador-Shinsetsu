@@ -29,7 +29,7 @@ public function create(){
   public function store(PessoaRequest $request){
     $nova_pessoa = $request->all();
     Pessoa::create($nova_pessoa);
-    
+    dd('pesssoas');
         return redirect()->route('pessoas');
     }
 

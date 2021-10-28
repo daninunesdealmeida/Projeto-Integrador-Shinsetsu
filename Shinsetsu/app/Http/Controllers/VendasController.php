@@ -23,7 +23,7 @@ class VendasController extends Controller
     public function create()
     {
         $produtos = Produto::select(['id_produtos', 'nome'])->orderBy('nome')->get();
-        return view('agendamentos.create', compact('produtos', $produtos));
+        return view('vendas.create', compact('produtos', $produtos));
   
     }
 
