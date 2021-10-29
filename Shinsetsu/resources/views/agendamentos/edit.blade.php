@@ -15,14 +15,17 @@
 
 <div class="form-group">
 
+    {!! Form::label ('id_agendamentos', 'id_agendamentos:') !!}
+    {!! Form::text ('id_agendamentos', $agendamentos->id_agendamentos, ['class' => 'form-control' ]) !!}
+
     {!! Form::label ('modalidade', 'Modalidade:') !!}
-    {!! Form::text ('modalidade', $agendamentos->modalidade, ['class' => 'form-control', 'required' ]) !!}
+    {!! Form::select ('modalidade', array('Jiu Jitsu' => 'Jiu Jitsu', 'Judô' => 'Judô'), 'Jiu Jitsu', ['class' => 'form-control' ]) !!}
 
     {!! Form::label ('dia', 'Dia:') !!}
-    {!! Form::date ('dia', $agendamentos->dia, ['class' => 'form-control', 'required' ]) !!}
+    {!! Form::date ('dia', $agendamentos->dia, ['class' => 'form-control'  ]) !!}
 
     {!! Form::label ('hora', 'Hora:') !!}
-    {!! Form::text ('hora', $agendamentos->hora, ['class' => 'form-control', 'id' =>'horas' 'required' ]) !!}
+    {!! Form::text ('hora', $agendamentos->hora, ['class' => 'form-control', 'id' =>'horas'  ]) !!}
 
     {!! Form::label ('fk_pessoas', 'Pessoa:') !!}
     {!! Form::select('fk_pessoas',
