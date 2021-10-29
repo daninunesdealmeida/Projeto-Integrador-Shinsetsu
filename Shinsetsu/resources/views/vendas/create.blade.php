@@ -20,8 +20,9 @@
 
 {!! Form::label ('fk_produtos', 'Produto:') !!}
     {!! Form::select('fk_produtos',
-    \app\Models\Pessoa::orderbY('nome')->pluck('nome', 'id_produtos')->toArray(),
+    \app\Models\Produto::orderbY('nome')->pluck('nome', 'id_produtos')->toArray(),
     null, ['class' => 'form-control', 'required' ]) !!}
+
 </div>
 
 <div class="form-group">
