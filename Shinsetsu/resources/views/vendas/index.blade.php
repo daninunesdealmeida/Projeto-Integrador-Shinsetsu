@@ -53,7 +53,7 @@
         <td>{{$venda ->documento}}</td>
         <td>{{$venda ->total_itens}}</td>
         <td>{{$venda ->valor_vendas}}</td>    
-        <td>{{$venda ->produto ->nome}}</td>         
+        <td>{{$venda ->fk_vendasItens}}</td>         
         <td>
          <a href="{{ route('vendas.edit', ['id'=>$venda->id_vendas]) }}" class="btn-sm btn-success">Editar</a>
          <a href="{{ route('vendas.destroy', ['id'=>$venda->id_vendas]) }}" class="btn-sm btn-danger">Remover</a>

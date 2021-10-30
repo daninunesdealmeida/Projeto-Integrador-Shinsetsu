@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\VendaRequest;
 use App\Models\Venda;
 use App\Models\Produto;
+use App\Models\Venda_item;
 use Illuminate\Http\Request;
 
 class VendasController extends Controller
@@ -22,8 +23,8 @@ class VendasController extends Controller
 
     public function create()
     {
-        $produtos = Produto::select(['id_produtos', 'nome'])->orderBy('nome')->get();
-        return view('vendas.create', compact('produtos', $produtos));
+        $venda_itens = Venda_item::select(['id_vendaItens', 'quantidade'])->orderBy('quantidade')->get();
+        return view('vendas.create', compact('venda_itens', $venda_itens));
   
     }
 
@@ -46,8 +47,8 @@ class VendasController extends Controller
     public function edit($id_vendas)
     {
         $vendas = Venda::find($id_vendas);
-        $produtos = Produto::select(['id_produtos', 'nome'])->orderBy('nome')->get();
-        return view('agendamentos.edit', ['vendas' => $vendas, 'produtos' => $produtos]);
+        $venda_itens = Venda_item::select(['id_vendaItens', 'quantidade'])->orderBy('quantidade')->get();
+        return view('vendas.edit', ['vendas' => $vendas, 'venda_itens' => $venda_itens]);
     }
 
     public function update(VendaRequest $request, $id_vendas)

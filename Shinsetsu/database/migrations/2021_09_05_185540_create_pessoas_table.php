@@ -20,10 +20,10 @@ class CreatePessoasTable extends Migration
             $table->String("Rua");
             $table->String("Bairro");
             $table->String("Cidade");
-            $table->Integer("CEP");
+            $table->string("CEP");
             $table->String("Complemento");
-            $table->Integer("CPF");
-            $table->Integer("RG");            
+            $table->string("CPF");
+            $table->string("RG");            
             $table->unsignedBigInteger('fk_usuarios');
             $table->timestamps();
 

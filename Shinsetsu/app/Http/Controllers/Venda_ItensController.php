@@ -45,9 +45,10 @@ class Venda_ItensController extends Controller
 
     public function edit($id_vendaItens)
     {
-        $venda_Item = Venda_Item::find($id_vendaItens);
+        $venda_Itens = Venda_Item::find($id_vendaItens);        
         $produtos = Produto::select(['id_produtos', 'nome'])->orderBy('nome')->get();
-         return view('venda_Itens.edit', ['venda_Itens' => $venda_Item, 'produtos' => $produtos]);
+        return view('venda_Itens.edit', ['venda_Itens' => $venda_Itens, 'produtos' => $produtos]);
+         
        /* Venda_Item::find($id_vendaItens);
         return view("venda_Itens.index", ["venda_Itens" => $venda_Item]);
         /*$venda_Item = Venda_Item::find($id_vendaItens);
