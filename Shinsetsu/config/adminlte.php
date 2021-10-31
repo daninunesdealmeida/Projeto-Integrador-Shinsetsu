@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 3',
+    'title' => 'Shinsetsu',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -45,12 +45,11 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => 'AdminLTE',
+    'logo_img_alt' => 'Shinsetsu',
 
     /*
     |--------------------------------------------------------------------------
@@ -247,10 +246,51 @@ return [
             'can'  => 'manage-blog',
         ],
         [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
+            'text'        => 'Agendamentos',
+            'url'         => 'http://127.0.0.1:8000/agendamentos',
+            'icon'        => 'fas fa-meteor',
+            'label_color' => 'success',
+        ],
+        [
+            'text'        => 'Categorias',
+            'url'         => 'http://127.0.0.1:8000/categorias',
+            'icon'        => 'fas fa-hammer',
+            'label_color' => 'success',
+        ],
+        [
+            'text'        => 'Pagamentos',
+            'url'         => 'http://127.0.0.1:8000/pagamentos',
+            'icon'        => 'far fa-money-bill-alt',
+            'label_color' => 'success',
+        ],
+        [
+            'text'        => 'Pessoas',
+            'url'         => 'http://127.0.0.1:8000/pessoas',
+            'icon'        => 'fab fa-ello',
+            'label_color' => 'success',
+        ],
+        [
+            'text'        => 'Produtos',
+            'url'         => 'http://127.0.0.1:8000/produtos',
+            'icon'        => 'fas fa-dolly',
+            'label_color' => 'success',
+        ],
+        [
+            'text'        => 'Usuários',
+            'url'         => 'http://127.0.0.1:8000/usuarios',
+            'icon'        => 'fas fa-user-friends',
+            'label_color' => 'success',
+        ],
+        [
+            'text'        => 'Vendas',
+            'url'         => 'http://127.0.0.1:8000/vendas',
+            'icon'        => 'fas fa-shopping-cart',
+            'label_color' => 'success',
+        ],
+        [
+            'text'        => 'Venda_Itens',
+            'url'         => '',
             'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
             'label_color' => 'success',
         ],
         ['header' => 'account_settings'],
@@ -263,60 +303,6 @@ return [
             'text' => 'change_password',
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
-        ],
-        [
-            'text'    => 'multilevel',
-            'icon'    => 'fas fa-fw fa-share',
-            'submenu' => [
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-                [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-            ],
-        ],
-        ['header' => 'labels'],
-        [
-            'text'       => 'important',
-            'icon_color' => 'red',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'information',
-            'icon_color' => 'cyan',
-            'url'        => '#',
         ],
     ],
 

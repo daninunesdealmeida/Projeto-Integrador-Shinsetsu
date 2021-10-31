@@ -3,7 +3,7 @@
 @section('title', 'EasyService - venda_Itens')
 
 @section('content_header')
-<h1>Cadastros Gerais</h1>
+<h1>Cadastros Venda Ítens</h1>
 @stop
 
 @section('content')

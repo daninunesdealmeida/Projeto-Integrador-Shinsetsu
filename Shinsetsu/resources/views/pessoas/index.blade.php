@@ -3,15 +3,11 @@
 @section('title', 'EasyService - pessoas')
 
 @section('content_header')
-<h1>Cadastros Gerais</h1>
+<h1>Cadastros Pessoas</h1>
 @stop
 
 @section('content')
 <div class="box">
-        <div class="box-header with-border">
-                <h3 class="box-title">pessoas</h3>
-        </div>
-
         <div class="box-body">
 
                 <div class="row">
