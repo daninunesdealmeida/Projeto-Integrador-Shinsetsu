@@ -2,11 +2,15 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\WebController;
 
-Route::get('/', function () {
-    return view('welcome');
+//Route::get('/', function () {
+//    return view('welcome');
+//
+//});
 
-});
+Route::get('/',[WebController::class,'index'])->name('site');
+Route::get('/login',[WebController::class,'login'])->name('login');
 
 // Rotas do model agendamentos
 Route::group(["prefix" => "agendamentos", "where" => ["id" => "[0-9]+"]], function () {
@@ -17,6 +21,7 @@ Route::group(["prefix" => "agendamentos", "where" => ["id" => "[0-9]+"]], functi
     Route::get("/{id}/edit",    ['as' => 'agendamentos.edit',    'uses' => "App\Http\Controllers\AgendamentosController@edit"]);
     Route::put("/{id}/update",  ['as' => 'agendamentos.update',  'uses' => "App\Http\Controllers\AgendamentosController@update"]);
 });
+
 
 
 
@@ -89,5 +94,3 @@ Route::group(["prefix" => "pagamentos", "where" => ["id" => "[0-9]+"]], function
 });
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
