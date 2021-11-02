@@ -13,16 +13,16 @@
 
 {!! Form::open(['route'=>["agendamentos.update", 'id'=>$agendamentos->id_agendamentos], 'method'=>'put']) !!}
 
-<div class="form-group">    
+<div class="form-group">
 
     {!! Form::label ('modalidade', 'Modalidade:') !!}
     {!! Form::select ('modalidade', array('Jiu Jitsu' => 'Jiu Jitsu', 'Judô' => 'Judô'), 'Jiu Jitsu', ['class' => 'form-control' ]) !!}
 
     {!! Form::label ('dia', 'Dia:') !!}
-    {!! Form::date ('dia', $agendamentos->dia, ['class' => 'form-control'  ]) !!}
+    {!! Form::date ('dia', $agendamentos->dia, ['class' => 'form-control' ]) !!}
 
     {!! Form::label ('hora', 'Hora:') !!}
-    {!! Form::text ('hora', $agendamentos->hora, ['class' => 'form-control', 'id' =>'horas'  ]) !!}
+    {!! Form::text ('hora', $agendamentos->hora, ['class' => 'form-control', 'id' =>'horas' ]) !!}
 
     {!! Form::label ('fk_pessoas', 'Pessoa:') !!}
     {!! Form::select('fk_pessoas',
@@ -50,9 +50,9 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
 <script>
-$(document).ready(function(){
-    $('#horas').mask('00:00');
-});
+    $(document).ready(function() {
+        $('#horas').mask('00:00');
+    });
 </script>
 
 @endsection

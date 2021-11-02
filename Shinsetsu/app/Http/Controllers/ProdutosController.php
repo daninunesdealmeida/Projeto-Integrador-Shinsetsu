@@ -30,14 +30,22 @@ class ProdutosController extends Controller
         $novo_produto = $request->all();
         Produto::create($novo_produto);
 
-            return redirect()->route('produtos');
+        return redirect()->route('produtos');
     }
 
     public function destroy($id_produtos)
     {
-        Produto::find($id_produtos)->delete();
-
-            return redirect()->route('produtos');
+       /* Produto::find($id_produtos)->delete();
+        return redirect()->route('produtos');*/
+        try {
+            Produto::find($id_produtos)->delete();
+            $ret = array('status' => 200, 'msg' => "null");
+          } catch (\Illuminate\Database\QueryException $e) {
+            $ret = array('status' => 500, 'msg' => $e->getMessage());
+          } catch (\PDOException $e) {
+            $ret = array('status' => 500, 'msg' => $e->getMessage());
+          }
+          return $ret;
     }
 
     public function edit($id_produtos)
@@ -50,6 +58,6 @@ class ProdutosController extends Controller
     {
         $produto = Produto::find($id_produtos)->update($request->all());
 
-            return redirect()->route('produtos');
+        return redirect()->route('produtos');
     }
 }

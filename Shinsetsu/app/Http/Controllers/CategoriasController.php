@@ -35,9 +35,18 @@ class CategoriasController extends Controller
 
     public function destroy($id_categorias)
     {
-        Categoria::find($id_categorias)->delete();
+        /*Categoria::find($id_categorias)->delete();
+        return redirect()->route('categorias');*/
 
-        return redirect()->route('categorias');
+        try {
+            Categoria::find($id_categorias)->delete();
+            $ret = array('status' => 200, 'msg' => "null");
+          } catch (\Illuminate\Database\QueryException $e) {
+            $ret = array('status' => 500, 'msg' => $e->getMessage());
+          } catch (\PDOException $e) {
+            $ret = array('status' => 500, 'msg' => $e->getMessage());
+          }
+          return $ret;
     }
 
     public function edit($id_categorias)
