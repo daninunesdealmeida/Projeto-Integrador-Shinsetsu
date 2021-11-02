@@ -289,9 +289,50 @@ return [
         ],
         [
             'text'        => 'Venda_Itens',
-            'url'         => '',
-            'icon'        => 'far fa-fw fa-file',
+            'url'         => 'http://127.0.0.1:8000/venda_Itens',
+            'icon'        => 'fas fa-archive',
             'label_color' => 'success',
+        ],
+        ['header' => 'Relatórios'],
+        [
+            'text' => 'Agendamentos',
+            'url'  => 'http://127.0.0.1:8000/pdfAgendamentos',
+            'icon' => 'far fa-fw fa-file',
+        ],
+        [
+            'text' => 'Categorias',
+            'url'  => 'http://127.0.0.1:8000/pdfCategorias',
+            'icon' => 'far fa-fw fa-file',
+        ],
+        [
+            'text' => 'Pagamentos',
+            'url'  => 'http://127.0.0.1:8000/pdfPagamentos',
+            'icon' => 'far fa-fw fa-file',
+        ],
+        [
+            'text' => 'Pessoas',
+            'url'  => 'http://127.0.0.1:8000/pdfPessoas',
+            'icon' => 'far fa-fw fa-file',
+        ],
+        [
+            'text' => 'Produtos',
+            'url'  => 'http://127.0.0.1:8000/pdfProdutos',
+            'icon' => 'far fa-fw fa-file',
+        ],
+        [
+            'text' => 'Usuários',
+            'url'  => 'admin/settings',
+            'icon' => 'far fa-fw fa-file',
+        ],
+        [
+            'text' => 'Vendas',
+            'url'  => 'http://127.0.0.1:8000/pdfVendas',
+            'icon' => 'far fa-fw fa-file',
+        ],
+        [
+            'text' => 'Venda_Itens',
+            'url'  => 'http://127.0.0.1:8000/pdfVendaItens',
+            'icon' => 'far fa-fw fa-file',
         ],
         ['header' => 'account_settings'],
         [

@@ -93,4 +93,18 @@ Route::group(["prefix" => "pagamentos", "where" => ["id" => "[0-9]+"]], function
     Route::put("/{id}/update",  ['as' => 'pagamentos.update',  'uses' => "App\Http\Controllers\PagamentosController@update"]);
 });
 
+
+
+//Rotas do model PDF
+Route::get("pdfAgendamentos",              ['as' => 'pdfAgendamentos',         'uses' => "App\Http\Controllers\PdfController@geraPdfAgendamentos"]);
+Route::get("pdfCategorias",              ['as' => 'pdfCategorias',         'uses' => "App\Http\Controllers\PdfController@geraPdfCategorias"]);
+Route::get("pdfPagamentos",              ['as' => 'pdfPagamentos',         'uses' => "App\Http\Controllers\PdfController@geraPdfPagamentos"]);
+Route::get("pdfPessoas",              ['as' => 'pdfPessoas',         'uses' => "App\Http\Controllers\PdfController@geraPdfPessoa"]);
+Route::get("pdfProdutos",              ['as' => 'pdfProdutos',         'uses' => "App\Http\Controllers\PdfController@geraPdfProdutos"]);
+Route::get("pdfUsers",              ['as' => 'pdfUsers',         'uses' => "App\Http\Controllers\PdfController@geraPdfUsers"]);
+Route::get("pdfVendaItens",              ['as' => 'pdfVendaItens',         'uses' => "App\Http\Controllers\PdfController@geraPdfVendaItens"]);
+Route::get("pdfVendas",              ['as' => 'pdfVendas',         'uses' => "App\Http\Controllers\PdfController@geraPdfVendas"]);
+
+
+
 Auth::routes();
