@@ -27,7 +27,6 @@ class AgendamentosController extends Controller
     {
         $pessoas = Pessoa::select(['id_pessoas', 'nome'])->orderBy('nome')->get();
         return view('agendamentos.create', compact('pessoas', $pessoas));
-  
     }
 
     public function store(AgendamentoRequest $request)
@@ -38,18 +37,19 @@ class AgendamentosController extends Controller
         return redirect()->route('agendamentos');
     }
 
+
     public function destroy($id_agendamentos)
     {
-        try{
+        try {
             Agendamento::find($id_agendamentos)->delete();
             $ret = array('status' => 200, 'msg' => "null");
-        }catch (\Illuminate\Database\QueryException $e){
+        } catch (\Illuminate\Database\QueryException $e) {
             $ret = array('status' => 500, 'msg' => $e->getMessage());
-        }catch(\PDOException $e){
+        } catch (\PDOException $e) {
             $ret = array('status' => 500, 'msg' => $e->getMessage());
         }
-            return $ret;
-        }
+        return $ret;
+    }
 
     public function edit($id_agendamentos)
     {

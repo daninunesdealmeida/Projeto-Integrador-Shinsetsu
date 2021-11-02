@@ -13,10 +13,7 @@
 
 {!! Form::open(['route'=>["agendamentos.update", 'id'=>$agendamentos->id_agendamentos], 'method'=>'put']) !!}
 
-<div class="form-group">
-
-    {!! Form::label ('id_agendamentos', 'id_agendamentos:') !!}
-    {!! Form::text ('id_agendamentos', $agendamentos->id_agendamentos, ['class' => 'form-control' ]) !!}
+<div class="form-group">    
 
     {!! Form::label ('modalidade', 'Modalidade:') !!}
     {!! Form::select ('modalidade', array('Jiu Jitsu' => 'Jiu Jitsu', 'Judô' => 'Judô'), 'Jiu Jitsu', ['class' => 'form-control' ]) !!}

@@ -3,12 +3,10 @@
 @section('content')
 <h3>Novo Agendamento</h3>
 
-{!! Form::open(['route'=>'agendamentos.store']) !!}
 
-<div class="form-group">
+{!!  Form::open(['route'=>'agendamentos.store'])   !!}
 
-    {!! Form::label ('id_agendamentos', 'id_agendamentos:') !!}
-    {!! Form::text ('id_agendamentos', null, ['class' => 'form-control' ]) !!}
+<div class="form-group">       
 
     {!! Form::label ('modalidade', 'Modalidade:') !!}
     {!! Form::select ('modalidade', array('Jiu Jitsu' => 'Jiu Jitsu', 'Judô' => 'Judô'), 'Jiu Jitsu', ['class' => 'form-control', 'required' ]) !!}

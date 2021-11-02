@@ -24,7 +24,6 @@ class PessoaRequest extends FormRequest
     public function rules()
     {
         return [
-
             'nome' => 'required',
             'telefone' => 'required',
             'Rua' => 'required',

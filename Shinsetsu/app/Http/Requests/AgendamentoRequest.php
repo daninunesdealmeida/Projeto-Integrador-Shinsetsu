@@ -23,8 +23,7 @@ class AgendamentoRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-          'id_agendamentos'=>'required',  
+        return [            
           'modalidade' => 'required',
           'dia' => 'date',
           'hora'=> 'required',
