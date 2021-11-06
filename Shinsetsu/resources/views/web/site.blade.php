@@ -84,38 +84,48 @@
         <section class="section" id="features">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-6 offset-lg-3">
+                    <div class="col-lg-8 offset-lg-2">
                         <div class="section-heading">
                             <h2>Sobre <em>Nós</em></h2>
                             <img src="assets/images/line-dec.png" alt="waves">
-                            <p>“Shinsetsu é uma palavra do idioma japonês que quer dizer, ao mesmo tempo, gentileza, amabilidade e respeito”</p>
+                            <p> <b>“Shinsetsu é uma palavra do idioma japonês que quer dizer, ao mesmo tempo, gentileza, amabilidade e respeito”</b></p>
+                            <p> </p>
+                            <p>"Fique em forma, mais forte e mais confiante no nosso centro. GFTeam Shinsetsu possui treinadores especializados e qualificados em uma ampla variedade de artes marciais. Se você deseja aprender uma nova arte marcial ou desenvolver suas atuais habilidades, estamos confiantes de que encontrará uma aula adequada para seu estilo em nosso estúdio em Passo Fundo."</p>
                         </div>
                     </div>
-                    <div class="col-lg-6">
-                        <ul class="features-items">
-                            <li class="feature-item">
-                                <div class="left-icon">
-                                    <img src="assets/images/judo.png" alt="First One">
-                                </div>
-                                <div class="right-content">
-                                    <h4>Judô</h4>
-                                    <p> Judô a partir de 5 anos - professora Júlia Berté</p>
-                                    <a href="#" class="text-button">Discover More</a>
-                                </div>
-                            </li>
-                            <li class="feature-item">
-                                <div class="left-icon">
-                                    <img src="assets/images/jiu.png" alt="second one">
-                                </div>
-                                <div class="right-content">
-                                    <h4>Jiu Jitsu</h4>
-                                    <p>Jiu jitsu a partir de 15 anos - professor Estevão Nogara</p>
-                                    <a href="#" class="text-button">Discover More</a>
-                                </div>
-                            </li>
-                            </div>   
-                            </div>
-                
+                    <Table>
+
+                        <th>
+                            <div class="col-lg-6">
+                                <ul class="features-items">
+                                    <li class="feature-item">
+                                        <div class="left-icon">
+                                            <img src="assets/images/judo.png" alt="First One" width="200" align=”middle”>
+                                        </div>
+                                        <div class="right-content">
+                                            <h4>Judô</h4>
+                                            <p> Judô a partir de 5 anos - professora Júlia Berté</p>
+                                            <a target="_blank" href="http://www.judors.com.br/" class="text-button">Descubra mais</a>
+                                        </div>
+                                    </li>
+
+                                    <li class="feature-item">
+                                        <div class="left-icon">
+                                            <img src="assets/images/jiu.png" alt="second one" width="200" align=”middle”>
+                                        </div>
+                                        <div class="right-content">
+                                            <h4>Jiu Jitsu</h4>
+                                            <p>Jiu jitsu a partir de 15 anos - professor Estevão Nogara</p>
+                                            <p> </p>
+                                            <a target="_blank" href="https://cbjj.com.br/" class="text-button">Descubra mais</a>
+                                        </div>
+                                    </li>
+                        </th>
+
+                </div>
+                </Table>
+            </div>
+
         </section>
         <!-- ***** Features Item End ***** -->
 
@@ -130,8 +140,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-lg-12">
+                <div class="row">                                       
+                    <div class="col-lg-10 offset-lg-1">
+                        <div class="schedule-table filtering">
+                        <div class="col-lg-12">
                         <div class="filters">
                             <ul class="schedule-filter">
                                 <li class="active" data-tsfilter="monday">Segunda-Feira</li>
@@ -142,53 +154,50 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-lg-10 offset-lg-1">
-                        <div class="schedule-table filtering">
                             <table>
                                 <tbody>
                                     <tr>
                                         <td class="day-time">Segunda-Feira</td>
-                                        <td class="monday ts-item show" data-tsmeta="monday">Jiu-Jitsu 07:00 - 08:00</td>
-                                        <td class="tuesday ts-item show" data-tsmeta="tuesday">Judô Infantil 17:00 - 18:30</td>
-                                        <td class="wednesday ts-item show" data-tsmeta="wednesday">Jiu Jitsu 19:30 - 21:00</td>
-                                        <td class="thursday ts-item show" data-tsmeta="thursday">Judô 18:30 - 19-30</td>
-                                        <td class="friday ts-item show" data-tsmeta="friday">Jiu Jitsu 19:30 - 21:00</td>
-                                    
+                                        <td class="monday ts-item show" data-tsmeta="monday"> Jiu-Jitsu 07:00 - 08:00 </td>
+                                        <td class="monday ts-item show" data-tsmeta="monday"> Judô Infantil 17:00 - 18:30 </td>
+                                        <td class="monday ts-item show" data-tsmeta="monday"> Jiu Jitsu 19:30 - 21:00 </td>
+                                        <td class="monday ts-item show" data-tsmeta="monday"> </td>
+                                        <td class="monday ts-item show" data-tsmeta="monday"> Jiu-Jitsu 22:00 - 23:00 </td>                                 
                                     </tr>
                                     <tr>
-                                    <td class="day-time">Terça-Feira</td>
-                                        <td class="monday ts-item show" data-tsmeta="monday">Jiu-Jitsu 07:00 - 08:00</td>
-                                        <td class="tuesday ts-item show" data-tsmeta="tuesday">Judô Infantil 17:00 - 18:30</td>
-                                        <td class="wednesday ts-item show" data-tsmeta="wednesday">Jiu Jitsu 19:30 - 21:00</td>
-                                        <td class="thursday ts-item show" data-tsmeta="thursday">Judô 18:30 - 19-30</td>
-                                        <td class="friday ts-item show" data-tsmeta="friday">Jiu Jitsu 19:30 - 21:00</td>
+                                        <td class="day-time">Terça-Feira</td>
+                                        <td class="tuesday ts-item show" data-tsmeta="tuesday"> Jiu-Jitsu 07:00 - 08:00 </td>
+                                        <td class="tuesday ts-item show" data-tsmeta="tuesday"> </td>
+                                        <td class="tuesday ts-item show" data-tsmeta="tuesday"> Jiu Jitsu 19:30 - 21:00 </td>
+                                        <td class="tuesday ts-item show" data-tsmeta="tuesday"> Judô 18:30 - 19-30 </td>
+                                        <td class="tuesday ts-item show" data-tsmeta="tuesday"> Jiu Jitsu 19:30 - 21:00 </td>
                                     </tr>
                                     <tr>
-                                    <td class="day-time">Quarta-Feira</td>
-                                        <td class="monday ts-item show" data-tsmeta="monday">Jiu-Jitsu 07:00 - 08:00</td>
-                                        <td class="tuesday ts-item show" data-tsmeta="tuesday">Judô Infantil 17:00 - 18:30</td>
-                                        <td class="wednesday ts-item show" data-tsmeta="wednesday">Jiu Jitsu 19:30 - 21:00</td>
-                                        <td class="thursday ts-item show" data-tsmeta="thursday">Judô 18:30 - 19-30</td>
-                                        <td class="friday ts-item show" data-tsmeta="friday">Jiu Jitsu 19:30 - 21:00</td>
+                                        <td class="day-time">Quarta-Feira</td>
+                                        <td class="wednesday ts-item show" data-tsmeta="wednesday"> </td>
+                                        <td class="wednesday ts-item show" data-tsmeta="wednesday"> Judô Infantil 17:00 - 18:30 </td>
+                                        <td class="wednesday ts-item show" data-tsmeta="wednesday"> Jiu Jitsu 19:30 - 21:00 </td>
+                                        <td class="wednesday ts-item show" data-tsmeta="wednesday"> </td>
+                                        <td class="wednesday ts-item show" data-tsmeta="wednesday"> Jiu Jitsu 19:30 - 21:00 </td>
                                     </tr>
                                     <tr>
-                                    <td class="day-time">Quinta-Feira</td>
-                                        <td class="monday ts-item show" data-tsmeta="monday">Jiu-Jitsu 07:00 - 08:00</td>
-                                        <td class="tuesday ts-item show" data-tsmeta="tuesday">Judô Infantil 17:00 - 18:30</td>
-                                        <td class="wednesday ts-item show" data-tsmeta="wednesday">Jiu Jitsu 19:30 - 21:00</td>
-                                        <td class="thursday ts-item show" data-tsmeta="thursday">Judô 18:30 - 19-30</td>
-                                        <td class="friday ts-item show" data-tsmeta="friday">Jiu Jitsu 19:30 - 21:00</td>
+                                        <td class="day-time">Quinta-Feira</td>
+                                        <td class="thursday ts-item show" data-tsmeta="thursday"> Jiu-Jitsu 07:00 - 08:00 </td>
+                                        <td class="thursday ts-item show" data-tsmeta="thursday"> Judô Infantil 17:00 - 18:30 </td>
+                                        <td class="thursday ts-item show" data-tsmeta="thursday"> Jiu Jitsu 19:30 - 21:00 </td>
+                                        <td class="thursday ts-item show" data-tsmeta="thursday"> Judô 18:30 - 19-30 </td>
+                                        <td class="thursday ts-item show" data-tsmeta="thursday"> Jiu Jitsu 19:30 - 21:00 </td>
                                     </tr>
                                     <tr>
-                                    <td class="day-time">Sexta-Feira</td>
-                                        <td class="monday ts-item show" data-tsmeta="monday">Jiu-Jitsu 07:00 - 08:00</td>
-                                        <td class="tuesday ts-item show" data-tsmeta="tuesday">Judô Infantil 17:00 - 18:30</td>
-                                        <td class="wednesday ts-item show" data-tsmeta="wednesday">Jiu Jitsu 19:30 - 21:00</td>
-                                        <td class="thursday ts-item show" data-tsmeta="thursday">Judô 18:30 - 19-30</td>
-                                        <td class="friday ts-item show" data-tsmeta="friday">Jiu Jitsu 19:30 - 21:00</td>
+                                        <td class="day-time">Sexta-Feira</td>
+                                        <td class="friday ts-item show" data-tsmeta="friday"> Jiu-Jitsu 07:00 - 08:00 </td>
+                                        <td class="friday ts-item show" data-tsmeta="friday"> Judô Infantil 17:00 - 18:30 </td>
+                                        <td class="friday ts-item show" data-tsmeta="friday">  </td>
+                                        <td class="friday ts-item show" data-tsmeta="friday"> Judô 18:30 - 19-30 </td>
+                                        <td class="friday ts-item show" data-tsmeta="friday"> Jiu Jitsu 19:30 - 21:00 </td>
                                     </tr>
-                                    
-            
+
+
                                 </tbody>
                             </table>
                         </div>

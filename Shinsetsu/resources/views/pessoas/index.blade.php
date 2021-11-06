@@ -57,7 +57,7 @@
         <td>{{$pessoa ->CEP}}</td>
         <td>{{$pessoa ->CPF}}</td>
         <td>{{$pessoa ->RG}}</td>  
-        <td>{{$pessoa ->usuario->nome}}</td>  
+        <td>{{$pessoa ->usuario->name}}</td>  
         <td>
          <a href="{{ route('pessoas.edit', ['id'=>$pessoa->id_pessoas]) }}" class="btn-sm btn-success">Editar</a>
          <a href="#" onclick="return ConfirmaExclusao({{$pessoa->id_pessoas}})" class="btn-sm btn-danger">Remover</a>

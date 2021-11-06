@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Usuario extends Model
 {
-    protected $table = 'usuarios';
-    protected $fillable = ['id_usuarios', 'nome', 'email', 'email_verified_at', 'senha'];
-    protected $primaryKey = 'id_usuarios';
+    protected $table = 'users';
+    protected $fillable = ['id', 'name', 'email', 'email_verified_at', 'password'];
+    protected $primaryKey = 'id';
 
     public function pessoa(){
         return $this->belongsTo(Pessoa::class);

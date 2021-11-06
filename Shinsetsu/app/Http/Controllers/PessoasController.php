@@ -23,7 +23,7 @@ class PessoasController extends Controller
 
   public function create()
   {
-    $usuarios = Usuario::select(['id_usuarios', 'nome'])->orderBy('nome')->get();
+    $usuarios = Usuario::select(['id', 'name'])->orderBy('name')->get();
     return view('pessoas.create', compact('usuarios', $usuarios));
   }
 
@@ -53,7 +53,7 @@ class PessoasController extends Controller
   public function edit($id_pessoas)
   {
     $pessoas = Pessoa::find($id_pessoas);
-    $usuarios = Usuario::select(['id_usuarios', 'nome'])->orderBy('nome')->get();
+    $usuarios = Usuario::select(['id', 'name'])->orderBy('name')->get();
     return view('pessoas.edit', ['pessoas' => $pessoas, 'usuarios' => $usuarios]);
   }
 

@@ -44,7 +44,7 @@
 
 {!! Form::label ('fk_usuarios', 'Pessoa:') !!}
     {!! Form::select('fk_usuarios',
-    \app\Models\Usuario::orderBy('nome')->pluck('nome', 'id_usuarios')->toArray(),
+    \app\Models\Usuario::orderBy('name')->pluck('name', 'id')->toArray(),
     $pessoas->fk_usuarios, ['class' => 'form-control', 'required' ]) !!}
 </div>
 

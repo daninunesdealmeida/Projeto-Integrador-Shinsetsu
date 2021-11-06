@@ -27,7 +27,7 @@ class CreatePessoasTable extends Migration
             $table->unsignedBigInteger('fk_usuarios');
             $table->timestamps();
 
-            $table->foreign('fk_usuarios')->references('id_usuarios')->on('usuarios');
+            $table->foreign('fk_usuarios')->references('id')->on('users');
             
         });
     }

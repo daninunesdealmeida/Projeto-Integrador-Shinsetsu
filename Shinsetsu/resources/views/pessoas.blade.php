@@ -10,7 +10,8 @@
         <li>{{$pessoa ->Cidade}}</li>
         <li>{{$pessoa ->CEP}}</li>
         <li>{{$pessoa ->CPF}}</li>
-        <li>{{$pessoa ->RG}}</li>      
+        <li>{{$pessoa ->RG}}</li>
+        <li>{{$agendamento ->fk_usuarios}}</li>      
         <br>
         @endforeach
 @stop
