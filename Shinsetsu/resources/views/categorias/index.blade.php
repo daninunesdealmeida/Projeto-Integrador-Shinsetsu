@@ -1,4 +1,4 @@
-@extends('adminlte::page')
+@extends('layouts.default')
 
 @section('title', 'EasyService - categorias')
 
@@ -43,7 +43,8 @@
                                         <td>{{$categoria ->nome}}</td>
                                         <td>
                                                 <a href="{{ route('categorias.edit',    ['id'=>$categoria->id_categorias]) }}" class="btn-sm btn-success">Editar</a>
-                                                <a href="{{ route('categorias.destroy', ['id'=>$categoria->id_categorias]) }}" class="btn-sm btn-danger">Remover</a>
+                                                <a href="#" onclick="return ConfirmaExclusao({{$categoria->id_categorias}})" class="btn-sm btn-danger">Remover</a>
+                                
                                         </td>
                                 </tr>
                                 @endforeach
@@ -56,8 +57,8 @@
         </div>
         <!-- /.box-footer-->
 </div>
-@endsection
+@stop
 
 @section('table-delete')
-"categoria"
+"categorias"
 @endsection

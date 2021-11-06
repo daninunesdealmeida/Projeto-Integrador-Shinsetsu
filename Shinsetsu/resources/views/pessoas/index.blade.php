@@ -1,4 +1,4 @@
-@extends('adminlte::page')
+@extends('layouts.default')
 
 @section('title', 'EasyService - pessoas')
 
@@ -60,7 +60,7 @@
         <td>{{$pessoa ->usuario->nome}}</td>  
         <td>
          <a href="{{ route('pessoas.edit', ['id'=>$pessoa->id_pessoas]) }}" class="btn-sm btn-success">Editar</a>
-         <a href="{{ route('pessoas.destroy', ['id'=>$pessoa->id_pessoas]) }}" class="btn-sm btn-danger">Remover</a>
+         <a href="#" onclick="return ConfirmaExclusao({{$pessoa->id_pessoas}})" class="btn-sm btn-danger">Remover</a>
         </td>    
         @endforeach
         </tbody>
@@ -68,3 +68,7 @@
 {{$pessoas->links()}}
 
 @stop
+
+@section('table-delete')
+"pessoas"
+@endsection

@@ -1,4 +1,4 @@
-@extends('adminlte::page')
+@extends('layouts.default')
 
 @section('title', 'EasyService - venda_Itens')
 
@@ -47,7 +47,7 @@
         <td>{{$venda_Item ->fk_produtos}}</td>
         <td>
          <a href="{{ route('venda_Itens.edit', ['id'=>$venda_Item->id_vendaItens]) }}" class="btn-sm btn-success">Editar</a>
-         <a href="{{ route('venda_Itens.destroy', ['id'=>$venda_Item->id_vendaItens]) }}" class="btn-sm btn-danger">Remover</a>
+         <a href="#" onclick="return ConfirmaExclusao({{$venda_Item->id_vendaItens}})" class="btn-sm btn-danger">Remover</a>
         </td>
         <br>     
         @endforeach
@@ -56,4 +56,8 @@
 {{$venda_Itens->links()}}
 
 @stop
+
+@section('table-delete')
+        "venda_Itens"
+        @endsection
 

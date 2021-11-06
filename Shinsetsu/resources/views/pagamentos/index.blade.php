@@ -1,4 +1,4 @@
-@extends('adminlte::page')
+@extends('layouts.default')
 
 @section('title', 'EasyService - pagamentos')
 
@@ -53,7 +53,7 @@
         <td>{{$pagamento ->vendas->documentos}}</td>
         <td>
          <a href="{{ route('pagamentos.edit', ['id'=>$pagamento->id_pagamentos]) }}" class="btn-sm btn-success">Editar</a>
-         <a href="{{ route('pagamentos.destroy', ['id'=>$pagamento->id_pagamentos]) }}" class="btn-sm btn-danger">Remover</a>
+         <a href="#" onclick="return ConfirmaExclusao({{$pagamento->id_pagamentos}})" class="btn-sm btn-danger">Remover</a>
         </td>
         @endforeach
         </tbody>
@@ -61,3 +61,7 @@
 {{$pagamentos->links()}}
 
 @stop
+
+@section('table-delete')
+"pagamentos"
+@endsection
