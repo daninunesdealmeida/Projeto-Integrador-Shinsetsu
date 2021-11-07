@@ -15,7 +15,7 @@ class CreatePagamentosTable extends Migration
     {
         Schema::create('pagamentos', function (Blueprint $table) {
             $table->bigIncrements('id_pagamentos');
-            $table->Integer('cartao');
+            $table->String('cartao');
             $table->String('nome_cartao');
             $table->Date('dt_vencimento');
             $table->String('boleto');

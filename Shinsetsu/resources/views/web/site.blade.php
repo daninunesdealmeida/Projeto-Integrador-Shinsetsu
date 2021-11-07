@@ -220,7 +220,7 @@
                                 <div class="row">
                                     <div class="col-md-6 col-sm-12">
                                         <fieldset>
-                                            <input name="name" type="text" id="name" placeholder="Seu Nome:" required="">
+                                            <input name="name" type="text" id="id_agendamentos" placeholder="Seu Nome:" required="">
                                         </fieldset>
                                     </div>
                                     <div class="col-md-6 col-sm-12">
@@ -230,12 +230,17 @@
                                     </div>
                                     <div class="col-md-12 col-sm-12">
                                         <fieldset>
-                                            <input name="subject" type="text" id="subject" placeholder="Modalidade:">
+                                            <input name="subject" type="text" id="modalidade" placeholder="Modalidade:">
                                         </fieldset>
                                     </div>
-                                    <div class="col-lg-12">
+                                    <div class="col-md-12 col-sm-12">
                                         <fieldset>
-                                            <textarea name="message" rows="6" id="message" placeholder="Horário que deseja marcar a aula:" required=""></textarea>
+                                            <input name="subject" type="text" id="dia" placeholder="Dia que deseja marcar a aula::">
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-md-12 col-sm-12">
+                                        <fieldset>
+                                            <input name="subject" type="text" id="hora" placeholder="Horário que deseja marcar a aula::">
                                         </fieldset>
                                     </div>
                                     <div class="col-lg-12">

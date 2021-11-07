@@ -20,6 +20,7 @@ class CreateProdutosTable extends Migration
             $table->float('preco');
             $table->integer('qt_estoque');
             $table->integer('estoque_minimo');
+            $table->String('imagem');
 
             $table->timestamps();
         });

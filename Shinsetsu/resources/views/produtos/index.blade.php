@@ -14,19 +14,18 @@
                 <div class="col-md-8">
                         <a href="{{ route('produtos.create') }}" class="btn btn-primary" style="margin-bottom: 5px;">Novo</a>
                 </div>
-                <div class="col-md-4">
-                        <form action="{{route('produtos')}}" method="get">
-                                <div class="form-group">
-                                        <div class="input-group input-group">
-                                                <input type="text" name="filtragem" class="form-control" style="width:100%;" placeholder="Pesquisa...">
-                                                <span class="input-group-btn">
-                                                        <button type="submit" name="search" id="search-btn" class="btn btn-primary">
-                                                                <i class="fa fa-search"></i>
-                                                        </button>
-                                                </span>
-                                        </div>
+                {!! Form::open(['name'=> 'form_name', 'route'=>'produtos']) !!}
+                        <div class="sidebar-form">
+                                <div class="input-group">
+                                        <input type="text" name="desc_filtro" class="form-control" style="width:80% !important;" placeholder="Pesquisa...">
+                                        <span class="input-group-btn">
+                                                <button type="submit" name="search" id="search-btn" class="btn btn-primary">
+                                                        <i class="fa fa-search"></i>
+                                                </button>
+                                        </span>
                                 </div>
-                        </form>
+                        </div>
+                        {!! Form::close() !!}
                 </div>
         </div>
 
@@ -39,6 +38,7 @@
                                 <th>Preço</th>
                                 <th>Qt_Estoque</th>
                                 <th>Estoque_Mínimo</th>
+                                <th>Imagem</th>
                                 <th>Ações</th>
                                 </thead>
                 <tbody>
@@ -50,6 +50,7 @@
                                 <td>{{$produto ->preco}}</td>
                                 <td>{{$produto ->qt_estoque}}</td>
                                 <td>{{$produto ->estoque_minimo}}</td>
+                                <td>{{$produto ->imagem}}</td>
                                 <td>
                                         <a href="{{ route('produtos.edit', ['id'=>$produto->id_produtos]) }}" class="btn-sm btn-success">Editar</a>
                                         <a href="#" onclick="return ConfirmaExclusao({{$produto->id_produtos}})" class="btn-sm btn-danger">Remover</a>

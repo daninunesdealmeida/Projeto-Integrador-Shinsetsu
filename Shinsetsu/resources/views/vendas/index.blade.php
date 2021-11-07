@@ -14,19 +14,18 @@
                         <div class="col-md-8">
                                 <a href="{{ route('vendas.create') }}" class="btn btn-primary" style="margin-bottom: 5px;">Novo</a>
                         </div>
-                        <div class="col-md-4">
-                                <form action="{{route('vendas')}}" method="get">
-                                        <div class="form-group">
-                                                <div class="input-group input-group">
-                                                        <input type="text" name="filtragem" class="form-control" style="width:100%;" placeholder="Pesquisa...">
-                                                        <span class="input-group-btn">
-                                                                <button type="submit" name="search" id="search-btn" class="btn btn-primary">
-                                                                        <i class="fa fa-search"></i>
-                                                                </button>
-                                                        </span>
-                                                </div>
-                                        </div>
-                                </form>
+                        {!! Form::open(['name'=> 'form_name', 'route'=>'vendas']) !!}
+                <div class="sidebar-form">
+                        <div class="input-group">
+                                <input type="text" name="desc_filtro" class="form-control" style="width:80% !important;" placeholder="Pesquisa...">
+                                <span class="input-group-btn">
+                                        <button type="submit" name="search" id="search-btn" class="btn btn-primary">
+                                                <i class="fa fa-search"></i>
+                                        </button>
+                                </span>
+                        </div>
+                </div>
+                {!! Form::close() !!}
                         </div>
                 </div>
 

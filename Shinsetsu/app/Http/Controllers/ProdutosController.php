@@ -10,11 +10,11 @@ class ProdutosController extends Controller
 {
     public function index(Request $filter)
     {
-        $search = $filter->get('filtragem');
+        $search = $filter->get('desc_filtro');
         if ($search == null) {
             $produtos = Produto::orderBy('nome')->paginate(10);
         } else {
-            $produtos = Produto::where('id_produtos', 'ilike', '%' . $search . '%')->orderBy('nome')->paginate(10);
+            $produtos = Produto::where('nome', 'like', '%' . $search . '%')->orderBy('nome')->paginate(10);
         }
         return view("produtos.index", ["produtos" => $produtos]);
     }

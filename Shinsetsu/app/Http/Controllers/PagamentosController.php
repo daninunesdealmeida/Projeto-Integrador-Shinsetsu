@@ -11,11 +11,11 @@ class PagamentosController extends Controller
 {
     public function index(Request $filter)
     {
-        $search = $filter->get('filtragem');
+        $search = $filter->get('desc_filtro');
         if ($search == null) {
             $pagamentos = Pagamento::orderBy('nome_cartao')->paginate(10);
         } else {
-            $pagamentos = Pagamento::where('id_pagamentos', 'ilike', '%' . $search . '%')->orderBy('nome_cartao')->paginate(10);
+            $pagamentos = Pagamento::where('id_pagamentos', 'like', '%' . $search . '%')->orderBy('nome_cartao')->paginate(10);
         }
         return view("pagamentos.index", ["pagamentos" => $pagamentos]);
     }

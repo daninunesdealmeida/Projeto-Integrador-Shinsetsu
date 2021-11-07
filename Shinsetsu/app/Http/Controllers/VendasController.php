@@ -12,11 +12,11 @@ class VendasController extends Controller
 {
   public function index(Request $filter)
     {
-        $search = $filter->get('filtragem');
+        $search = $filter->get('desc_filtro');
         if ($search == null) {
             $vendas = Venda::orderBy('documento')->paginate(10);
         } else {
-            $vendas = Venda::where('id_vendas', 'ilike', '%' . $search . '%')->orderBy('documento')->paginate(10);
+            $vendas = Venda::where('id_vendas', 'like', '%' . $search . '%')->orderBy('documento')->paginate(10);
         }
         return view("vendas.index", ["vendas" => $vendas]);
     }

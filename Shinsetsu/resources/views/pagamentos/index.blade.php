@@ -15,53 +15,52 @@
                         <div class="col-md-8">
                                 <a href="{{ route('pagamentos.create') }}" class="btn btn-primary" style="margin-bottom: 5px;">Novo</a>
                         </div>
-                        <div class="col-md-4">
-                                <form action="{{route('pagamentos')}}" method="get">
-                                        <div class="form-group">
-                                                <div class="input-group input-group">
-                                                        <input type="text" name="filtragem" class="form-control" style="width:100%;" placeholder="Pesquisa...">
-                                                        <span class="input-group-btn">
-                                                                <button type="submit" name="search" id="search-btn" class="btn btn-primary">
-                                                                        <i class="fa fa-search"></i>
-                                                                </button>
-                                                        </span>
-                                                </div>
-                                        </div>
-                                </form>
+                        {!! Form::open(['name'=> 'form_name', 'route'=>'pagamentos']) !!}
+                        <div class="sidebar-form">
+                                <div class="input-group">
+                                        <input type="text" name="desc_filtro" class="form-control" style="width:80% !important;" placeholder="Pesquisa...">
+                                        <span class="input-group-btn">
+                                                <button type="submit" name="search" id="search-btn" class="btn btn-primary">
+                                                        <i class="fa fa-search"></i>
+                                                </button>
+                                        </span>
+                                </div>
                         </div>
+                        {!! Form::close() !!}
                 </div>
+        </div>
 
-                <table class="table table-striped">
-                        <tbody>
-                                <tr>
-        <th>Id</th>
-        <th>Cartão</th>
-        <th>Nome_Cartão</th>
-        <th>Data_Vencimento</th>
-        <th>Boleto</th>
-        <th>Vendas</th>
-        <th>Ações</th>
-</thead>
-<tbody>
-@foreach($pagamentos as $pagamento)
-        <tr>
-        <td>{{$pagamento ->id_pagamentos}}</td>
-        <td>{{$pagamento ->cartao}}</td>
-        <td>{{$pagamento ->nome_cartao}}</td>
-        <td> {{ Carbon\Carbon::parse($pagamento ->dt_vencimento)->format('d/m/Y') }} </td>     
-        <td>{{$pagamento ->boleto}}</td>  
-        <td>{{$pagamento ->vendas->documentos}}</td>
-        <td>
-         <a href="{{ route('pagamentos.edit', ['id'=>$pagamento->id_pagamentos]) }}" class="btn-sm btn-success">Editar</a>
-         <a href="#" onclick="return ConfirmaExclusao({{$pagamento->id_pagamentos}})" class="btn-sm btn-danger">Remover</a>
-        </td>
-        @endforeach
-        </tbody>
-</table>
-{{$pagamentos->links()}}
+        <table class="table table-striped">
+                <tbody>
+                        <tr>
+                                <th>Id</th>
+                                <th>Cartão</th>
+                                <th>Nome_Cartão</th>
+                                <th>Data_Vencimento</th>
+                                <th>Boleto</th>
+                                <th>Vendas</th>
+                                <th>Ações</th>
+                                </thead>
+                <tbody>
+                        @foreach($pagamentos as $pagamento)
+                        <tr>
+                                <td>{{$pagamento ->id_pagamentos}}</td>
+                                <td>{{$pagamento ->cartao}}</td>
+                                <td>{{$pagamento ->nome_cartao}}</td>
+                                <td> {{ Carbon\Carbon::parse($pagamento ->dt_vencimento)->format('d/m/Y') }} </td>
+                                <td>{{$pagamento ->boleto}}</td>
+                                <td>{{$pagamento ->fk_pagamentos}}</td>
+                                <td>
+                                        <a href="{{ route('pagamentos.edit', ['id'=>$pagamento->id_pagamentos]) }}" class="btn-sm btn-success">Editar</a>
+                                        <a href="#" onclick="return ConfirmaExclusao({{$pagamento->id_pagamentos}})" class="btn-sm btn-danger">Remover</a>
+                                </td>
+                                @endforeach
+                </tbody>
+        </table>
+        {{$pagamentos->links()}}
 
-@stop
+        @stop
 
-@section('table-delete')
-"pagamentos"
-@endsection
+        @section('table-delete')
+        "pagamentos"
+        @endsection

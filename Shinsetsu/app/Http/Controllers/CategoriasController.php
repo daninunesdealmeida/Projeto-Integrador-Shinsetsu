@@ -10,11 +10,11 @@ class CategoriasController extends Controller
 {
     public function index(Request $filter)
     {
-        $search = $filter->get('filtragem');
+        $search = $filter->get('desc_filtro');
         if ($search == null) {
             $categorias = Categoria::orderBy('nome')->paginate(10);
         } else {
-            $categorias = Categoria::where('id_categorias', 'ilike', '%' . $search . '%')->orderBy('nome')->paginate(10);
+            $categorias = Categoria::where('nome', 'like', '%' . $search . '%')->orderBy('nome')->paginate(10);
         }
         return view("categorias.index", ["categorias" => $categorias]);
     }

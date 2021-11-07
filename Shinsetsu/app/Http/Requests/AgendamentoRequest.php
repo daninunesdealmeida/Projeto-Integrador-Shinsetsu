@@ -27,7 +27,7 @@ class AgendamentoRequest extends FormRequest
           'modalidade' => 'required',
           'dia' => 'date',
           'hora'=> 'required',
-          'fk_pessoas'=>'required',
+        
         ];
     }
 }

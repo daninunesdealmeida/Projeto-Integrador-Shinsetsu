@@ -30,6 +30,9 @@
 {!! Form::label ('estoque_minimo', 'estoque_minimo:') !!}
 {!! Form::text ('estoque_minimo', $produtos->estoque_minimo, ['class' => 'form-control', 'required' ]) !!}
 
+{!! Form::label ('imagem', 'Imagem:') !!}
+{!! Form::text ('imagem', $produtos->imagem, ['class' => 'form-control']) !!}
+
 
 <div class="form-group">
 {!! Form::submit('Editar Produtos', ['class'=>'btn btn-primary']) !!}

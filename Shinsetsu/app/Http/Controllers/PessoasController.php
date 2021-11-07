@@ -14,9 +14,9 @@ class PessoasController extends Controller
   {
     $search = $filter->get('filtragem');
     if ($search == null) {
-      $pessoas = Pessoa::orderBy('nome')->paginate(10);
+      $pessoas = Pessoa::orderBy('desc_filtro')->paginate(10);
     } else {
-      $pessoas = Pessoa::where('id_pessoas', 'ilike', '%' . $search . '%')->orderBy('nome')->paginate(10);
+      $pessoas = Pessoa::where('nome', 'like', '%' . $search . '%')->orderBy('nome')->paginate(10);
     }
     return view("pessoas.index", ["pessoas" => $pessoas]);
   }
