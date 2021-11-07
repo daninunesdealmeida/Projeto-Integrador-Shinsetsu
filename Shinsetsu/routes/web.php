@@ -13,6 +13,8 @@ Route::get('/',[WebController::class,'index'])->name('site');
 Route::get('/login',[WebController::class,'login'])->name('login');
 
 
+
+Route::group(['middleware' => 'auth'], function () {
 // Rotas do model agendamentos
 Route::group(["prefix" => "agendamentos", "where" => ["id" => "[0-9]+"]], function () {
     Route::any("",              ['as' => 'agendamentos',         'uses' => "App\Http\Controllers\AgendamentosController@index"]);
@@ -22,7 +24,6 @@ Route::group(["prefix" => "agendamentos", "where" => ["id" => "[0-9]+"]], functi
     Route::get("/{id}/edit",    ['as' => 'agendamentos.edit',    'uses' => "App\Http\Controllers\AgendamentosController@edit"]);
     Route::put("/{id}/update",  ['as' => 'agendamentos.update',  'uses' => "App\Http\Controllers\AgendamentosController@update"]);
 });
-
 
 
 
@@ -106,6 +107,6 @@ Route::get("pdfUsers",              ['as' => 'pdfUsers',         'uses' => "App\
 Route::get("pdfVendaItens",              ['as' => 'pdfVendaItens',         'uses' => "App\Http\Controllers\PdfController@geraPdfVendaItens"]);
 Route::get("pdfVendas",              ['as' => 'pdfVendas',         'uses' => "App\Http\Controllers\PdfController@geraPdfVendas"]);
 
-
+});
 
 Auth::routes();

@@ -18,124 +18,169 @@
             cancelButtonText: 'Cancelar!',
             closeOnConfirm: false,
         }).then(function(isConfirm) {
-            if (isConfirm.value && id_categorias) {
-                $.get('/' + @yield('table-delete') +'/'+id_categorias +'/destroy',
-                    function(data) {
-                        swal.fire(
-                            'Deletado!',
-                            'Exclusão confirmada.',
-                            'success'
-                        ).then(function() {
-                            window.location.reload();
+                if (isConfirm.value && id_categorias) {
+                    $.get('/' + @yield('table-delete') + '/' + id_categorias + '/destroy',
+                        function(data) {
+                            if (data.status == 200) {
+                                swal.fire(
+                                    'Deletado!',
+                                    'Exclusão confirmada.',
+                                    'success'
+                                ).then(function() {
+                                    window.location.reload();
+                                });
+                            } else
+                                swal.fire(
+                                    'Erro!',
+                                    'Ocorreram erro nas exclusões. Entre em contato com o Suporte.'
+                                );
                         });
-                    });
-            }
-            if (isConfirm.value && id_agendamentos) {
-                $.get('/' + @yield('table-delete') +'/'+id_agendamentos +'/destroy',
-                    function(data) {
-                        swal.fire(
-                            'Deletado!',
-                            'Exclusão confirmada.',
-                            'success'
-                        ).then(function() {
-                            window.location.reload();
+                }
+                if (isConfirm.value && id_agendamentos) {
+                    $.get('/' + @yield('table-delete') + '/' + id_agendamentos + '/destroy',
+                        function(data) {
+                            if (data.status == 200) {
+                                swal.fire(
+                                    'Deletado!',
+                                    'Exclusão confirmada.',
+                                    'success'
+                                ).then(function() {
+                                    window.location.reload();
+                                });
+                            } else
+                                swal.fire(
+                                    'Erro!',
+                                    'Ocorreram erro nas exclusões. Entre em contato com o Suporte.'
+                                );
                         });
-                    });
-
-            }
-            if (isConfirm.value && id_pagamentos) {
-                $.get('/' + @yield('table-delete') +'/'+id_pagamentos +'/destroy',
-                    function(data) {
-                        swal.fire(
-                            'Deletado!',
-                            'Exclusão confirmada.',
-                            'success'
-                        ).then(function() {
-                            window.location.reload();
+                }
+                if (isConfirm.value && id_pagamentos) {
+                    $.get('/' + @yield('table-delete') + '/' + id_pagamentos + '/destroy',
+                        function(data) {
+                            if (data.status == 200) {
+                                swal.fire(
+                                    'Deletado!',
+                                    'Exclusão confirmada.',
+                                    'success'
+                                ).then(function() {
+                                    window.location.reload();
+                                });
+                            } else
+                                swal.fire(
+                                    'Erro!',
+                                    'Ocorreram erro nas exclusões. Entre em contato com o Suporte.'
+                                );
                         });
-                    });
-
-            }
-            if (isConfirm.value && id_pessoas) {
-                $.get('/' + @yield('table-delete') +'/'+id_pessoas +'/destroy',
-                    function(data) {
-                        swal.fire(
-                            'Deletado!',
-                            'Exclusão confirmada.',
-                            'success'
-                        ).then(function() {
-                            window.location.reload();
+                }
+                if (isConfirm.value && id_pessoas) {
+                    $.get('/' + @yield('table-delete') + '/' + id_pessoas + '/destroy',
+                        function(data) {
+                            if (data.status == 200) {
+                                swal.fire(
+                                    'Deletado!',
+                                    'Exclusão confirmada.',
+                                    'success'
+                                ).then(function() {
+                                    window.location.reload();
+                                });
+                            } else
+                                swal.fire(
+                                    'Erro!',
+                                    'Ocorreram erro nas exclusões. Entre em contato com o Suporte.'
+                                );
                         });
-                    });
-
-            }
-            if (isConfirm.value && id_produtos) {
-                $.get('/' + @yield('table-delete') +'/'+id_produtos +'/destroy',
-                    function(data) {
-                        swal.fire(
-                            'Deletado!',
-                            'Exclusão confirmada.',
-                            'success'
-                        ).then(function() {
-                            window.location.reload();
+                }
+                if (isConfirm.value && id_produtos) {
+                    $.get('/' + @yield('table-delete') + '/' + id_produtos + '/destroy',
+                        function(data) {
+                            if (data.status == 200) {
+                                swal.fire(
+                                    'Deletado!',
+                                    'Exclusão confirmada.',
+                                    'success'
+                                ).then(function() {
+                                    window.location.reload();
+                                });
+                            } else
+                                swal.fire(
+                                    'Erro!',
+                                    'Ocorreram erro nas exclusões. Entre em contato com o Suporte.'
+                                );
                         });
-                    });
-
-            }
-            if (isConfirm.value && id_produtos) {
-                $.get('/' + @yield('table-delete') +'/'+id_produtos +'/destroy',
-                    function(data) {
-                        swal.fire(
-                            'Deletado!',
-                            'Exclusão confirmada.',
-                            'success'
-                        ).then(function() {
-                            window.location.reload();
+                }
+                if (isConfirm.value && id_produtos) {
+                    $.get('/' + @yield('table-delete') + '/' + id_produtos + '/destroy',
+                        function(data) {
+                            if (data.status == 200) {
+                                swal.fire(
+                                    'Deletado!',
+                                    'Exclusão confirmada.',
+                                    'success'
+                                ).then(function() {
+                                    window.location.reload();
+                                });
+                            } else
+                                swal.fire(
+                                    'Erro!',
+                                    'Ocorreram erro nas exclusões. Entre em contato com o Suporte.'
+                                );
                         });
-                    });
-
-            }
-            if (isConfirm.value && id_usuarios) {
-                $.get('/' + @yield('table-delete') +'/'+id_usuarios +'/destroy',
-                    function(data) {
-                        swal.fire(
-                            'Deletado!',
-                            'Exclusão confirmada.',
-                            'success'
-                        ).then(function() {
-                            window.location.reload();
+                }
+                if (isConfirm.value && id_usuarios) {
+                    $.get('/' + @yield('table-delete') + '/' + id_usuarios + '/destroy',
+                        function(data) {
+                            if (data.status == 200) {
+                                swal.fire(
+                                    'Deletado!',
+                                    'Exclusão confirmada.',
+                                    'success'
+                                ).then(function() {
+                                    window.location.reload();
+                                });
+                            } else
+                                swal.fire(
+                                    'Erro!',
+                                    'Ocorreram erro nas exclusões. Entre em contato com o Suporte.'
+                                );
                         });
-                    });
-
-            }
-            if (isConfirm.value && id_vendas) {
-                $.get('/' + @yield('table-delete') +'/'+id_vendas +'/destroy',
-                    function(data) {
-                        swal.fire(
-                            'Deletado!',
-                            'Exclusão confirmada.',
-                            'success'
-                        ).then(function() {
-                            window.location.reload();
+                }
+                if (isConfirm.value && id_vendas) {
+                    $.get('/' + @yield('table-delete') + '/' + id_vendas + '/destroy',
+                        function(data) {
+                            if (data.status == 200) {
+                                swal.fire(
+                                    'Deletado!',
+                                    'Exclusão confirmada.',
+                                    'success'
+                                ).then(function() {
+                                    window.location.reload();
+                                });
+                            } else
+                                swal.fire(
+                                    'Erro!',
+                                    'Ocorreram erro nas exclusões. Entre em contato com o Suporte.'
+                                );
                         });
-                    });
-
-            }
-            if (isConfirm.value && venda_itens) {
-                $.get('/' + @yield('table-delete') +'/'+venda_itens +'/destroy',
-                    function(data) {
-                        swal.fire(
-                            'Deletado!',
-                            'Exclusão confirmada.',
-                            'success'
-                        ).then(function() {
-                            window.location.reload();
+                }
+                if (isConfirm.value && venda_itens) {
+                    $.get('/' + @yield('table-delete') + '/' + venda_itens + '/destroy',
+                        function(data) {
+                            if (data.status == 200) {
+                                swal.fire(
+                                    'Deletado!',
+                                    'Exclusão confirmada.',
+                                    'success'
+                                ).then(function() {
+                                    window.location.reload();
+                                });
+                            } else
+                                swal.fire(
+                                    'Erro!',
+                                    'Ocorreram erro nas exclusões. Entre em contato com o Suporte.'
+                                );
                         });
-                    });
 
-            }
-
-        })
-    }
+                })
+        }
 </script>
 @stop
