@@ -37,4 +37,23 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+//    protected function authenticated(Request $request, $user)
+//    {
+//
+//        if($user->isAdmin == 'Cliente')
+//        {
+//            return redirect()->route('loja');
+//        }
+//
+//
+//        //verifica esta atenticado
+////        if($user->role == 'ROLE_user' && session()->has('cart')){
+////            return redirect()->route('checkout.index');
+////        }else{
+////            return redirect()->route('home');
+////        }
+//
+//        return null;
+//    }
 }

@@ -57,6 +57,7 @@
                             <li class="scroll-to-section"><a href="#features">Sobre Nós</a></li>
                             <li class="scroll-to-section"><a href="#schedule">Horários</a></li>
                             <li class="scroll-to-section"><a href="#contact-us">Agendamentos</a></li>
+                            <li class="scroll-to-section"><a href="{{route('loja')}}">Loja</a></li>
                             <li class="main-button"><a href="{{route('login')}}">Entrar</a></li>
 
                         </ul>
@@ -140,7 +141,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">                                       
+                <div class="row">
                     <div class="col-lg-10 offset-lg-1">
                         <div class="schedule-table filtering">
                         <div class="col-lg-12">
@@ -162,7 +163,7 @@
                                         <td class="monday ts-item show" data-tsmeta="monday"> Judô Infantil 17:00 - 18:30 </td>
                                         <td class="monday ts-item show" data-tsmeta="monday"> Jiu Jitsu 19:30 - 21:00 </td>
                                         <td class="monday ts-item show" data-tsmeta="monday"> </td>
-                                        <td class="monday ts-item show" data-tsmeta="monday"> Jiu-Jitsu 22:00 - 23:00 </td>                                 
+                                        <td class="monday ts-item show" data-tsmeta="monday"> Jiu-Jitsu 22:00 - 23:00 </td>
                                     </tr>
                                     <tr>
                                         <td class="day-time">Terça-Feira</td>
@@ -216,11 +217,12 @@
                     </div>
                     <div class="col-lg-6 col-md-6 col-xs-12">
                         <div class="contact-form">
-                            <form id="contact" action="" method="post">
+                            <form id="contact" action="{{route('agendamentos.store')}}" method="post">
+                                @csrf
                                 <div class="row">
                                     <div class="col-md-6 col-sm-12">
                                         <fieldset>
-                                            <input name="name" type="text" id="id_agendamentos" placeholder="Seu Nome:" required="">
+                                            <input name="nome" type="text" id="nome" placeholder="Seu Nome:" required="">
                                         </fieldset>
                                     </div>
                                     <div class="col-md-6 col-sm-12">
@@ -230,17 +232,17 @@
                                     </div>
                                     <div class="col-md-12 col-sm-12">
                                         <fieldset>
-                                            <input name="subject" type="text" id="modalidade" placeholder="Modalidade:">
+                                            <input name="modalidade" type="text" id="modalidade" placeholder="Modalidade:">
                                         </fieldset>
                                     </div>
                                     <div class="col-md-12 col-sm-12">
                                         <fieldset>
-                                            <input name="subject" type="text" id="dia" placeholder="Dia que deseja marcar a aula::">
+                                            <input name="dia" type="text" id="dia" placeholder="Dia que deseja marcar a aula::">
                                         </fieldset>
                                     </div>
                                     <div class="col-md-12 col-sm-12">
                                         <fieldset>
-                                            <input name="subject" type="text" id="hora" placeholder="Horário que deseja marcar a aula::">
+                                            <input name="hora" type="text" id="hora" placeholder="Horário que deseja marcar a aula::">
                                         </fieldset>
                                     </div>
                                     <div class="col-lg-12">

@@ -6,6 +6,7 @@ use App\Http\Requests\AgendamentoRequest;
 use App\Models\Agendamento;
 use App\Models\Pessoa;
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class AgendamentosController extends Controller
 {
@@ -13,6 +14,12 @@ class AgendamentosController extends Controller
 
     public function index(Request $filter)
     {
+        $user = User::where('id', auth()->user()->id)->first();
+
+        if ($user->isAdmin == 'Cliente') {
+            return redirect()->route('loja');
+        }
+
         $search = $filter->get('desc_filtro');
         if ($search == null) {
             $agendamentos = Agendamento::orderBy('modalidade')->paginate(10);

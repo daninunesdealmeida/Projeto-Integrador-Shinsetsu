@@ -18,10 +18,10 @@ class CreateAgendamentosTable extends Migration
             $table->String('modalidade');
             $table->date('dia');
             $table->time('hora');
-            $table->unsignedBigInteger('fk_pessoas');
+            $table->integer('fk_pessoas')->nullable();
             $table->timestamps();
 
-            $table->foreign('fk_pessoas')->references('id_pessoas')->on('pessoas');
+            //$table->foreign('fk_pessoas')->references('id_pessoas')->on('pessoas')-;
         });
     }
 
