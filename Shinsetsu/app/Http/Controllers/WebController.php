@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Categoria;
 use App\Models\Produto;
 use Illuminate\Http\Request;
+use App\Http\Requests\AgendamentoRequest;
+use App\Models\Agendamento;
+use Illuminate\Support\Facades\Auth;
 
 class WebController extends Controller
 {
@@ -48,6 +51,7 @@ class WebController extends Controller
 
         return view('web.loja',compact('categorias','produtos'));
     }
+
 
 
 }

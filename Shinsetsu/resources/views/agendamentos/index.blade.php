@@ -34,19 +34,19 @@
                         <tbody>
                                 <tr>
                                         <th>Id</th>
+                                        <th>Nome</th>
                                         <th>Modalidade</th>
                                         <th>Dia</th>
                                         <th>Hora</th>
-                                        <th>Pessoas</th>
                                         <th>Ações</th>
                                 </tr>
                                 @foreach($agendamentos as $agendamento)
                                 <tr>
                                         <td>{{$agendamento ->id_agendamentos}}</td>
+                                        <td>{{$agendamento ->nome}}</td>
                                         <td>{{$agendamento ->modalidade}}</td>
                                         <td>{{ Carbon\Carbon::parse($agendamento ->dia)->format('d/m/Y') }}</td>
                                         <td>{{$agendamento ->hora}}</td>
-                                        <td>{{$agendamento ->pessoa->nome}}</td>
                                         <td>
                                                 <a href="{{ route('agendamentos.edit',    ['id'=>$agendamento->id_agendamentos]) }}" class="btn-sm btn-success">Editar</a>
                                                 <a href="#" onclick="return ConfirmaExclusao({{$agendamento->id_agendamentos}})" class="btn-sm btn-danger">Remover</a>

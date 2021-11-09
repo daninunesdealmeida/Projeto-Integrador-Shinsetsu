@@ -237,7 +237,7 @@
                                     </div>
                                     <div class="col-md-12 col-sm-12">
                                         <fieldset>
-                                            <input name="dia" type="text" id="dia" placeholder="Dia que deseja marcar a aula::">
+                                            <input name="dia" type="date" id="dia" placeholder="Dia que deseja marcar a aula::">
                                         </fieldset>
                                     </div>
                                     <div class="col-md-12 col-sm-12">

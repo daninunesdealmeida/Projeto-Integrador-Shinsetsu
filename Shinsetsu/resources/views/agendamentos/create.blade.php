@@ -4,9 +4,15 @@
 <h3>Novo Agendamento</h3>
 
 
-{!!  Form::open(['route'=>'agendamentos.store'])   !!}
+{!! Form::open(['route'=>'agendamentos.store']) !!}
 
-<div class="form-group">       
+<div class="form-group">
+
+    {!! Form::label ('nome', 'Nome:') !!}
+    {!! Form::text ('nome', null, ['class' => 'form-control', 'required' ]) !!}
+
+    {!! Form::label ('email', 'Email:') !!}
+    {!! Form::text ('email', null, ['class' => 'form-control', 'required' ]) !!}
 
     {!! Form::label ('modalidade', 'Modalidade:') !!}
     {!! Form::select ('modalidade', array('Jiu Jitsu' => 'Jiu Jitsu', 'Judô' => 'Judô'), 'Jiu Jitsu', ['class' => 'form-control', 'required' ]) !!}
@@ -16,11 +22,6 @@
 
     {!! Form::label ('hora', 'Hora:') !!}
     {!! Form::text ('hora', null, ['class' => 'form-control','id' => 'horas', 'required' ]) !!}
-
-    {!! Form::label ('fk_pessoas', 'Pessoa:') !!}
-    {!! Form::select('fk_pessoas',
-    \app\Models\Pessoa::orderbY('nome')->pluck('nome', 'id_pessoas')->toArray(),
-    null, ['class' => 'form-control', 'required' ]) !!}
 
 </div>
 
@@ -42,9 +43,9 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
 <script>
-$(document).ready(function(){
-    $('#horas').mask('00:00');
-});
+    $(document).ready(function() {
+        $('#horas').mask('00:00');
+    });
 </script>
 
 @endsection
