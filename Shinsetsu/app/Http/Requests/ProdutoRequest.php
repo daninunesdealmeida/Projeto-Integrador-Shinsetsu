@@ -27,6 +27,7 @@ class ProdutoRequest extends FormRequest
             'nome' => 'required',
             'preco' => 'required',
             'qt_estoque' => 'required',
+            'fk_categoria' => 'required',
         ];
     }
 }

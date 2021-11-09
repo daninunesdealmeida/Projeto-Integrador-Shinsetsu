@@ -38,6 +38,7 @@
                                 <th>Preço</th>
                                 <th>Qt_Estoque</th>
                                 <th>Estoque_Mínimo</th>
+                                <th>Categoria</th>
                                 <th>Imagem</th>
                                 <th>Ações</th>
                                 </thead>
@@ -50,6 +51,7 @@
                                 <td>{{$produto ->preco}}</td>
                                 <td>{{$produto ->qt_estoque}}</td>
                                 <td>{{$produto ->estoque_minimo}}</td>
+                                <td>{{$produto ->categoria->nome}}</td>                                
                                 <td>{{$produto ->imagem}}</td>
                                 <td>
                                         <a href="{{ route('produtos.edit', ['id'=>$produto->id_produtos]) }}" class="btn-sm btn-success">Editar</a>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProdutoRequest;
+use App\Models\Categoria;
 use App\Models\Produto;
 use Illuminate\Http\Request;
 
@@ -16,20 +17,22 @@ class ProdutosController extends Controller
         } else {
             $produtos = Produto::where('nome', 'like', '%' . $search . '%')->orderBy('nome')->paginate(10);
         }
+        
         return view("produtos.index", ["produtos" => $produtos]);
+        
     }
 
 
     public function create()
-    {
-        return view('produtos.create');
+    {        
+        $categorias = Categoria::select(['id_categorias', 'nome'])->orderBy('nome')->get();
+        return view('produtos.create', compact('categorias', $categorias));
     }
 
     public function store(ProdutoRequest $request)
     {
         $novo_produto = $request->all();
         Produto::create($novo_produto);
-
         return redirect()->route('produtos');
     }
 
@@ -50,8 +53,12 @@ class ProdutosController extends Controller
 
     public function edit($id_produtos)
     {
+        /*$produtos = Produto::find($id_produtos);
+        return view('produtos.edit', compact('produtos'));*/
+
         $produtos = Produto::find($id_produtos);
-        return view('produtos.edit', compact('produtos'));
+        $categorias = Categoria::select(['id_categorias', 'nome'])->orderBy('nome')->get();
+        return view('produtos.edit', ['produtos' => $produtos, 'categorias' => $categorias]);
     }
 
     public function update(ProdutoRequest $request, $id_produtos)

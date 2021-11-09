@@ -9,7 +9,7 @@
 {!! Form::label ('quantidade', 'quantidade:') !!}
 {!! Form::text ('quantidade', null, ['class' => 'form-control']) !!}
 
-{!! Form::label ('vlr_unitário', 'vlr_unitário:') !!}
+{!! Form::label ('vlr_unitário', 'Valor unitário:') !!}
 {!! Form::text ('vlr_unitário', null, ['class' => 'form-control']) !!}
 
 {!! Form::label ('fk_produtos', 'Produto:') !!}
