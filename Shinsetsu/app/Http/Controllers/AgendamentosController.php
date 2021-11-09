@@ -1,10 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\AgendamentoRequest;
 use App\Models\Agendamento;
-use App\Models\Pessoa;
 use Illuminate\Http\Request;
 use App\Models\User;
 
@@ -22,9 +21,9 @@ class AgendamentosController extends Controller
 
         $search = $filter->get('desc_filtro');
         if ($search == null) {
-            $agendamentos = Agendamento::orderBy('modalidade')->paginate(10);
+            $agendamentos = Agendamento::orderBy('nome')->paginate(10);
         } else {
-            $agendamentos = Agendamento::where('modalidade', 'like', '%' . $search . '%')->orderBy('modalidade')->paginate(10);
+            $agendamentos = Agendamento::where('nome', 'like', '%' . $search . '%')->orderBy('nome')->paginate(10);
         }
         return view("agendamentos.index", ["agendamentos" => $agendamentos]);
     }
@@ -32,16 +31,20 @@ class AgendamentosController extends Controller
 
     public function create()
     {
-        $pessoas = Pessoa::select(['id_pessoas', 'nome'])->orderBy('nome')->get();
-        return view('agendamentos.create', compact('pessoas', $pessoas));
+        return view('agendamentos.create');
     }
 
     public function store(AgendamentoRequest $request)
     {
+        // dd($request);
         $novo_agendamento = $request->all();
         Agendamento::create($novo_agendamento);
 
-        return redirect()->route('agendamentos');
+        if (Auth::check() == false) {
+            return redirect()->route('site');
+        } else {
+            return redirect()->route('agendamentos');
+        }
     }
 
 
@@ -62,8 +65,7 @@ class AgendamentosController extends Controller
     {
 
         $agendamentos = Agendamento::find($id_agendamentos);
-        $pessoas = Pessoa::select(['id_pessoas', 'nome'])->orderBy('nome')->get();
-        return view('agendamentos.edit', ['agendamentos' => $agendamentos, 'pessoas' => $pessoas]);
+        return view('agendamentos.edit', compact('agendamentos'));
     }
 
 

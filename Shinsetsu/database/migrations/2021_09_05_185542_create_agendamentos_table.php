@@ -15,13 +15,13 @@ class CreateAgendamentosTable extends Migration
     {
         Schema::create('agendamentos', function (Blueprint $table) {
             $table->bigIncrements('id_agendamentos');
+            $table->String('nome');
+            $table->String('email');
             $table->String('modalidade');
             $table->date('dia');
             $table->time('hora');
-            $table->integer('fk_pessoas')->nullable();
             $table->timestamps();
 
-            //$table->foreign('fk_pessoas')->references('id_pessoas')->on('pessoas')-;
         });
     }
 

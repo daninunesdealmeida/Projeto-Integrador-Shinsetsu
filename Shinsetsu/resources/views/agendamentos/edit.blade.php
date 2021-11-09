@@ -15,6 +15,12 @@
 
 <div class="form-group">
 
+    {!! Form::label ('nome', 'Nome:') !!}
+    {!! Form::text ('nome', $agendamentos->nome, ['class' => 'form-control', 'required' ]) !!}
+
+    {!! Form::label ('email', 'Email:') !!}
+    {!! Form::text ('email', $agendamentos->email, ['class' => 'form-control', 'required' ]) !!}
+
     {!! Form::label ('modalidade', 'Modalidade:') !!}
     {!! Form::select ('modalidade', array('Jiu Jitsu' => 'Jiu Jitsu', 'Judô' => 'Judô'), 'Jiu Jitsu', ['class' => 'form-control' ]) !!}
 
@@ -24,10 +30,6 @@
     {!! Form::label ('hora', 'Hora:') !!}
     {!! Form::text ('hora', $agendamentos->hora, ['class' => 'form-control', 'id' =>'horas' ]) !!}
 
-    {!! Form::label ('fk_pessoas', 'Pessoa:') !!}
-    {!! Form::select('fk_pessoas',
-    \app\Models\Pessoa::orderBy('nome')->pluck('nome', 'id_pessoas')->toArray(),
-    $agendamentos->fk_pessoas, ['class' => 'form-control', 'required' ]) !!}
 
 </div>
 
