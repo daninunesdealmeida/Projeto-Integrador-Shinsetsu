@@ -97,6 +97,16 @@ Route::group(['middleware' => 'auth'], function () {
         Route::put("/{id}/update",  ['as' => 'pagamentos.update',  'uses' => "App\Http\Controllers\PagamentosController@update"]);
     });
 
+    
+    //Rotas do model user
+    Route::group(["prefix" => "Users", "where" => ["id" => "[0-9]+"]], function () {
+        Route::any("",              ['as' => 'users',         'uses' => "App\Http\Controllers\UsersController@index"]);
+        Route::get("/create",       ['as' => 'users.create',  'uses' => "App\Http\Controllers\UsersController@create"]);
+        Route::post("/store",       ['as' => 'users.store',   'uses' => "App\Http\Controllers\UsersController@store"]);
+        Route::get("/{id}/destroy", ['as' => 'users.destroy', 'uses' => "App\Http\Controllers\UsersController@destroy"]);
+        Route::get("/{id}/edit",    ['as' => 'users.edit',    'uses' => "App\Http\Controllers\UsersController@edit"]);
+        Route::put("/{id}/update",  ['as' => 'users.update',  'uses' => "App\Http\Controllers\UsersController@update"]);
+    });
 
 
     //Rotas do model PDF

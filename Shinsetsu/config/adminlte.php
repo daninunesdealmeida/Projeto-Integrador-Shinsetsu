@@ -277,7 +277,7 @@ return [
         ],
         [
             'text'        => 'Usuários',
-            'url'         => 'http://127.0.0.1:8000/usuarios',
+            'url'         => 'http://127.0.0.1:8000/users',
             'icon'        => 'fas fa-user-friends',
             'label_color' => 'success',
         ],
@@ -321,7 +321,7 @@ return [
         ],
         [
             'text' => 'Usuários',
-            'url'  => 'admin/settings',
+            'url'  => 'http://127.0.0.1:8000/users',
             'icon' => 'far fa-fw fa-file',
         ],
         [

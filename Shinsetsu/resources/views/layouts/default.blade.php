@@ -4,7 +4,7 @@
 
 @section('js')
 <script>
-    function ConfirmaExclusao(id_agendamentos, id_categorias, id_pagamentos, id_pessoas, id_produtos, id_usuarios, id_vendas, venda_itens) {
+    function ConfirmaExclusao(id_agendamentos, id_categorias, id_pagamentos, id_pessoas, id_produtos, id_usuarios, id_vendas, id_vendaItens, id) {
 
 
         swal.fire({
@@ -162,8 +162,27 @@
                                 );
                         });
                 }
-                if (isConfirm.value && venda_itens) {
-                    $.get('/' + @yield('table-delete') + '/' + venda_itens + '/destroy',
+                if (isConfirm.value && id_vendaItens) {
+                    $.get('/' + @yield('table-delete') + '/' + id_vendaItens + '/destroy',
+                        function(data) {
+                            if (data.status == 200) {
+                                swal.fire(
+                                    'Deletado!',
+                                    'Exclusão confirmada.',
+                                    'success'
+                                ).then(function() {
+                                    window.location.reload();
+                                });
+                            } else
+                                swal.fire(
+                                    'Erro!',
+                                    'Ocorreram erro nas exclusões. Entre em contato com o Suporte.'
+                                );
+                        });
+
+                })
+                if (isConfirm.value && id) {
+                    $.get('/' + @yield('table-delete') + '/' + id + '/destroy',
                         function(data) {
                             if (data.status == 200) {
                                 swal.fire(

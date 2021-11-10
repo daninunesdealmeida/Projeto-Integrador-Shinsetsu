@@ -232,17 +232,20 @@
                                     </div>
                                     <div class="col-md-12 col-sm-12">
                                         <fieldset>
-                                            <input name="modalidade" type="text" id="modalidade" placeholder="Modalidade:">
+                                            <input list="modalidade" name="modalidade" id="modalidade:"  placeholder="Modalidade:">
+                                            <datalist id="modalidade">
+                                              <option value="Jiu Jitsu">
+                                              <option value="Judô">
                                         </fieldset>
                                     </div>
                                     <div class="col-md-12 col-sm-12">
                                         <fieldset>
-                                            <input name="dia" type="date" id="dia" placeholder="Dia que deseja marcar a aula::">
+                                            <input name="dia" type="date" id="dia" placeholder="Dia que deseja marcar a aula:">
                                         </fieldset>
                                     </div>
                                     <div class="col-md-12 col-sm-12">
                                         <fieldset>
-                                            <input name="hora" type="text" id="hora" placeholder="Horário que deseja marcar a aula::">
+                                            <input name="hora" type="text" id="horas" placeholder="Horário que deseja marcar a aula:">
                                         </fieldset>
                                     </div>
                                     <div class="col-lg-12">
@@ -296,3 +299,15 @@
 </body>
 
 </html>
+
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $('#horas').mask('00:00');
+    });
+</script>

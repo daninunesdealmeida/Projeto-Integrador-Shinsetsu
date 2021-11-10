@@ -19,14 +19,12 @@
 
             <li><a href="{{route('pesquisaCategoria',['id'=>$categoria->id_categorias])}}">{{$categoria->nome}}</a></li>
 
-            {{-- <li>Braçadeiras</li>--}}
-            {{-- <li><a href="#">Meias</a></li>--}}
             @endforeach
         </ul>
     </header>
 
 
-    <div class="pricing4 py-5 bg-light">
+    {{-- <div class="pricing4 py-5 bg-light">
         @foreach($produtos as $produto)
         <div class="col-md-4">
             <div class="card card-shadow border-0 mb-4">
@@ -50,7 +48,7 @@
         @endforeach
     </div>
     </div>
-    </div>
+    </div> --}}
 
 
     <!-- jQuery -->
