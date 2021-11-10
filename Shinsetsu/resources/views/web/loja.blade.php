@@ -23,20 +23,15 @@
         </ul>
     </header>
 
-
-    {{-- <div class="pricing4 py-5 bg-light">
+    <div class="pricing4 py-5 bg-light">
         @foreach($produtos as $produto)
         <div class="col-md-4">
             <div class="card card-shadow border-0 mb-4">
                 <img class="card-img-top" src="https://static.netshoes.com.br/produtos/luva-de-boxe-premium-iron-arm/06/CEQ-0061-006/CEQ-0061-006_zoom1.jpg?ts=1566212555" alt="wrappixel kit">
                 <div class="p-3">
                     <h5 class="font-weight-medium mb-0">{{$produto->nome}}</h5>
-                    <h6 class="subtitle font-13">WITH MICHELLE ANDERSON</h6>
+                    <h5 class="font-weight-medium mb-0">{{$produto->qt_estoque}}</h5>
                     <ul class="list-inline font-14 mt-3">
-                        <li class="py-1"><i class="icon-check text-success"></i> 6 Days a Week</li>
-                        <li class="py-1"><i class="icon-check text-success"></i> Dedicated Trainer Allocated</li>
-                        <li class="py-1"><i class="icon-check text-success"></i> Diet Plan Included</li>
-                        <li class="py-1"><i class="icon-check text-success"></i> Morning and Evening Batches</li>
                     </ul>
                     <div class="d-flex mt-3 align-items-center">
                         <h2 class="price">{{'R$ '.number_format($produto->preco,2,'.',',')}}</h2>
@@ -48,8 +43,7 @@
         @endforeach
     </div>
     </div>
-    </div> --}}
-
+    </div>
 
     <!-- jQuery -->
     <script src="{{ asset('assets/js/jquery-2.1.0.min.js') }}"></script>

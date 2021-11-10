@@ -35,15 +35,17 @@ class WebController extends Controller
     public function loja()
     {
         $categorias = Categoria::all();
-        return view('web.loja',compact('categorias'));
+        $produtos = Produto::all();
+        return view('web.loja',compact('categorias', 'produtos'));
+        
     }
 
     public function pesquisaCategoria($id)
     {
 
         if($id != null){
-            $categorias = Categoria::where('id',$id)->get();
-            $produtos = Produto::where('categoria_id',$id)->get();
+            $categorias = Categoria::where('id_categorias',$id)->get();
+            $produtos = Produto::where('fk_categoria',$id)->get();
         }else{
             $categorias = Categoria::all();
             $produtos = Produto::all();

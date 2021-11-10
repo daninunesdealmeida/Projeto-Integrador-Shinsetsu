@@ -35,9 +35,7 @@
         <th>Id</th>
         <th>Nome</th>
         <th>Email</th>
-        <th>Email Verificado</th>
-        <th>Senha</th>
-        <th>IsAdmin</th>
+        <th>Posição</th>
         <th>Ações</th>
 </thead>
 <tbody>
@@ -46,8 +44,6 @@
         <td>{{$user ->id}}</td>
         <td>{{$user ->name}}</td>
         <td>{{$user ->email}}</td>
-        <td>{{$user ->email_verified_at}}</td>
-        <td>{{$user ->password}}</td>
         <td>{{$user ->isAdmin}}</td> 
         <td>
          <a href="{{ route('users.edit', ['id'=>$user->id]) }}" class="btn-sm btn-success">Editar</a>
