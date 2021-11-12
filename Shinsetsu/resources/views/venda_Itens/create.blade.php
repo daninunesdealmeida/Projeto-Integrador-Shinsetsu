@@ -10,7 +10,7 @@
 {!! Form::text ('quantidade', null, ['class' => 'form-control']) !!}
 
 {!! Form::label ('vlr_unitário', 'Valor unitário:') !!}
-{!! Form::text ('vlr_unitário', null, ['class' => 'form-control']) !!}
+{!! Form::text ('vlr_unitário', null, ['class' => 'form-control', 'id' => 'money']) !!}
 
 {!! Form::label ('fk_produtos', 'Produto:') !!}
     {!! Form::select('fk_produtos',
@@ -30,3 +30,15 @@
 
 
 @stop
+@section('js')
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $('#money').mask('#.##0,00', {reverse: true});
+    });
+</script>
+@endsection

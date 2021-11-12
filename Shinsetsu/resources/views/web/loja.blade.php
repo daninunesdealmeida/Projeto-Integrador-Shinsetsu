@@ -11,19 +11,25 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/estilos.css') }}">
 </head>
 
-<body>
+<div class="btn-group">
 
-    <header>
-        <ul>
-            @foreach($categorias as $categoria)
+<a href="{{ route('loja') }}" class="btn btn-secondary"> Loja</a>
 
-            <li><a href="{{route('pesquisaCategoria',['id'=>$categoria->id_categorias])}}">{{$categoria->nome}}</a></li>
+<div class="dropdown show">
+    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Categorias
+    </a>
 
-            @endforeach
-        </ul>
-    </header>
+    <div class="dropdown-menu" aria-labelledby="Categorias">
+        @foreach($categorias as $categoria)
+        <li><a href="{{route('pesquisaCategoria',['id'=>$categoria->id_categorias])}}">{{$categoria->nome}}</a></li>
+        @endforeach
+    </div>
+</div>
+</div>
 
-    <div class="pricing4 py-5 bg-light">
+<div class="pricing4 py-5 bg-light">
+    <div class="row">
         @foreach($produtos as $produto)
         <div class="col-md-4">
             <div class="card card-shadow border-0 mb-4">
@@ -31,8 +37,6 @@
                 <div class="p-3">
                     <h5 class="font-weight-medium mb-0">{{$produto->nome}}</h5>
                     <h5 class="font-weight-medium mb-0">{{$produto->qt_estoque}}</h5>
-                    <ul class="list-inline font-14 mt-3">
-                    </ul>
                     <div class="d-flex mt-3 align-items-center">
                         <h2 class="price">{{'R$ '.number_format($produto->preco,2,'.',',')}}</h2>
                         <div class="ml-auto"><a class="btn btn-danger-gradiant rounded-pill text-white btn-md border-0" href="">Comprar</a></div>
@@ -42,15 +46,17 @@
         </div>
         @endforeach
     </div>
-    </div>
-    </div>
+</div>
+</div>
+</div>
 
-    <!-- jQuery -->
-    <script src="{{ asset('assets/js/jquery-2.1.0.min.js') }}"></script>
 
-    <!-- Bootstrap -->
-    <script src="{{ asset('assets/js/popper.js')}}"></script>
-    <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+<!-- jQuery -->
+<script src="{{ asset('assets/js/jquery-2.1.0.min.js') }}"></script>
+
+<!-- Bootstrap -->
+<script src="{{ asset('assets/js/popper.js')}}"></script>
+<script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
 </body>
 
 </html>
