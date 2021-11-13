@@ -14,4 +14,11 @@ class Usuario extends Model
     public function pessoa(){
         return $this->belongsTo(Pessoa::class);
       }
-}
+
+      public function setPlancRateioAttribute($value)
+    {
+        $this->attributes['isAdmin'] = ($value === true || $value === 'on' ? 'Cliente' : '');
+      
+    }
+
+  }

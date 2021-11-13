@@ -12,7 +12,7 @@
 </head>
 
 <div class="btn-group">
-
+<a href="{{ route('site') }}" class="btn btn-secondary"> Home</a>
 <a href="{{ route('loja') }}" class="btn btn-secondary"> Loja</a>
 
 <div class="dropdown show">
@@ -22,7 +22,7 @@
 
     <div class="dropdown-menu" aria-labelledby="Categorias">
         @foreach($categorias as $categoria)
-        <li><a href="{{route('pesquisaCategoria',['id'=>$categoria->id_categorias])}}">{{$categoria->nome}}</a></li>
+        <li><a class="dropdown-item" href="{{route('pesquisaCategoria',['id'=>$categoria->id_categorias])}}">{{$categoria->nome}}</a></li>
         @endforeach
     </div>
 </div>

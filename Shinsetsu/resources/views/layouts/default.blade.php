@@ -4,8 +4,7 @@
 
 @section('js')
 <script>
-    function ConfirmaExclusao(id_agendamentos, id_categorias, id_pagamentos, id_pessoas, id_produtos, id_usuarios, id_vendas, id_vendaItens, id) {
-        debugger;
+    function ConfirmaExclusao(id_agendamentos, id_categorias, id_pagamentos, id_pessoas, id_produtos, id_usuarios, id_vendas, id_vendaItens, id_usuarios) {
 
         swal.fire({
                 title: 'Confirma a Exclusão?',
@@ -108,24 +107,6 @@
                                     );
                             });
                     }
-                    if (isConfirm.value && id_produtos) {
-                        $.get('/' + @yield('table-delete') + '/' + id_produtos + '/destroy',
-                            function(data) {
-                                if (data.status == 200) {
-                                    swal.fire(
-                                        'Deletado!',
-                                        'Exclusão confirmada.',
-                                        'success'
-                                    ).then(function() {
-                                        window.location.reload();
-                                    });
-                                } else
-                                    swal.fire(
-                                        'Erro!',
-                                        'Ocorreram erro nas exclusões. Entre em contato com o Suporte.'
-                                    );
-                            });
-                    }
                     if (isConfirm.value && id_usuarios) {
                         $.get('/' + @yield('table-delete') + '/' + id_usuarios + '/destroy',
                             function(data) {
@@ -182,7 +163,7 @@
 
                     }
                     if (isConfirm.value && id) {
-                        $.get('/' + @yield('table-delete') + '/' + id + '/destroy',
+                        $.get('/' + @yield('table-delete') + '/' + id_usuarios + '/destroy',
                             function(data) {
                                 if (data.status == 200) {
                                     swal.fire(

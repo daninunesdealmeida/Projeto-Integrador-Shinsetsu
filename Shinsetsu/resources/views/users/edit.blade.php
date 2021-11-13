@@ -28,7 +28,7 @@
     {!! Form::text ('password', $user->password, ['class' => 'form-control']) !!}
 
     {!! Form::label ('isAdmin', 'isAdmin:') !!}
-    {!! Form::text ('isAdmin', $user->isAdmin, ['class' => 'form-control', 'required' ]) !!}
+    {!! Form::checkbox('isAdmin', $user->isAdmin, ['class' => 'form-control', 'required' ]) !!}
 
     <div class="form-group">
         {!! Form::submit('Editar users', ['class'=>'btn btn-primary']) !!}

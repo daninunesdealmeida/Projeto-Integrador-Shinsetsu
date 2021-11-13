@@ -19,7 +19,7 @@
     {!! Form::text ('password', null, ['class' => 'form-control']) !!}
 
     {!! Form::label ('isAdmin', 'isAdmin:') !!}
-    {!! Form::text ('isAdmin', null, ['class' => 'form-control', 'required' ]) !!}
+    {!! Form::checkbox('isAdmin',  null, ['class' => 'form-control']) !!}
 
 </div>
 
