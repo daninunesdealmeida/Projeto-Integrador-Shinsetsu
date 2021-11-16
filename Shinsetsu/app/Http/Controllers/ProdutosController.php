@@ -17,14 +17,13 @@ class ProdutosController extends Controller
         } else {
             $produtos = Produto::where('nome', 'like', '%' . $search . '%')->orderBy('nome')->paginate(10);
         }
-        
+
         return view("produtos.index", ["produtos" => $produtos]);
-        
     }
 
 
     public function create()
-    {        
+    {
         $categorias = Categoria::select(['id_categorias', 'nome'])->orderBy('nome')->get();
         return view('produtos.create', compact('categorias', $categorias));
     }
@@ -32,23 +31,34 @@ class ProdutosController extends Controller
     public function store(ProdutoRequest $request)
     {
         $novo_produto = $request->all();
+        //dd($request->hasFile('imagem') && $request->file('imagem')->isValid());              
+        //upload da imagem
+        if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
+            $requestImagem = $request->imagem;
+            $extension = $requestImagem->extension();            
+            $imagemNome = md5($requestImagem->getClientOriginalName() . strtotime("now")) . "." . $extension;
+            $requestImagem->move(public_path('img/produtos'), $imagemNome);            
+            $novo_produto['imagem'] = $imagemNome;
+        }
+        
+        
         Produto::create($novo_produto);
         return redirect()->route('produtos');
     }
 
     public function destroy($id_produtos)
     {
-       /* Produto::find($id_produtos)->delete();
+        /* Produto::find($id_produtos)->delete();
         return redirect()->route('produtos');*/
         try {
             Produto::find($id_produtos)->delete();
             $ret = array('status' => 200, 'msg' => "null");
-          } catch (\Illuminate\Database\QueryException $e) {
+        } catch (\Illuminate\Database\QueryException $e) {
             $ret = array('status' => 500, 'msg' => $e->getMessage());
-          } catch (\PDOException $e) {
+        } catch (\PDOException $e) {
             $ret = array('status' => 500, 'msg' => $e->getMessage());
-          }
-          return $ret;
+        }
+        return $ret;
     }
 
     public function edit($id_produtos)

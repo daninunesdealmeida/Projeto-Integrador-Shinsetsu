@@ -35,9 +35,9 @@
     App\Models\Categoria::orderbY('nome')->pluck('nome', 'id_categorias')->toArray(),
     $produtos->fk_categoria, ['class' => 'form-control', 'required' ]) !!}
 
-    {!! Form::label ('imagem', 'Imagem:') !!}
-    {!! Form::text ('imagem', $produtos->imagem, ['class' => 'form-control']) !!}
 
+    {!! Form::label ('imagem', 'Imagem do Produto:') !!}
+    {!! Form::text ('imagem', $produtos->imagem, ['class' => 'form-control-file']) !!}
 
     <div class="form-group">
         {!! Form::submit('Editar Produtos', ['class'=>'btn btn-primary']) !!}
