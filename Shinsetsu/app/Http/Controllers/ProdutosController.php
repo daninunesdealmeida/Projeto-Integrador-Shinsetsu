@@ -35,13 +35,13 @@ class ProdutosController extends Controller
         //upload da imagem
         if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
             $requestImagem = $request->imagem;
-            $extension = $requestImagem->extension();            
+            $extension = $requestImagem->extension();
             $imagemNome = md5($requestImagem->getClientOriginalName() . strtotime("now")) . "." . $extension;
-            $requestImagem->move(public_path('img/produtos'), $imagemNome);            
+            $requestImagem->move(public_path('img/produtos'), $imagemNome);
             $novo_produto['imagem'] = $imagemNome;
         }
-        
-        
+
+
         Produto::create($novo_produto);
         return redirect()->route('produtos');
     }
@@ -68,13 +68,37 @@ class ProdutosController extends Controller
 
         $produtos = Produto::find($id_produtos);
         $categorias = Categoria::select(['id_categorias', 'nome'])->orderBy('nome')->get();
+        //dd($produtos);        
         return view('produtos.edit', ['produtos' => $produtos, 'categorias' => $categorias]);
     }
 
     public function update(ProdutoRequest $request, $id_produtos)
     {
-        $produto = Produto::find($id_produtos)->update($request->all());
+        $produto = Produto::find($id_produtos);
 
+        //dd($request);
+        if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
+            $requestImagem = $request->imagem;
+            $extension = $requestImagem->extension();
+            $imagemNome = md5($requestImagem->getClientOriginalName() . strtotime("now")) . "." . $extension;
+            $requestImagem->move(public_path('img/produtos'), $imagemNome);
+            $produto->update(['imagem' => $imagemNome]);
+            $atributos = $request->except(['imagem']);
+
+            if (!empty($imagemNome)) {
+                $atributos['imagem'] = $imagemNome;
+            }
+        }
+        $produto->update($atributos);
+        //dd($produto);      
+        //$produto->update($request->all()); 
+        //$produto->update(['nome' => $request->nome]);
+        //$produto->update(['especificacao' => $request->especificacao]);
+        //$produto->update(['preco' => $request->preco]);
+        //$produto->update(['qt_estoque' => $request->qt_estoque]);
+        //$produto->update(['estoque_minimo' => $request->estoque_minimo]);
+        //$produto->update(['fk_categoria' => $request->fk_categoria]);
+        //dd($produto);    
         return redirect()->route('produtos');
     }
 }

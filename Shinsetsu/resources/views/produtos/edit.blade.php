@@ -11,7 +11,7 @@
 </ul>
 @endif
 
-{!! Form::open(['route'=>["produtos.update", 'id'=>$produtos->id_produtos], 'method'=>'put']) !!}
+{!! Form::open(['route'=>["produtos.update", 'id'=>$produtos->id_produtos], 'method'=>'put', 'files'=>true,  'enctype'=>'multipart/form-data']) !!}
 
 <div class="form-group">
 
@@ -35,9 +35,13 @@
     App\Models\Categoria::orderbY('nome')->pluck('nome', 'id_categorias')->toArray(),
     $produtos->fk_categoria, ['class' => 'form-control', 'required' ]) !!}
 
-
     {!! Form::label ('imagem', 'Imagem do Produto:') !!}
-    {!! Form::text ('imagem', $produtos->imagem, ['class' => 'form-control-file']) !!}
+    {!! Form::text ('imagem',
+    $produtos->imagem, ['class' => 'form-control', 'required']) !!}
+
+    {!! Form::label ('imagem', ' Nova Imagem do Produto:') !!}
+    {!! Form::file ('imagem', null, ['class' => 'form-control-file']) !!}
+    
 
     <div class="form-group">
         {!! Form::submit('Editar Produtos', ['class'=>'btn btn-primary']) !!}
