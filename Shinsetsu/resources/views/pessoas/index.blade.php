@@ -58,7 +58,8 @@
         <td>{{$pessoa ->RG}}</td>  
         <td>{{$pessoa ->usuario->name}}</td>  
         <td>
-         <a href="{{ route('pessoas.edit', ['id'=>$pessoa->id_pessoas]) }}" class="btn-sm btn-success">Editar</a>
+        
+        <a href="{{ route('pessoas.edit',    ['id_pessoas'=>\Crypt::encrypt($pessoa->id_pessoas)]) }}" class="btn-sm btn-success">Editar</a>
          <a href="#" onclick="return ConfirmaExclusao({{$pessoa->id_pessoas}})" class="btn-sm btn-danger">Remover</a>
         </td>    
         @endforeach

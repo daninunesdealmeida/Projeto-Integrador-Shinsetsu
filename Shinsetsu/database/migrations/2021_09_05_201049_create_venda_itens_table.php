@@ -16,7 +16,7 @@ class CreateVendaItensTable extends Migration
         Schema::create('venda_itens', function (Blueprint $table) {
             $table->bigIncrements('id_vendaItens');
             $table->Integer('quantidade');
-            $table->Float('vlr_unitário');
+            $table->String('vlr_unitário');
             $table->unsignedBigInteger('fk_produtos');
             $table->timestamps();
 

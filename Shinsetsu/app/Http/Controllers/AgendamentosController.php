@@ -6,6 +6,7 @@ use App\Http\Requests\AgendamentoRequest;
 use App\Models\Agendamento;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Crypt;
 
 class AgendamentosController extends Controller
 {
@@ -61,10 +62,10 @@ class AgendamentosController extends Controller
         return $ret;
     }
 
-    public function edit($id_agendamentos)
+    public function edit(Request $request)
     {
 
-        $agendamentos = Agendamento::find($id_agendamentos);
+        $agendamentos = Agendamento::find(\Crypt::decrypt($request->get('id_agendamentos')));
         return view('agendamentos.edit', compact('agendamentos'));
     }
 

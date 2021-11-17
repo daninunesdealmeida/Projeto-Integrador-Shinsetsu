@@ -17,7 +17,7 @@ class CreateProdutosTable extends Migration
             $table->bigIncrements('id_produtos');
             $table->String('nome');
             $table->String('especificacao');
-            $table->float('preco');
+            $table->String('preco');
             $table->integer('qt_estoque');
             $table->integer('estoque_minimo');
             $table->unsignedBigInteger('fk_categoria');

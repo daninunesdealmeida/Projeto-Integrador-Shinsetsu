@@ -42,9 +42,9 @@ class Venda_ItensController extends Controller
           return redirect()->route('venda_Itens');
     }
 
-    public function edit($id_vendaItens)
+    public function edit(Request $request)
     {
-        $venda_Itens = Venda_Item::find($id_vendaItens);        
+        $venda_Itens = Venda_Item::find(\Crypt::decrypt($request->get('id_vendaItens')));     
         $produtos = Produto::select(['id_produtos', 'nome'])->orderBy('nome')->get();
         return view('venda_Itens.edit', ['venda_Itens' => $venda_Itens, 'produtos' => $produtos]);
          
