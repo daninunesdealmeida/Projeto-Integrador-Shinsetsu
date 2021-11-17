@@ -48,7 +48,7 @@
                                         <td>{{ Carbon\Carbon::parse($agendamento ->dia)->format('d/m/Y') }}</td>
                                         <td>{{$agendamento ->hora}}</td>
                                         <td>
-                                                <a href="{{ route('agendamentos.edit',    ['id'=>$agendamento->id_agendamentos]) }}" class="btn-sm btn-success">Editar</a>
+                                                <a href="{{ route('agendamentos.edit',    ['id_agendamentos'=>\Crypt::encrypt($agendamento->id_agendamentos)]) }}" class="btn-sm btn-success">Editar</a>
                                                 <a href="#" onclick="return ConfirmaExclusao({{$agendamento->id_agendamentos}})" class="btn-sm btn-danger">Remover</a>
                                         </td>
                                 </tr>

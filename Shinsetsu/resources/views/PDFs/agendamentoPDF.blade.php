@@ -11,8 +11,10 @@
 <body>
 <table class="table table-striped">
                         <tbody>
+                                
                                 <tr>
                                         <th>Id</th>
+                                        <th>Nome</th>
                                         <th>Modalidade</th>
                                         <th>Dia</th>
                                         <th>Hora</th>
@@ -21,10 +23,10 @@
                                 @foreach($agendamentos as $agendamento)
                                 <tr>
                                         <td>{{$agendamento ->id_agendamentos}}</td>
+                                        <td>{{$agendamento ->nome}}</td>
                                         <td>{{$agendamento ->modalidade}}</td>
                                         <td>{{ Carbon\Carbon::parse($agendamento ->dia)->format('d/m/Y') }}</td>
                                         <td>{{$agendamento ->hora}}</td>
-                                        <td>{{$agendamento ->pessoa->nome}}</td>
                                         <td>
                                         </tr>
     @endforeach

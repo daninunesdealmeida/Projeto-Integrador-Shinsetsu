@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Http\Request;
 use App\Http\Requests\PessoaRequest;
 use App\Models\Pessoa;
 use App\Models\Usuario;
@@ -50,9 +50,9 @@ class PessoasController extends Controller
     return $ret;
   }
 
-  public function edit($id_pessoas)
+  public function edit(Request $request)
   {
-    $pessoas = Pessoa::find($id_pessoas);
+    $pessoas = Pessoa::find(\Crypt::decrypt($request->get('id_pessoas')));
     $usuarios = Usuario::select(['id', 'name'])->orderBy('name')->get();
     return view('pessoas.edit', ['pessoas' => $pessoas, 'usuarios' => $usuarios]);
   }

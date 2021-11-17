@@ -38,8 +38,9 @@ public function destroy($id_pagamentos){
                  return redirect()->route('pagamentos');
          }    
 
-public function edit($id_pagamentos){
-    $pagamentos = Pagamento::find($id_pagamentos);
+public function edit(Request $request){
+
+    $pagamentos = Pagamento::find(\Crypt::decrypt($request->get('id_pagamentos')));
     $vendas = Venda::select(['id_vendas', 'nome'])->orderBy('nome')->get();
     return view('pagamentos.edit', ['pagamentos' => $pagamentos, 'vendas' => $vendas]);
          }

@@ -54,7 +54,8 @@
                                 <td>{{$produto ->categoria->nome}}</td>                                
                                 <td>{{$produto ->imagem}}</td>
                                 <td>
-                                        <a href="{{ route('produtos.edit', ['id'=>$produto->id_produtos]) }}" class="btn-sm btn-success">Editar</a>
+
+                                        <a href="{{ route('produtos.edit',    ['id_produtos'=>\Crypt::encrypt($produto->id_produtos)]) }}" class="btn-sm btn-success">Editar</a>
                                         <a href="#" onclick="return ConfirmaExclusao({{$produto->id_produtos}})" class="btn-sm btn-danger">Remover</a>
                                 </td>
                                 @endforeach

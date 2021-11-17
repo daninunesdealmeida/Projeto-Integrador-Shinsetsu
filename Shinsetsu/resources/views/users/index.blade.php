@@ -46,7 +46,8 @@
         <td>{{$user ->email}}</td>
         <td>{{$user ->isAdmin}}</td> 
         <td>
-         <a href="{{ route('users.edit', ['id'=>$user->id]) }}" class="btn-sm btn-success">Editar</a>
+
+        <a href="{{ route('users.edit',    ['id'=>\Crypt::encrypt($user->id)]) }}" class="btn-sm btn-success">Editar</a>
          <a href="#" onclick="return ConfirmaExclusao({{$user->id}})" class="btn-sm btn-danger">Remover</a>
         </td>    
         @endforeach

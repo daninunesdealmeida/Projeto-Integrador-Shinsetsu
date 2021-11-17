@@ -23,7 +23,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::any("",              ['as' => 'agendamentos',         'uses' => "App\Http\Controllers\AgendamentosController@index"]);
         Route::get("/create",       ['as' => 'agendamentos.create',  'uses' => "App\Http\Controllers\AgendamentosController@create"]);
         Route::get("/{id}/destroy", ['as' => 'agendamentos.destroy', 'uses' => "App\Http\Controllers\AgendamentosController@destroy"]);
-        Route::get("/{id}/edit",    ['as' => 'agendamentos.edit',    'uses' => "App\Http\Controllers\AgendamentosController@edit"]);
+        Route::get("/edit",    ['as' => 'agendamentos.edit',    'uses' => "App\Http\Controllers\AgendamentosController@edit"]);
         Route::put("/{id}/update",  ['as' => 'agendamentos.update',  'uses' => "App\Http\Controllers\AgendamentosController@update"]);
     });
 
@@ -39,7 +39,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get("/create",       ['as' => 'pessoas.create',  'uses' => "App\Http\Controllers\PessoasController@create"]);
         Route::post("/store",       ['as' => 'pessoas.store',   'uses' => "App\Http\Controllers\PessoasController@store"]);
         Route::get("/{id}/destroy", ['as' => 'pessoas.destroy', 'uses' => "App\Http\Controllers\PessoasController@destroy"]);
-        Route::get("/{id}/edit",    ['as' => 'pessoas.edit',    'uses' => "App\Http\Controllers\PessoasController@edit"]);
+        Route::get("/edit",    ['as' => 'pessoas.edit',    'uses' => "App\Http\Controllers\PessoasController@edit"]);
         Route::put("/{id}/update",  ['as' => 'pessoas.update',  'uses' => "App\Http\Controllers\PessoasController@update"]);
     });
 
@@ -50,7 +50,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get("/create",       ['as' => 'vendas.create',  'uses' => "App\Http\Controllers\VendasController@create"]);
         Route::post("/store",       ['as' => 'vendas.store',   'uses' => "App\Http\Controllers\VendasController@store"]);
         Route::get("/{id}/destroy", ['as' => 'vendas.destroy', 'uses' => "App\Http\Controllers\VendasController@destroy"]);
-        Route::get("/{id}/edit",    ['as' => 'vendas.edit',    'uses' => "App\Http\Controllers\VendasController@edit"]);
+        Route::get("/edit",    ['as' => 'vendas.edit',    'uses' => "App\Http\Controllers\VendasController@edit"]);
         Route::put("/{id}/update",  ['as' => 'vendas.update',  'uses' => "App\Http\Controllers\VendasController@update"]);
     });
 
@@ -60,7 +60,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get("/create",       ['as' => 'venda_Itens.create',  'uses' => "App\Http\Controllers\Venda_ItensController@create"]);
         Route::post("/store",       ['as' => 'venda_Itens.store',   'uses' => "App\Http\Controllers\Venda_ItensController@store"]);
         Route::get("/{id}/destroy", ['as' => 'venda_Itens.destroy', 'uses' => "App\Http\Controllers\Venda_ItensController@destroy"]);
-        Route::get("/{id}/edit",    ['as' => 'venda_Itens.edit',    'uses' => "App\Http\Controllers\Venda_ItensController@edit"]);
+        Route::get("/edit",    ['as' => 'venda_Itens.edit',    'uses' => "App\Http\Controllers\Venda_ItensController@edit"]);
         Route::put("/{id}/update",  ['as' => 'venda_Itens.update',  'uses' => "App\Http\Controllers\Venda_ItensController@update"]);
     });
 
@@ -71,7 +71,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get("/create",       ['as' => 'produtos.create',  'uses' => "App\Http\Controllers\ProdutosController@create"]);
         Route::post("/store",       ['as' => 'produtos.store',   'uses' => "App\Http\Controllers\ProdutosController@store"]);
         Route::get("/{id}/destroy", ['as' => 'produtos.destroy', 'uses' => "App\Http\Controllers\ProdutosController@destroy"]);
-        Route::get("/{id}/edit",    ['as' => 'produtos.edit',    'uses' => "App\Http\Controllers\ProdutosController@edit"]);
+        Route::get("/edit",    ['as' => 'produtos.edit',    'uses' => "App\Http\Controllers\ProdutosController@edit"]);
         Route::put("/{id}/update",  ['as' => 'produtos.update',  'uses' => "App\Http\Controllers\ProdutosController@update"]);
     });
 
@@ -93,7 +93,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get("/create",       ['as' => 'pagamentos.create',  'uses' => "App\Http\Controllers\PagamentosController@create"]);
         Route::post("/store",       ['as' => 'pagamentos.store',   'uses' => "App\Http\Controllers\PagamentosController@store"]);
         Route::get("/{id}/destroy", ['as' => 'pagamentos.destroy', 'uses' => "App\Http\Controllers\PagamentosController@destroy"]);
-        Route::get("/{id}/edit",    ['as' => 'pagamentos.edit',    'uses' => "App\Http\Controllers\PagamentosController@edit"]);
+        Route::get("/edit",    ['as' => 'pagamentos.edit',    'uses' => "App\Http\Controllers\PagamentosController@edit"]);
         Route::put("/{id}/update",  ['as' => 'pagamentos.update',  'uses' => "App\Http\Controllers\PagamentosController@update"]);
     });
 
@@ -104,7 +104,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get("/create",       ['as' => 'users.create',  'uses' => "App\Http\Controllers\UsersController@create"]);
         Route::post("/store",       ['as' => 'users.store',   'uses' => "App\Http\Controllers\UsersController@store"]);
         Route::get("/{id}/destroy", ['as' => 'users.destroy', 'uses' => "App\Http\Controllers\UsersController@destroy"]);
-        Route::get("/{id}/edit",    ['as' => 'users.edit',    'uses' => "App\Http\Controllers\UsersController@edit"]);
+        Route::get("/edit",    ['as' => 'users.edit',    'uses' => "App\Http\Controllers\UsersController@edit"]);
         Route::put("/{id}/update",  ['as' => 'users.update',  'uses' => "App\Http\Controllers\UsersController@update"]);
     });
 

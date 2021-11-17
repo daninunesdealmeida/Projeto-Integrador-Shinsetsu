@@ -50,7 +50,8 @@
         <td>{{$venda ->valor_vendas}}</td>    
         <td>{{$venda ->fk_vendasItens}}</td>         
         <td>
-         <a href="{{ route('vendas.edit', ['id'=>$venda->id_vendas]) }}" class="btn-sm btn-success">Editar</a>
+
+        <a href="{{ route('vendas.edit',    ['id_vendas'=>\Crypt::encrypt($venda->id_vendas)]) }}" class="btn-sm btn-success">Editar</a>                                     
          <a href="#" onclick="return ConfirmaExclusao({{$venda->id_vendas}})" class="btn-sm btn-danger">Remover</a>
         </td>
         <br>

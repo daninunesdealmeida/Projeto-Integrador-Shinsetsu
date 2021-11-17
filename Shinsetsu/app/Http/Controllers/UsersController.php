@@ -48,9 +48,9 @@ class UsersController extends Controller
         return $ret;
     }
 
-    public function edit($id)
+    public function edit(Request $request)
     {
-        $user = User::find($id);
+        $user = User::find(\Crypt::decrypt($request->get('id')));
         return view('users.edit', compact('user'));
     }
 

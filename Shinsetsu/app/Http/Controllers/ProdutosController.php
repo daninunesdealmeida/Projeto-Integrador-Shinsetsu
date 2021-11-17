@@ -61,12 +61,9 @@ class ProdutosController extends Controller
         return $ret;
     }
 
-    public function edit($id_produtos)
+    public function edit(Request $request)
     {
-        /*$produtos = Produto::find($id_produtos);
-        return view('produtos.edit', compact('produtos'));*/
-
-        $produtos = Produto::find($id_produtos);
+        $produtos = Produto::find(\Crypt::decrypt($request->get('id_produtos')));
         $categorias = Categoria::select(['id_categorias', 'nome'])->orderBy('nome')->get();
         return view('produtos.edit', ['produtos' => $produtos, 'categorias' => $categorias]);
     }

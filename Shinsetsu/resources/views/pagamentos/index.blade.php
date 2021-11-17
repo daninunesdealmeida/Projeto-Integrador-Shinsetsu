@@ -51,7 +51,7 @@
                                 <td>{{$pagamento ->boleto}}</td>
                                 <td>{{$pagamento ->fk_pagamentos}}</td>
                                 <td>
-                                        <a href="{{ route('pagamentos.edit', ['id'=>$pagamento->id_pagamentos]) }}" class="btn-sm btn-success">Editar</a>
+                                        <a href="{{ route('pagamentos.edit', ['id_pagamentos'=>\Crypt::encrypt($pagamento->id_pagamentos)]) }}" class="btn-sm btn-success">Editar</a>
                                         <a href="#" onclick="return ConfirmaExclusao({{$pagamento->id_pagamentos}})" class="btn-sm btn-danger">Remover</a>
                                 </td>
                                 @endforeach
