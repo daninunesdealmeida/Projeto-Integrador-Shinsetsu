@@ -15,10 +15,10 @@
     {!! Form::label ('preco', 'Preço:') !!}
     {!! Form::text ('preco', null, ['class' => 'form-control', 'id' => 'money']) !!}
 
-    {!! Form::label ('qt_estoque', 'quantidade em estoque:') !!}
+    {!! Form::label ('qt_estoque', 'Quantidade em estoque:') !!}
     {!! Form::text ('qt_estoque', null, ['class' => 'form-control']) !!}
 
-    {!! Form::label ('estoque_minimo', 'estoque minimo:') !!}
+    {!! Form::label ('estoque_minimo', 'Estoque minimo:') !!}
     {!! Form::text ('estoque_minimo', null, ['class' => 'form-control', 'required' ]) !!}
 
     {!! Form::label ('fk_categoria', 'Categoria do Produto:') !!}

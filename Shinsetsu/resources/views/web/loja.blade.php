@@ -33,7 +33,7 @@
         @foreach($produtos as $produto)
         <div class="col-md-4">
             <div class="card card-shadow border-0 mb-4">
-                <img class="card-img-top" src="https://static.netshoes.com.br/produtos/luva-de-boxe-premium-iron-arm/06/CEQ-0061-006/CEQ-0061-006_zoom1.jpg?ts=1566212555" alt="wrappixel kit">
+                <img class="card-img-top" src="img/produtos/{{$produto->imagem}}" alt="wrappixel kit">
                 <div class="p-3">
                     <h5 class="font-weight-medium mb-0">{{$produto->nome}}</h5>
                     <h5 class="font-weight-medium mb-0">{{$produto->qt_estoque}}</h5>
