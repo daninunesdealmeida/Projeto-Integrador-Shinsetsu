@@ -13,6 +13,8 @@ Route::get('/', [WebController::class, 'index'])->name('site');
 Route::get('/loja', [WebController::class, 'loja'])->name('loja');
 Route::get('/categoria/{id}', [WebController::class, 'pesquisaCategoria'])->name('pesquisaCategoria');
 Route::get('/login', [WebController::class, 'login'])->name('login');
+Route::post('/carrinho', [WebController::class, 'insereCarrinho'])->name('insereCarrinho');
+
 Route::post("/store",       ['as' => 'agendamentos.store',   'uses' => "App\Http\Controllers\AgendamentosController@store"]);
 
 
@@ -97,7 +99,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::put("/{id}/update",  ['as' => 'pagamentos.update',  'uses' => "App\Http\Controllers\PagamentosController@update"]);
     });
 
-    
+
     //Rotas do model user
     Route::group(["prefix" => "Users", "where" => ["id" => "[0-9]+"]], function () {
         Route::any("",              ['as' => 'users',         'uses' => "App\Http\Controllers\UsersController@index"]);

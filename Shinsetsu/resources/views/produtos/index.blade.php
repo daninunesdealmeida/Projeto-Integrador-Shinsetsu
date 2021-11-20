@@ -51,8 +51,8 @@
                                 <td>{{$produto ->preco}}</td>
                                 <td>{{$produto ->qt_estoque}}</td>
                                 <td>{{$produto ->estoque_minimo}}</td>
-                                <td>{{$produto ->categoria->nome}}</td> 
-                                <td><img class="card-img-top" src="img/produtos/{{$produto->imagem}}" width="100%" alt="100px" style="height:100px"></td>                               
+                                <td>{{$produto ->categoria->nome}}</td>                                
+                                <td><img class="card-img-top" src="img/produtos/{{$produto->imagem}}" width="100%" alt="100px" style="height:100px"></td>     
                                 <td>
 
                                         <a href="{{ route('produtos.edit',    ['id_produtos'=>\Crypt::encrypt($produto->id_produtos)]) }}" class="btn-sm btn-success">Editar</a>

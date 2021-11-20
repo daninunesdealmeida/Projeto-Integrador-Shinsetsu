@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Carrinho;
 use App\Models\Categoria;
 use App\Models\Produto;
 use Illuminate\Http\Request;
@@ -24,6 +25,11 @@ class WebController extends Controller
      */
     public function index()
     {
+        $random = md5(uniqid(rand(), true));
+
+        session()->put('usuario', substr($random, 1, 40));
+
+
         return view('web.site');
     }
 
@@ -36,24 +42,37 @@ class WebController extends Controller
     {
         $categorias = Categoria::all();
         $produtos = Produto::all();
-        return view('web.loja',compact('categorias', 'produtos'));
-        
+        $carrinhos = Carrinho::all();
+        return view('web.loja', compact('categorias', 'produtos','carrinhos'));
+
     }
 
     public function pesquisaCategoria($id)
     {
 
-        if($id != null){
-            $categorias = Categoria::where('id_categorias',$id)->get();
-            $produtos = Produto::where('fk_categoria',$id)->get();
-        }else{
+        if ($id != null) {
+            $categorias = Categoria::where('id_categorias', $id)->get();
+            $produtos = Produto::where('fk_categoria', $id)->get();
+        } else {
             $categorias = Categoria::all();
             $produtos = Produto::all();
         }
 
-        return view('web.loja',compact('categorias','produtos'));
+        return view('web.loja', compact('categorias', 'produtos'));
     }
 
+    public function insereCarrinho(Request $request)
+    {
+
+        Carrinho::create([
+            'produto_id' => $request->idproduto,
+            'preco' => $request->preco_produto,
+            'quantidade' => $request->quantidade,
+            'sessao' => session()->get('usuario')
+        ]);
+
+        return redirect()->back();
+    }
 
 
 }
