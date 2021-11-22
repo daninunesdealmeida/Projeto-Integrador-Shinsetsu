@@ -20,6 +20,7 @@
      </style>
 
 <header class="header-area header-sticky">
+@include('flash::message')
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -70,8 +71,7 @@
                             <input type="number" name="quantidade">
                             <div class="d-flex mt-3 align-items-center">
                                 <h2 class="price">{{'R$ '.number_format($produto->preco,2,'.',',')}}</h2>
-                                {{--                                <div class="ml-auto"><a class="btn btn-danger-gradiant rounded-pill text-white btn-md border-0" href="">Comprar</a></div>--}}
-                                <div class="ml-auto">
+                           <div class="ml-auto">
                                     <button class="btn btn-danger-gradiant rounded-pill text-white btn-md border-0" type="submit">Adicionar ao Carrinho </button>
                                 </div>
                             </div>
@@ -82,27 +82,6 @@
         @endforeach
     </div>
 </div>
-
-{{--<div class="container">--}}
-{{--    <h1>Carrinho de compras</h1>--}}
-
-
-{{--    <form action="{{route('insereCarrinho')}}" method="post">--}}
-{{--        @csrf--}}
-
-{{--        @foreach($carrinhos as $carrinho)--}}
-{{--            <ul>--}}
-{{--                <li>{{$carrinho->produto_id}} - {{$carrinho->preco * $carrinho->quantidade}}</li>--}}
-{{--            </ul>--}}
-{{--        @endforeach--}}
-
-{{--            <div class="ml-auto">--}}
-{{--                <button class="btn btn-primary" type="submit">concluir compra</button>--}}
-{{--            </div>--}}
-{{--    </form>--}}
-
-{{--</div>--}}
-
 
 <!-- jQuery -->
 <script src="{{ asset('assets/js/jquery-2.1.0.min.js') }}"></script>

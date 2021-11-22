@@ -74,9 +74,11 @@ class WebController extends Controller
             'produto_id' => $request->idproduto,
             'preco' => $request->preco_produto,
             'quantidade' => $request->quantidade,
-           // 'imagem' => $request->imagem,
+            'imagem' => $request->imagem,
             'id_user' => $user
         ]);
+
+        flash('adicionado ao carrinho')->success(); 
 
         return redirect()->back();
     }

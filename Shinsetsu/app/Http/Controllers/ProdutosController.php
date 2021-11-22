@@ -30,8 +30,7 @@ class ProdutosController extends Controller
 
     public function store(ProdutoRequest $request)
     {
-        $novo_produto = $request->all();
-        //dd($request->hasFile('imagem') && $request->file('imagem')->isValid());              
+        $novo_produto = $request->all();        
         //upload da imagem
         if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
             $requestImagem = $request->imagem;
@@ -48,8 +47,7 @@ class ProdutosController extends Controller
 
     public function destroy($id_produtos)
     {
-        /* Produto::find($id_produtos)->delete();
-        return redirect()->route('produtos');*/
+       
         try {
             Produto::find($id_produtos)->delete();
             $ret = array('status' => 200, 'msg' => "null");
@@ -65,7 +63,7 @@ class ProdutosController extends Controller
     {
         $produtos = Produto::find(\Crypt::decrypt($request->get('id_produtos')));
         $categorias = Categoria::select(['id_categorias', 'nome'])->orderBy('nome')->get();
-        //dd($produtos);        
+            
         return view('produtos.edit', ['produtos' => $produtos, 'categorias' => $categorias]);
     }
 
@@ -73,7 +71,7 @@ class ProdutosController extends Controller
     {
         $produto = Produto::find($id_produtos);
 
-        //dd($request);
+     
         if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
             $requestImagem = $request->imagem;
             $extension = $requestImagem->extension();
@@ -86,16 +84,7 @@ class ProdutosController extends Controller
                 $atributos['imagem'] = $imagemNome;
             }
         }
-        $produto->update($atributos);
-        //dd($produto);      
-        //$produto->update($request->all()); 
-        //$produto->update(['nome' => $request->nome]);
-        //$produto->update(['especificacao' => $request->especificacao]);
-        //$produto->update(['preco' => $request->preco]);
-        //$produto->update(['qt_estoque' => $request->qt_estoque]);
-        //$produto->update(['estoque_minimo' => $request->estoque_minimo]);
-        //$produto->update(['fk_categoria' => $request->fk_categoria]);
-        //dd($produto);    
+        $produto->update($atributos); 
         return redirect()->route('produtos');
     }
 }

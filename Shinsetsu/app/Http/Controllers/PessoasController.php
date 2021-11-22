@@ -5,7 +5,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\PessoaRequest;
 use App\Models\Pessoa;
 use App\Models\Usuario;
-use Illuminate\Http\Request;
+
 
 class PessoasController extends Controller
 {
