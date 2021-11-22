@@ -17,8 +17,8 @@ class CreatePagamentosTable extends Migration
             $table->bigIncrements('id_pagamentos');
             $table->String('cartao');
             $table->String('nome_cartao');
+            $table->Integer('num_cartao');
             $table->Date('dt_vencimento');
-            $table->String('boleto');
             $table->unsignedBigInteger('fk_vendas');
             $table->unsignedBigInteger('fk_users');
             $table->timestamps();

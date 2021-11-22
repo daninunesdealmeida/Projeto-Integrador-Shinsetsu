@@ -18,6 +18,12 @@
     null, ['class' => 'form-control', 'required' ]) !!}
 </div>
 
+{!! Form::label ('fk_vendas2', 'Venda:') !!}
+    {!! Form::select('fk_vendas2',
+    app\Models\Venda::orderbY('nome')->pluck('dt_venda', 'id_vendas')->toArray(),
+    null, ['class' => 'form-control', 'required' ]) !!}
+</div>
+
 
 <div class="form-group">
 {!! Form::submit('Criar Venda Ítem', ['class'=>'btn btn-primary']) !!}

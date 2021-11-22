@@ -15,17 +15,17 @@
 
 <div class="form-group">
 
-{!! Form::label ('cartao', 'Número_Cartao:') !!}
-{!! Form::text ('cartao', $pagamentos->cartao, ['class' => 'form-control', 'id' => 'cartao']) !!}
+{!! Form::label ('cartao', 'Tipo_cartao:') !!}
+{!! Form::select ('cartao', array('Jiu Jitsu' => 'Jiu Jitsu', 'Judô' => 'Judô'), 'Jiu Jitsu', ['class' => 'form-control' ]) !!}
 
 {!! Form::label ('nome_cartao', 'Nome_cartao:') !!}
 {!! Form::text ('nome_cartao', $pagamentos->nome_cartao, ['class' => 'form-control']) !!}
 
+{!! Form::label ('num_cartao', 'Num_cartao:') !!}
+{!! Form::text ('num_cartao', $pagamentos->num_cartao, ['class' => 'form-control']) !!}
+
 {!! Form::label ('dt_vencimento', 'Dt_vencimento:') !!}
 {!! Form::date ('dt_vencimento', $pagamentos->Dt_vencimento, ['class' => 'form-control']) !!}
-
-{!! Form::label ('boleto', 'Boleto:') !!}
-{!! Form::text ('boleto', $pagamentos->boleto, ['class' => 'form-control']) !!}
 
 {!! Form::label ('fk_vendas', 'Venda:') !!}
 {!! Form::select('fk_vendas',

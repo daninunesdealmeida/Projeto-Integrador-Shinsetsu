@@ -36,8 +36,8 @@
                                 <th>Id</th>
                                 <th>Cartão</th>
                                 <th>Nome_Cartão</th>
+                                <th>num_cartao</th>
                                 <th>Data_Vencimento</th>
-                                <th>Boleto</th>
                                 <th>Vendas</th>
                                 <th>Ações</th>
                                 </thead>
@@ -47,8 +47,8 @@
                                 <td>{{$pagamento ->id_pagamentos}}</td>
                                 <td>{{$pagamento ->cartao}}</td>
                                 <td>{{$pagamento ->nome_cartao}}</td>
+                                <td>{{$pagamento ->num_cartao}}</td>
                                 <td> {{ Carbon\Carbon::parse($pagamento ->dt_vencimento)->format('d/m/Y') }} </td>
-                                <td>{{$pagamento ->boleto}}</td>
                                 <td>{{$pagamento ->fk_pagamentos}}</td>
                                 <td>{{$pagamento ->usuario->name}}</td>  
                                 <td>

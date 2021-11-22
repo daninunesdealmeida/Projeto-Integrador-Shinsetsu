@@ -1,189 +1,115 @@
 <!doctype html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>Loja Shinsetsu</title>
-        <meta name="description" content="" />
-        <meta name="keywords" content="" />
-        <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.min.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/estilos.css') }}">
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js"></script>
+<html lang="en">  
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Loja</title>
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/estilos.css') }}">
+ 
 
-        <style>
-		*, html{ font-family: Helvetica, arial, sans-serif; margin: 0 0; padding: 0 0; }
-        body{ margin: 0 0; padding: 0 0; background-color:#D6D1CA; }
-		h1{ color: #594A40; letter-spacing:-2px ;text-align:center;font-size:46px;font-family:Helvetica, arial,sans-serif;text-transform:uppercase;margin:30px 0 0;}
-		div#container{ margin: 0 auto; width:960px; }
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/font-awesome.css') }}">
 
-		p{ margin: 10px 10px; }
-				ul#produtos{ list-style:none; }
-        div#carrinho-top{
-			background-color: #C92D21;
-			width: 960px;
-			color: #fff;
-			border-bottom:1px dashed #fff;
-			opacity: .8;
-			position:relative;
-	 	}
-		div#carrinho-info{ padding: 10px; }
-		div#carrinho-container{
-			height:240px;
-			position:absolute;
-			width:240px;
-			background-color:#fff;
-			border:2px solid #c92d21;
-			display:none;
-		}
-		div#carrinho-container ul{ overflow:auto; height:200px; margin: 10px; list-style:none; }
-		div#carrinho-container ul li{ color:#333; font-size:12px; border-bottom:1px dotted #ccc; text-align:center; margin:10px; }
+    <link rel="stylesheet" href="{{ asset('assets/css/templatemo-training-studio.css') }}">
+</head>
+<style>
+     .body{	background-color: #545b62;
+     }
+     </style>
 
-		ul#produtos li{
-			float: left;
-			background-color:#fff;
-			-moz-box-shadow: 5px 5px 5px #ccc;
-			  -webkit-box-shadow: 5px 5px 5px #ccc;
-			  box-shadow: 5px 5px 5px #ccc;
-			padding:10px;
-			margin:15px;
-			width:270px;
-			text-align:center;
-		}
-		ul#produtos li h3{
-			margin: 6px 0 6px 0;
-			color: #594A40;
-			background-color:#f2f2f2;
-			padding:6px;
-		}
-		p.preco-por{
-			color: #594A40;
-			font-weight:900;
-		}
-		.ui-state-hover{
-			height:160px;
-			border:4px dashed #000;
-		}
-        </style>
-
-    </head>
-    <body>
-
-        <div class="btn-group">
-            <a href="{{ route('site') }}" class="btn btn-secondary"> Home</a>
-            <a href="{{ route('loja') }}" class="btn btn-secondary"> Loja</a>
-        
-            <div class="dropdown show">
-                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Categorias
-                </a>
-        
-                <div class="dropdown-menu" aria-labelledby="Categorias">
-                    @foreach($categorias as $categoria)
-                        <li><a class="dropdown-item" href="{{route('pesquisaCategoria',['id'=>$categoria->id_categorias])}}">{{$categoria->nome}}</a></li>
-                    @endforeach
-                </div>
+<header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="index.html" class="logo">Acadêmia<em> Shinsetsu</em></a>
+                    <ul class="nav">
+                        <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
+                        <li class="scroll-to-section"><a href="#contact-us">Agendamentos</a></li>
+                         <li class="scroll-to-section"><a href="{{route('carrinhocompra')}}">Meu Carrinho</a></li>
+                        <li class="scroll-to-section"><a href="{{route('loja')}}">Loja</a></li>
+                        <div>
+                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Categorias
+                            </a>
+                    
+                            <div class="dropdown-menu" aria-labelledby="Categorias">
+                                @foreach($categorias as $categoria)
+                                    <li><a class="dropdown-item" href="{{route('pesquisaCategoria',['id'=>$categoria->id_categorias])}}">{{$categoria->nome}}</a></li>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                       
+                    </ul>
+                </nav>
             </div>
         </div>
+    </div>
+</header>
 
-		<div id="container">
+   
 
-	        <div id="carrinho-top">
-				<div id="carrinho-info">
-					<p>Arraste produtos para esta área</p>
-				</div>
-				<div id="carrinho-container">
-	            	<ul id="carrinho-produtos">
-						<li class="adicione">Arraste produtos para esta área</li>
-					</ul>
-				</div>
-	        </div>
+<div class="pricing4 py-5 bg-light">
+    <div class="row">
+        @foreach($produtos as $produto)
+            <div class="col-md-4">
+                <div class="card card-shadow border-0 mb-4">
+                    <img class="card-img-top" src="img/produtos/{{$produto->imagem}}" alt="wrappixel kit">
+                    <div class="p-3">
+                        <h5 class="font-weight-medium mb-0">{{$produto->nome}}</h5>
+                        <h5 class="font-weight-medium mb-0">Estoque {{$produto->qt_estoque}}</h5>
+                        <form action="{{route('insereCarrinho')}}" method="post">
+                            @csrf
+                            <input type="hidden" name="idproduto" value="{{$produto->id_produtos}}">
+                            <input type="hidden" name="preco_produto" value="{{$produto->preco}}">
+                            <p class="font-weight-medium mb-0">Quantidade</p>
+                            <input type="number" name="quantidade">
+                            <div class="d-flex mt-3 align-items-center">
+                                <h2 class="price">{{'R$ '.number_format($produto->preco,2,'.',',')}}</h2>
+                                {{--                                <div class="ml-auto"><a class="btn btn-danger-gradiant rounded-pill text-white btn-md border-0" href="">Comprar</a></div>--}}
+                                <div class="ml-auto">
+                                    <button class="btn btn-danger-gradiant rounded-pill text-white btn-md border-0" type="submit">Adicionar ao Carrinho </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+    </div>
+</div>
 
-				<h1>Loja Shinsetsu</h1>
-                
-            @foreach($produtos as $produto)
-			<ul id="produtos">
-				<li class="produto-dd"><input type="hidden" class="produto-id" /><h3>{{$produto->nome}}</h3><p><img class="card-img-top" src="img/produtos/{{$produto->imagem}}" alt="wrappixel kit" width="75" height="90" /></p><h5 class="font-weight-medium mb-0"></h5>
-                    <h5 class="font-weight-medium mb-0"><p class="preco-por">Valor {{$produto->preco}}</h5></li>
-                        
-			</ul>
-            @endforeach
-
-			</div>
-
-           
-    <script type="text/javascript">
-	var timerCarrinho = '';
-    $(function(){
-
-		$(window).scroll(function(){
-            var wtop	 	= $(this).scrollTop();
-			var carrinho 	= $('#carrinho-top');
-			var container	= $('#container');
-			var cheight 	= $(carrinho).height();
-            if( wtop > ( cheight / 2 ) )
-            {
-				$(container).css('margin-top', cheight+'px');
-                $(carrinho)
-					.css({
-	                    position: 'absolute'
-	                })
-					.animate({
-						marginTop: ( wtop - cheight ) + 'px'
-					}, 100);
-            }
-            else
-            {
-				$(container).css('margin-top', 0);
-                $(carrinho)
-					.stop(true, true)
-					.css({
-	                    position: 'relative',
-						marginTop: 0
-	                });
-            }
-        });
-
-		$('#produtos li').draggable({
-			helper: 'clone',
-			start: function()
-			{
-				clearTimeout( timerCarrinho );
-				$('#carrinho-container').show();
-			}
-		});
-
-		$('#carrinho-produtos').droppable({
-			hoverClass: 'ui-state-hover',
-			accept: '.produto-dd',
-			drop: function( event, ui )
-			{
-				$(this).find('.adicione').remove();
-				var cod = ui.draggable.find('.produto-id').val();
-				if( $(this).find('#clone-'+cod).length == 0 )
-				{
-					$('<li id="clone-'+cod+'" style="display:none;"></li>').html(ui.draggable.html()).prependTo( this );
-					$(this).find('li:first').slideDown();
-					var total_produtos = $(this).find('li').length;
-					$('#carrinho-info').html('<p>' + total_produtos + ' produto' + ( total_produtos > 1 ? 's' : '' ) + '</p>' );
-				}
-			}
-		});
-
-		$('#carrinho-container').mouseenter(function(){
-			clearTimeout( timerCarrinho );
-		});
-
-		$('#carrinho-container').mouseleave(function(){
-			var carrinho = $(this);
-			timerCarrinho = setTimeout( function(){
-				$(carrinho).slideUp();
-			}, 5000 );
-		});
+{{--<div class="container">--}}
+{{--    <h1>Carrinho de compras</h1>--}}
 
 
-    });
-    </script>
+{{--    <form action="{{route('insereCarrinho')}}" method="post">--}}
+{{--        @csrf--}}
 
-    </body>
+{{--        @foreach($carrinhos as $carrinho)--}}
+{{--            <ul>--}}
+{{--                <li>{{$carrinho->produto_id}} - {{$carrinho->preco * $carrinho->quantidade}}</li>--}}
+{{--            </ul>--}}
+{{--        @endforeach--}}
+
+{{--            <div class="ml-auto">--}}
+{{--                <button class="btn btn-primary" type="submit">concluir compra</button>--}}
+{{--            </div>--}}
+{{--    </form>--}}
+
+{{--</div>--}}
+
+
+<!-- jQuery -->
+<script src="{{ asset('assets/js/jquery-2.1.0.min.js') }}"></script>
+
+<!-- Bootstrap -->
+<script src="{{ asset('assets/js/popper.js')}}"></script>
+<script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+</body>
+
 </html>
-

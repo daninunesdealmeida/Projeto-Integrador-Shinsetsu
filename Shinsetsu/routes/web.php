@@ -10,7 +10,6 @@ use App\Http\Controllers\WebController;
 //});
 
 Route::get('/', [WebController::class, 'index'])->name('site');
-Route::get('/loja', [WebController::class, 'loja'])->name('loja');
 Route::get('/categoria/{id}', [WebController::class, 'pesquisaCategoria'])->name('pesquisaCategoria');
 Route::get('/login', [WebController::class, 'login'])->name('login');
 Route::post('/carrinho', [WebController::class, 'insereCarrinho'])->name('insereCarrinho');
@@ -20,6 +19,9 @@ Route::post("/store",       ['as' => 'agendamentos.store',   'uses' => "App\Http
 
 
 Route::group(['middleware' => 'auth'], function () {
+    Route::get('/loja', [WebController::class, 'loja'])->name('loja');
+    Route::get('/carrinhocompra', [WebController::class, 'carrinhoCompra'])->name('carrinhocompra');
+    Route::post('/finalizaCompra', [WebController::class, 'finalizaCompra'])->name('finalizaCompra');
     // Rotas do model agendamentos
     Route::group(["prefix" => "agendamentos", "where" => ["id" => "[0-9]+"]], function () {
         Route::any("",              ['as' => 'agendamentos',         'uses' => "App\Http\Controllers\AgendamentosController@index"]);
