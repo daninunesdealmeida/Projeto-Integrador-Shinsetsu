@@ -18,7 +18,8 @@ class CreateCarrinhosTable extends Migration
             $table->integer('produto_id')->nullable();
             $table->decimal('preco',12,2)->nullable();
             $table->decimal('quantidade',12,2)->nullable();
-            $table->string('sessao',50)->nullable();
+            $table->String('imagem');
+            $table->integer('id_user');
             $table->timestamps();
         });
     }

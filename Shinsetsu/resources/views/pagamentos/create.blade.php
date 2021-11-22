@@ -6,17 +6,17 @@
 
 <div class="form-group">
 
-    {!! Form::label ('cartao', 'Número_Cartao:') !!}
-    {!! Form::text ('cartao', null, ['class' => 'form-control', 'id' => 'cartao']) !!}
+    {!! Form::label ('cartao', 'Tipo_cartao:') !!}
+    {!! Form::select ('cartao', array('Visa' => 'Visa', 'MasterCard' => 'MasterCard'), 'Jiu Visa', ['class' => 'form-control', 'required' ]) !!}
 
     {!! Form::label ('nome_cartao', 'Nome_cartao:') !!}
     {!! Form::text ('nome_cartao', null, ['class' => 'form-control']) !!}
 
+    {!! Form::label ('num_cartao', 'Número_cartao:') !!}
+    {!! Form::text ('num_cartao', null, ['class' => 'form-control']) !!}
+
     {!! Form::label ('dt_vencimento', 'Dt_vencimento:') !!}
     {!! Form::date ('dt_vencimento', null, ['class' => 'form-control']) !!}
-
-    {!! Form::label ('boleto', 'Boleto:') !!}
-    {!! Form::text ('boleto', null, ['class' => 'form-control']) !!}
 
     {!! Form::label ('fk_vendas', 'Venda:') !!}
     {!! Form::select('fk_vendas',

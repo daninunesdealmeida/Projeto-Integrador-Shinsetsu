@@ -8,16 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class Venda extends Model
 {
     protected $table = "vendas";
-    protected $fillable = ['id_vendas', 'dt_venda', 'documento', 'total_itens', 'valor_vendas', 'fk_vendasItens'];
+    protected $fillable = ['id_vendas', 'dt_venda','total_itens','valor_vendas'];
     protected $primaryKey = 'id_vendas';
 
-    public function venda_itens(){
-        return $this->belongsTo(Venda_item::class, 'fk_vendasItens');
-    }
+
 
     public function pagamento(){
-        return $this->belongsTo(Pagamento::class, 'id_vendas');
+        return $this->belongsTo(Pagamento::class, 'id_pagamentos');
     }
+
+    public function venda_itens(){
+        return $this->belongsTo(Venda_item::class, 'id_vendaItens');
+      }
 }
 
 

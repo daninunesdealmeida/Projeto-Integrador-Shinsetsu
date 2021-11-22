@@ -15,5 +15,6 @@ class Carrinho extends Model
         'preco',
         'quantidade',
         'sessao',
+        'id_user'
     ];
 }

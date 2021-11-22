@@ -9,9 +9,6 @@
     {!! Form::label ('dt_venda', 'dt_venda:') !!}
     {!! Form::date ('dt_venda', null, ['class' => 'form-control']) !!}
 
-    {!! Form::label ('documento', 'Documento:') !!}
-    {!! Form::text ('documento', null, ['class' => 'form-control']) !!}
-
     {!! Form::label ('total_itens', 'total_itens:') !!}
     {!! Form::text ('total_itens', null, ['class' => 'form-control']) !!}
 

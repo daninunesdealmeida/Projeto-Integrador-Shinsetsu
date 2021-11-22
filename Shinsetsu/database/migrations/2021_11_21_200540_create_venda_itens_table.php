@@ -18,9 +18,11 @@ class CreateVendaItensTable extends Migration
             $table->Integer('quantidade');
             $table->String('vlr_unitário');
             $table->unsignedBigInteger('fk_produtos');
+            $table->unsignedBigInteger('fk_vendas2');
             $table->timestamps();
 
             $table->foreign('fk_produtos')->references('id_produtos')->on('produtos');
+            $table->foreign('fk_vendas2')->references('id_vendas')->on('vendas');
         });
     }
 

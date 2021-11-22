@@ -45,7 +45,6 @@
         <tr>
         <td>{{$venda ->id_vendas}}</td>
         <td> {{ Carbon\Carbon::parse($venda ->dt_venda)->format('d/m/Y') }} </td>   
-        <td>{{$venda ->documento}}</td>
         <td>{{$venda ->total_itens}}</td>
         <td>{{$venda ->valor_vendas}}</td>    
         <td>{{$venda ->fk_vendasItens}}</td>         

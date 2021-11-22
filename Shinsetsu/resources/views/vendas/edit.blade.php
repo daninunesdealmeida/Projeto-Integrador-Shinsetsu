@@ -18,9 +18,6 @@
     {!! Form::label ('dt_venda', 'dt_venda:') !!}
     {!! Form::date ('dt_venda', $vendas->dt_venda, ['class' => 'form-control']) !!}
 
-    {!! Form::label ('documento', 'Documento:') !!}
-    {!! Form::text ('documento', $vendas->documento, ['class' => 'form-control']) !!}
-
     {!! Form::label ('total_itens', 'total_itens:') !!}
     {!! Form::text ('total_itens', $vendas->total_itens, ['class' => 'form-control']) !!}
 
