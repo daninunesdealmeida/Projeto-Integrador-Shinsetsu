@@ -28,10 +28,14 @@
 {!! Form::text ('boleto', $pagamentos->boleto, ['class' => 'form-control']) !!}
 
 {!! Form::label ('fk_vendas', 'Venda:') !!}
-    {!! Form::select('fk_vendas',
-    \app\Models\Venda::orderBy('documento')->pluck('documento', 'id_vendas')->toArray(),
-    $agendamentos->fk_vendas, ['class' => 'form-control', 'required' ]) !!}
+{!! Form::select('fk_vendas',
+\app\Models\Venda::orderBy('documento')->pluck('documento', 'id_vendas')->toArray(),
+$pagamentos->fk_vendas, ['class' => 'form-control', 'required' ]) !!}
 
+{!! Form::label ('fk_usuarios', 'Pessoa:') !!}
+{!! Form::select('fk_usuarios',
+\app\Models\Usuario::orderBy('name')->pluck('name', 'id')->toArray(),
+$pagamentos->fk_usuarios, ['class' => 'form-control', 'required' ]) !!}
 
 </div>
 

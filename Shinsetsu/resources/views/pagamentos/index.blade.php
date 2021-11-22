@@ -50,6 +50,7 @@
                                 <td> {{ Carbon\Carbon::parse($pagamento ->dt_vencimento)->format('d/m/Y') }} </td>
                                 <td>{{$pagamento ->boleto}}</td>
                                 <td>{{$pagamento ->fk_pagamentos}}</td>
+                                <td>{{$pagamento ->usuario->name}}</td>  
                                 <td>
                                         <a href="{{ route('pagamentos.edit', ['id_pagamentos'=>\Crypt::encrypt($pagamento->id_pagamentos)]) }}" class="btn-sm btn-success">Editar</a>
                                         <a href="#" onclick="return ConfirmaExclusao({{$pagamento->id_pagamentos}})" class="btn-sm btn-danger">Remover</a>

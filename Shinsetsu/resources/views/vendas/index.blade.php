@@ -47,8 +47,9 @@
         <td> {{ Carbon\Carbon::parse($venda ->dt_venda)->format('d/m/Y') }} </td>   
         <td>{{$venda ->documento}}</td>
         <td>{{$venda ->total_itens}}</td>
-        <td>{{$venda ->valor_vendas}}</td>    
-        <td>{{$venda ->fk_vendasItens}}</td>         
+        <td>{{$venda ->valor_vendas}}</td>   
+        <td>{{$venda ->usuario->name}}</td>  
+                
         <td>
 
         <a href="{{ route('vendas.edit',    ['id_vendas'=>\Crypt::encrypt($venda->id_vendas)]) }}" class="btn-sm btn-success">Editar</a>                                     

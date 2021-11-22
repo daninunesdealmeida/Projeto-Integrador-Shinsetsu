@@ -23,6 +23,11 @@
     \app\Models\Venda::orderbY('documento')->pluck('documento', 'id_vendas')->toArray(),
     null, ['class' => 'form-control', 'required' ]) !!}
 
+    {!! Form::label ('fk_usuarios', 'Usuario:') !!}
+    {!! Form::select('fk_usuarios',
+    \app\Models\Usuario::orderbY('name')->pluck('name', 'id')->toArray(),
+    null, ['class' => 'form-control', 'required' ]) !!}
+
 </div>
 
 

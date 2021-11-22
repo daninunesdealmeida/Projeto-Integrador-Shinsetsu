@@ -18,10 +18,11 @@
     {!! Form::label ('valor_vendas', 'valor_vendas:') !!}
     {!! Form::text ('valor_vendas', null, ['class' => 'form-control']) !!}
 
-    {!! Form::label ('fk_vendasItens', 'Venda Item:') !!}
-    {!! Form::select('fk_vendasItens',
-    app\Models\Venda_Item::orderbY('fk_produtos')->pluck('quantidade', 'id_vendaItens')->toArray(),
+    {!! Form::label ('fk_usuarios', 'Usuario:') !!}
+    {!! Form::select('fk_usuarios',
+    \app\Models\Usuario::orderbY('name')->pluck('name', 'id')->toArray(),
     null, ['class' => 'form-control', 'required' ]) !!}
+    
 
 </div>
 

@@ -19,10 +19,10 @@ class CreateVendasTable extends Migration
             $table->String('documento');
             $table->Integer('total_itens');
             $table->String('valor_vendas');
-            $table->unsignedBigInteger('fk_vendasItens');
+            $table->unsignedBigInteger('fk_users');
             $table->timestamps();
-
-            $table->foreign('fk_vendasItens')->references('id_vendaItens')->on('venda_itens');
+            
+            $table->foreign('fk_users')->references('id')->on('users');
         });
     }
 

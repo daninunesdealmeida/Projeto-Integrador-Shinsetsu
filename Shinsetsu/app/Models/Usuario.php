@@ -7,18 +7,27 @@ use Illuminate\Database\Eloquent\Model;
 
 class Usuario extends Model
 {
-    protected $table = 'users';
-    protected $fillable = ['id', 'name', 'email', 'email_verified_at', 'password'];
-    protected $primaryKey = 'id';
+  protected $table = 'users';
+  protected $fillable = ['id', 'name', 'email', 'email_verified_at', 'password'];
+  protected $primaryKey = 'id';
 
-    public function pessoa(){
-        return $this->belongsTo(Pessoa::class);
-      }
-
-      public function setPlancRateioAttribute($value)
-    {
-        $this->attributes['isAdmin'] = ($value === true || $value === 'on' ? 'Cliente' : '');
-      
-    }
-
+  public function pessoa()
+  {
+    return $this->belongsTo(Pessoa::class);
   }
+
+  public function venda()
+  {
+    return $this->hasMany(venda::class);
+  }
+
+  public function pagamento()
+  {
+    return $this->hasMany(Pagamento::class);
+  }
+
+  public function setPlancRateioAttribute($value)
+  {
+    $this->attributes['isAdmin'] = ($value === true || $value === 'on' ? 'Cliente' : '');
+  }
+}

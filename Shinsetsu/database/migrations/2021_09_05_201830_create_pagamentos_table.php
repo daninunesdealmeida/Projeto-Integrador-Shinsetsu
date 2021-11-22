@@ -20,8 +20,10 @@ class CreatePagamentosTable extends Migration
             $table->Date('dt_vencimento');
             $table->String('boleto');
             $table->unsignedBigInteger('fk_vendas');
+            $table->unsignedBigInteger('fk_users');
             $table->timestamps();
-
+            
+            $table->foreign('fk_users')->references('id')->on('users');
             $table->foreign('fk_vendas')->references('id_vendas')->on('vendas');
         });
     }
