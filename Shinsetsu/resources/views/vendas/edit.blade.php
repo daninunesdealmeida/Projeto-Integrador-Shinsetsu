@@ -29,6 +29,11 @@
     \app\Models\Usuario::orderBy('name')->pluck('name', 'id')->toArray(),
     $vendas->fk_usuarios, ['class' => 'form-control', 'required' ]) !!}
 
+    {!! Form::label ('fk_itens', 'Venda:') !!}
+    {!! Form::select('fk_itens',
+    \app\Models\Venda_Item::orderbY('id_vendaItens')->pluck('fk_produtos => id_produtos', 'id_vendaItens')->toArray(),
+    $vendas->fk_itens, ['class' => 'form-control', 'required' ]) !!}    
+
     <div class="form-group">
         {!! Form::submit('Editar Vendas', ['class'=>'btn btn-primary']) !!}
         {!! Form::reset('Limpar', ['class'=>'btn btn-default']) !!}

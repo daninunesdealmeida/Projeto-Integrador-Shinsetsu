@@ -39,6 +39,7 @@
                                 <th>num_cartao</th>
                                 <th>Data_Vencimento</th>
                                 <th>Vendas</th>
+                                <th>Usuario</th>
                                 <th>Ações</th>
                                 </thead>
                 <tbody>

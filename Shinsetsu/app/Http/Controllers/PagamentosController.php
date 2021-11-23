@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Pagamento;
 use App\Models\Venda;
 use App\Http\Requests\PagamentoRequest;
+use App\Models\Usuario;
 
 class PagamentosController extends Controller
 {
@@ -21,8 +22,9 @@ class PagamentosController extends Controller
     }
 
 public function create(){
+    $usuarios = Usuario::select(['id', 'name'])->orderBy('name')->get();
     $vendas = Venda::select(['id_vendas', 'documento'])->orderBy('documento')->get();
-    return view('pagamentos.create', compact('vendas', $vendas));
+    return view('pagamentos.create', compact('vendas', $vendas, 'usuarios', $usuarios));
 }
 
 public function store(Request $request){
@@ -42,7 +44,8 @@ public function edit(Request $request){
 
     $pagamentos = Pagamento::find(\Crypt::decrypt($request->get('id_pagamentos')));
     $vendas = Venda::select(['id_vendas', 'nome'])->orderBy('nome')->get();
-    return view('pagamentos.edit', ['pagamentos' => $pagamentos, 'vendas' => $vendas]);
+    $usuarios = Usuario::select(['id', 'name'])->orderBy('name')->get();    
+    return view('pagamentos.edit', ['pagamentos' => $pagamentos, 'vendas' => $vendas, 'usuarios' => $usuarios]);
          }
         
 public function update(PagamentoRequest $request, $id_pagamentos){
