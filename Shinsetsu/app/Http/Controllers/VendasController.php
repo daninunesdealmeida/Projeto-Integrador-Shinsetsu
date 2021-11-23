@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\VendaRequest;
 use App\Models\Venda;
 use App\Models\Produto;
+use App\Models\Usuario;
 use App\Models\Venda_item;
 use Illuminate\Http\Request;
 
@@ -22,9 +23,10 @@ class VendasController extends Controller
     }
 
     public function create()
-    {
+    {   
+        $usuarios = Usuario::select(['id', 'name'])->orderBy('name')->get();
         $venda_itens = Venda_item::select(['id_vendaItens', 'quantidade'])->orderBy('quantidade')->get();
-        return view('vendas.create', compact('venda_itens', $venda_itens));
+        return view('vendas.create', compact('venda_itens', $venda_itens, 'usuarios', $usuarios));
   
     }
 
@@ -48,7 +50,8 @@ class VendasController extends Controller
     {
         $vendas = Venda::find(\Crypt::decrypt($request->get('id_vendas')));
         $venda_itens = Venda_item::select(['id_vendaItens', 'quantidade'])->orderBy('quantidade')->get();
-        return view('vendas.edit', ['vendas' => $vendas, 'venda_itens' => $venda_itens]);
+        $usuarios = Usuario::select(['id', 'name'])->orderBy('name')->get();    
+        return view('vendas.edit', ['id_vendaItens' => $venda_itens, 'vendas' => $vendas, 'usuarios' => $usuarios]);
     }
 
     public function update(VendaRequest $request, $id_vendas)

@@ -24,12 +24,7 @@
     {!! Form::label ('fk_produtos', 'Produto:') !!}
     {!! Form::select('fk_produtos',
     app\Models\Produto::orderbY('nome')->pluck('nome', 'id_produtos')->toArray(),
-    $venda_Itens->fk_produtos, ['class' => 'form-control', 'required' ]) !!}
-
-    {!! Form::label ('fk_vendas2', 'Venda:') !!}
-    {!! Form::select('fk_vendas2',
-    app\Models\Venda::orderbY('dt_venda')->pluck('dt_venda', 'id_vendas')->toArray(),
-    $venda_Itens->fk_vendas2, ['class' => 'form-control', 'required' ]) !!}
+    $venda_Itens->fk_produtos, ['class' => 'form-control', 'required' ]) !!}    
 
     <div class="form-group">
         {!! Form::submit('Editar Venda Ítens', ['class'=>'btn btn-primary']) !!}

@@ -26,7 +26,7 @@ class VendaRequest extends FormRequest
         return [
             'dt_venda' => 'date',
             'valor_vendas' => 'required', 
-
+            'fk_users' => 'required',
         ];
     }
 }

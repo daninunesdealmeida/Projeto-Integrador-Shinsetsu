@@ -16,12 +16,7 @@
     {!! Form::select('fk_produtos',
     app\Models\Produto::orderbY('nome')->pluck('nome', 'id_produtos')->toArray(),
     null, ['class' => 'form-control', 'required' ]) !!}
-</div>
 
-{!! Form::label ('fk_vendas2', 'Venda:') !!}
-    {!! Form::select('fk_vendas2',
-    app\Models\Venda::orderbY('nome')->pluck('dt_venda', 'id_vendas')->toArray(),
-    null, ['class' => 'form-control', 'required' ]) !!}
 </div>
 
 
