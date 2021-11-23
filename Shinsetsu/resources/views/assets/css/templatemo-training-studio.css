@@ -44,6 +44,11 @@ figure, header, nav, section, article, aside, footer, figcaption {
   outline: 0;
 }
 
+/* #button.btn.btn-danger-gradiant {
+  border: solid 1px #000 !important;
+  color: #000 !important;
+} */
+
 .clearfix:after {
   content: ".";
   display: block;
@@ -217,11 +222,11 @@ header
 }
 
 .background-header .main-nav .nav li:last-child a {
-  color: #fff !important;
+  color: rgb(2, 1, 1) !important;
 }
 
 .background-header .main-nav .nav li:last-child a:hover {
-  color: #fff!important;
+  color: rgb(0, 0, 0)!important;
 }
 
 .background-header .main-nav .nav li:hover a {
@@ -1247,3 +1252,4 @@ responsive
     margin-left: 130px;
   }
 }
+
