@@ -22,17 +22,17 @@
     {!! Form::text ('total_itens', $vendas->total_itens, ['class' => 'form-control']) !!}
 
     {!! Form::label ('valor_vendas', 'valor_vendas:') !!}
-    {!! Form::text ('valor_vendas', $vendas->valor_vendas, ['class' => 'form-control']) !!}    
+    {!! Form::text ('valor_vendas', $vendas->valor_vendas, ['class' => 'form-control']) !!}
 
-    {!! Form::label ('fk_usuarios', 'Pessoa:') !!}
+    {!! Form::label ('fk_usuarios', 'Usuario:') !!}
     {!! Form::select('fk_usuarios',
     \app\Models\Usuario::orderBy('name')->pluck('name', 'id')->toArray(),
     $vendas->fk_usuarios, ['class' => 'form-control', 'required' ]) !!}
 
     {!! Form::label ('fk_itens', 'Venda:') !!}
     {!! Form::select('fk_itens',
-    \app\Models\Venda_Item::orderbY('id_vendaItens')->pluck('fk_produtos => id_produtos', 'id_vendaItens')->toArray(),
-    $vendas->fk_itens, ['class' => 'form-control', 'required' ]) !!}    
+    \app\Models\Venda_Item::orderBy('id_vendaItens')->pluck('id_vendaItens', 'id_vendaItens')->toArray(),
+    $vendas->fk_itens, ['class' => 'form-control', 'required' ]) !!}
 
     <div class="form-group">
         {!! Form::submit('Editar Vendas', ['class'=>'btn btn-primary']) !!}

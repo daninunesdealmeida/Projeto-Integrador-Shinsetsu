@@ -18,7 +18,7 @@
     {!! Form::label ('password', 'password:') !!}
     {!! Form::text ('password', null, ['class' => 'form-control']) !!}
 
-    {!! Form::label ('isAdmin', 'isAdmin:') !!}
+    {!! Form::label ('isAdmin', 'Cliente?:') !!}
     {!! Form::checkbox('isAdmin',  null, ['class' => 'form-control']) !!}
 
 </div>

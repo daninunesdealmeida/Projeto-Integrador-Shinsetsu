@@ -4,14 +4,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Carrinho Shinsetsu</title>
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.min.css') }}">
+        <!--
+        
+     jQuery -->
+    <script src="{{ asset('assets/js/jquery-2.1.0.min.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+    <!-- Bootstrap -->
+    <script src="{{ asset('assets/js/popper.js')}}"></script>
+
+    <!-- Plugins -->
+    <script src="{{ asset('assets/js/scrollreveal.min.js') }}"></script>
+    <script src="{{ asset('assets/js/waypoints.min.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.counterup.min.js') }}"></script>
+    <script src="{{ asset('assets/js/imgfix.min.js') }}"></script>
+    <script src="{{ asset('assets/js/mixitup.js') }}"></script>
+    <script src="{{ asset('assets/js/accordions.js') }}"></script>
+
+    <!-- Global Init -->
+    <script src="{{ asset('assets/js/custom.js') }}"></script>
+
+    </body>
+
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/assets/css/bootstrap.css') }}">
+
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/font-awesome.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('assets/css/templatemo-training-studio.css') }}">
 </head>
 <body>
 
-<div class="container">
-    <h1>Carrinho de compras</h1>
+       <!-- ***** Header Area Start ***** -->
+
+       <header class="header-area header-sticky" style="position: fixed">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a href="index.html" class="logo">Acadêmia<em> Shinsetsu</em></a>
+                        <ul class="nav">
+                            <li class="scroll-to-section"><a href="{{route('site')}}" class="active">Home</a></li>
+                            <li class="scroll-to-section"><a href="{{route('loja')}}">Loja</a></li>
+                            <li class="scroll-to-section"><a href="{{route('carrinhocompra')}}">Meu Carrinho</a></li>
+                </div>
+
+                </ul>
+                </nav>
+            </div>
+        </div>
+        </div>
+    </header>
+
+    <!-- ***** Main Banner Area Start ***** -->
+    <div class="container" id="top">
+        <img src="{{ asset('assets/images/carrinho.jpg') }}">
+             
+    </div>
 
     <form action="{{route('finalizaCompra')}}" method="post">
         @csrf
@@ -43,6 +100,11 @@
                             <label for="">Valor Total Produto</label>
                             <input type="text" class="form-control valorTotal" id="valorTotal" name="valorTotal" value="{{$carrinho->preco * $carrinho->quantidade}}">
                         </div>
+
+                        <div class="ml-auto">
+                            <a href="{{route ('destroyCarrinho', ['id'=>$carrinho->id]) }}" class="btn-sm btn-danger">Remover</a>
+                        </div>
+                        
                     </div>
                 </div>
             @endforeach
@@ -86,10 +148,25 @@
                     <label for="dt_vencimento">Vencimento do cartão</label>
                     <input type="date" name="dt_vencimento" class="form-control" id="dt_vencimento">
                 </div>
+                
             </div>
         </div>
         <button type="submit" class="btn btn-primary">Finalizar Compra</button>
     </form>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Shinsetsu
+
+                        - Designed by <a rel="nofollow" href="https://templatemo.com" class="tm-text-link" target="_parent">TemplateMo</a></p>
+
+                    <!-- You shall support us a little via PayPal to info@templatemo.com -->
+
+                </div>
+            </div>
+        </div>
+    </footer>
 
 </div>
 <script src="{{ asset('assets/js/jquery-2.1.0.min.js') }}"></script>

@@ -13,7 +13,7 @@
     {!! Form::text ('especificacao', null, ['class' => 'form-control']) !!}
 
     {!! Form::label ('preco', 'Preço:') !!}
-    {!! Form::text ('preco', null, ['class' => 'form-control', 'id' => 'money']) !!}
+    {!! Form::text ('preco', null, ['class' => 'form-control']) !!}
 
     {!! Form::label ('qt_estoque', 'Quantidade em estoque:') !!}
     {!! Form::text ('qt_estoque', null, ['class' => 'form-control']) !!}
@@ -41,7 +41,7 @@
 
 @stop
 
-{{-- @section('js')
+<!--  @section('js')
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
@@ -52,4 +52,4 @@
         $('#money').mask('#.##0,00', {reverse: true});
     });
 </script>
-@endsection --}}
+@endsection  -->

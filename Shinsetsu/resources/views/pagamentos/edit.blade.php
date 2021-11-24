@@ -29,13 +29,13 @@
 
 {!! Form::label ('fk_vendas', 'Venda:') !!}
 {!! Form::select('fk_vendas',
-\app\Models\Venda::orderBy('documento')->pluck('documento', 'id_vendas')->toArray(),
+\app\Models\Venda::orderBy('id_vendas')->pluck('id_vendas', 'id_vendas')->toArray(),
 $pagamentos->fk_vendas, ['class' => 'form-control', 'required' ]) !!}
 
-{!! Form::label ('fk_usuarios', 'Pessoa:') !!}
-{!! Form::select('fk_usuarios',
-\app\Models\Usuario::orderBy('name')->pluck('name', 'id')->toArray(),
-$pagamentos->fk_usuarios, ['class' => 'form-control', 'required' ]) !!}
+{!! Form::label ('fk_usuarios', 'Usuario:') !!}
+    {!! Form::select('fk_usuarios',
+    \app\Models\Usuario::orderBy('name')->pluck('name', 'id')->toArray(),
+    $pagamentos->fk_usuarios, ['class' => 'form-control', 'required' ]) !!}
 
 </div>
 
@@ -59,7 +59,7 @@ $pagamentos->fk_usuarios, ['class' => 'form-control', 'required' ]) !!}
 
 <script>
 $(document).ready(function(){
-    $('#cartao').mask('0000 0000 0000 0000');
+    $('#num_cartao').mask('0000 0000 0000 0000');
 });
 </script>
 

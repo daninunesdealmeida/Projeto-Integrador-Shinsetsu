@@ -13,6 +13,7 @@ Route::get('/', [WebController::class, 'index'])->name('site');
 Route::get('/categoria/{id}', [WebController::class, 'pesquisaCategoria'])->name('pesquisaCategoria');
 Route::get('/login', [WebController::class, 'login'])->name('login');
 Route::post('/carrinho', [WebController::class, 'insereCarrinho'])->name('insereCarrinho');
+Route::get('/carrinho/{id}/destroy', [WebController::class, 'destroyCarrinho'])->name('destroyCarrinho');
 
 Route::post("/store",       ['as' => 'agendamentos.store',   'uses' => "App\Http\Controllers\AgendamentosController@store"]);
 

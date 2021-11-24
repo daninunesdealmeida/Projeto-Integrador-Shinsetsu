@@ -27,6 +27,7 @@ class VendaRequest extends FormRequest
             'dt_venda' => 'date',
             'valor_vendas' => 'required', 
             'fk_users' => 'required',
+            'fk_itens' => 'required'
         ];
     }
 }

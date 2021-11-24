@@ -25,4 +25,6 @@ class Venda extends Model
     {
         return $this->belongsTo(Usuario::class, 'fk_usuarios');
     }
+    
+    
 }

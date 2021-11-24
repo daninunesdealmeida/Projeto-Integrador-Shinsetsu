@@ -63,6 +63,7 @@ class WebController extends Controller
             $produtos = Produto::all();
         }
 
+       
         return view('web.loja', compact('categorias', 'produtos'));
     }
 
@@ -118,6 +119,15 @@ class WebController extends Controller
         $deletarCarrinho = DB::select(DB::raw('DELETE from carrinhos where id_user = ?'), [auth()->user()->id]);
 
         return view('web.site');
+    }
+
+    public function destroyCarrinho($id)
+    {
+        $carrinhos = Carrinho::all();
+        Carrinho::find($id)->delete();
+
+        return view('web.carrinho', compact('carrinhos'));
+        
     }
 
 

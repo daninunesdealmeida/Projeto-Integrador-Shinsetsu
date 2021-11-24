@@ -6,8 +6,10 @@
 
 <div class="form-group">
 
-    {!! Form::label ('cartao', 'Tipo Cartâo:') !!}     
-    {!! Form::select ('modalidade', array('Mastercard' => 'Mastercard', 'Visa' => 'Visa', 'Ello' => 'Ello'), 'Mastercard', ['class' => 'form-control', 'required' ]) !!}
+    {!! Form::label ('cartao', 'Tipo Cartâo:') !!}
+    <!-- {!! Form::text ('cartao', null, ['class' => 'form-control']) !!} -->
+    {!! Form::select ('cartao', array('Mastercard' => 'Mastercard', 'Visa' => 'Visa', 'Ello' => 'Ello'), 'Mastercard', ['class' => 'form-control', 'required' ]) !!}
+
 
     {!! Form::label ('nome_cartao', 'Nome Cartâo:') !!}
     {!! Form::text ('nome_cartao', null, ['class' => 'form-control']) !!}
@@ -20,13 +22,13 @@
 
     {!! Form::label ('fk_vendas', 'Venda:') !!}
     {!! Form::select('fk_vendas',
-    \app\Models\Venda::orderbY('documento')->pluck('documento', 'id_vendas')->toArray(),
+    \app\Models\Venda::orderbY('id_vendas')->pluck('id_vendas', 'id_vendas')->toArray(),
     null, ['class' => 'form-control', 'required' ]) !!}
 
-{!! Form::label ('fk_usuarios', 'Usuario:') !!}
-{!! Form::select('fk_usuarios',
-\app\Models\Usuario::orderbY('name')->pluck('name', 'id')->toArray(),
-null, ['class' => 'form-control', 'required' ]) !!}
+    {!! Form::label ('fk_users', 'Usuario:') !!}
+    {!! Form::select('fk_users',
+    \app\Models\Usuario::orderbY('name')->pluck('name', 'id')->toArray(),
+    null, ['class' => 'form-control', 'required' ]) !!}
 
 </div>
 
@@ -49,9 +51,9 @@ null, ['class' => 'form-control', 'required' ]) !!}
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
 <script>
-$(document).ready(function(){
-    $('#cartao').mask('0000 0000 0000 0000');
-});
+    $(document).ready(function() {
+        $('#num_cartao').mask('0000 0000 0000 0000');
+    });
 </script>
 
 @endsection

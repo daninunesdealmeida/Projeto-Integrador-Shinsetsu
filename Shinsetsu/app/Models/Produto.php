@@ -19,5 +19,9 @@ class Produto extends Model
     return $this->belongsTo(Venda_item::class);
   }
 
+  public function pagamento(){
+    return $this->hasMany(Pagamento::class);
+}
+
 }
 

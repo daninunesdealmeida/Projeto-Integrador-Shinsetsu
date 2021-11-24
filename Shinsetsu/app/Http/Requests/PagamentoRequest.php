@@ -24,12 +24,7 @@ class PagamentoRequest extends FormRequest
     public function rules()
     {
         return [
-            'catao' => 'required',
-            'nome_cartao' => 'required',
-            'dt_vencimento' => 'required',
-            'boleto' => 'required',
-            'fk_vendas' => 'required',
-            'fk_users' => 'required',            
+                 
         ];
     }
 }

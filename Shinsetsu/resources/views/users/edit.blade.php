@@ -27,7 +27,7 @@
     {!! Form::label ('password', 'password:') !!}
     {!! Form::text ('password', $user->password, ['class' => 'form-control']) !!}
 
-    {!! Form::label ('isAdmin', 'isAdmin:') !!}
+    {!! Form::label ('isAdmin', 'Cliente?:') !!}
     {!! Form::checkbox('isAdmin', $user->isAdmin, ['class' => 'form-control', 'required' ]) !!}
 
     <div class="form-group">

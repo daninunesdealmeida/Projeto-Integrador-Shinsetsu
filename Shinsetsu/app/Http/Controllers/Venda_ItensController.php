@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\VendaItemRequest;
 use App\Models\Produto;
-use App\Models\Venda;
 use App\Models\Venda_Item;
 
 use Illuminate\Http\Request;
@@ -25,7 +24,6 @@ class Venda_ItensController extends Controller
     public function create()
     {
         $produtos = Produto::select(['id_produtos', 'nome'])->orderBy('nome')->get();
-        $vendas = Venda::select(['id_vendas', 'dt_venda'])->orderBy('dt_venda')->get();
         return view('venda_Itens.create', compact('produtos', $produtos));
     }
 
@@ -48,8 +46,7 @@ class Venda_ItensController extends Controller
     {
         $venda_Itens = Venda_Item::find(\Crypt::decrypt($request->get('id_vendaItens')));     
         $produtos = Produto::select(['id_produtos', 'nome'])->orderBy('nome')->get();
-        $vendas = Venda::select(['id_vendas', 'dt_venda'])->orderBy('dt_venda')->get();
-        return view('venda_Itens.edit', ['venda_Itens' => $venda_Itens, 'produtos' => $produtos, 'vendas' => $vendas]);
+        return view('venda_Itens.edit', ['venda_Itens' => $venda_Itens, 'produtos' => $produtos]);
          
     }
 

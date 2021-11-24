@@ -22,8 +22,9 @@ class PagamentosController extends Controller
     }
 
 public function create(){
+   
+    $vendas = Venda::select(['id_vendas', 'id_vendas'])->orderBy('id_vendas')->get();
     $usuarios = Usuario::select(['id', 'name'])->orderBy('name')->get();
-    $vendas = Venda::select(['id_vendas', 'documento'])->orderBy('documento')->get();
     return view('pagamentos.create', compact('vendas', $vendas, 'usuarios', $usuarios));
 }
 
@@ -43,8 +44,8 @@ public function destroy($id_pagamentos){
 public function edit(Request $request){
 
     $pagamentos = Pagamento::find(\Crypt::decrypt($request->get('id_pagamentos')));
-    $vendas = Venda::select(['id_vendas', 'nome'])->orderBy('nome')->get();
-    $usuarios = Usuario::select(['id', 'name'])->orderBy('name')->get();    
+    $vendas = Venda::select(['id_vendas', 'dt_venda'])->orderBy('dt_venda')->get();
+    $usuarios = Usuario::select(['id', 'name'])->orderBy('name')->get();   
     return view('pagamentos.edit', ['pagamentos' => $pagamentos, 'vendas' => $vendas, 'usuarios' => $usuarios]);
          }
         

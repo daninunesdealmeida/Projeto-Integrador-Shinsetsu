@@ -36,7 +36,7 @@
                                 <th>Id</th>
                                 <th>Cartão</th>
                                 <th>Nome_Cartão</th>
-                                <th>num_cartao</th>
+                                <th>Numero_Cartão</th>
                                 <th>Data_Vencimento</th>
                                 <th>Vendas</th>
                                 <th>Usuario</th>
@@ -50,8 +50,9 @@
                                 <td>{{$pagamento ->nome_cartao}}</td>
                                 <td>{{$pagamento ->num_cartao}}</td>
                                 <td> {{ Carbon\Carbon::parse($pagamento ->dt_vencimento)->format('d/m/Y') }} </td>
-                                <td>{{$pagamento ->fk_pagamentos}}</td>
-                                <td>{{$pagamento ->usuario->name}}</td>  
+                                <td>{{$pagamento ->fk_usuarios}}</td> 
+                                <td>{{$pagamento ->fk_vendas}}</td>  
+        
                                 <td>
                                         <a href="{{ route('pagamentos.edit', ['id_pagamentos'=>\Crypt::encrypt($pagamento->id_pagamentos)]) }}" class="btn-sm btn-success">Editar</a>
                                         <a href="#" onclick="return ConfirmaExclusao({{$pagamento->id_pagamentos}})" class="btn-sm btn-danger">Remover</a>
