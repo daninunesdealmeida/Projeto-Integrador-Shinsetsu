@@ -12,23 +12,21 @@
 <table class="table table-striped">
                         <tbody>
                                 
-                                <tr>
-                                        <th>Id</th>
-                                        <th>Nome</th>
-                                        <th>Modalidade</th>
-                                        <th>Dia</th>
-                                        <th>Hora</th>
-                                        <th>Pessoas</th>
+                                <tr style="width:0*; font-family:Verdana; font-size:small; font-variant:small-caps;">
+                                        <th style="border:grey solid 2px;">Id</th>
+                                        <th style="border:grey solid 2px;">Nome</th>
+                                        <th style="border:grey solid 2px;">Modalidade</th>
+                                        <th style="border:grey solid 2px;">Dia</th>
+                                        <th style="border:grey solid 2px;">Hora</th>
                                 </tr>
                                 @foreach($agendamentos as $agendamento)
                                 <tr>
-                                        <td>{{$agendamento ->id_agendamentos}}</td>
-                                        <td>{{$agendamento ->nome}}</td>
-                                        <td>{{$agendamento ->modalidade}}</td>
-                                        <td>{{ Carbon\Carbon::parse($agendamento ->dia)->format('d/m/Y') }}</td>
-                                        <td>{{$agendamento ->hora}}</td>
-                                        <td>
-                                        </tr>
+                                        <td style="border:rgb(68, 183, 243) solid 2px;">{{$agendamento ->id_agendamentos}}</td>
+                                        <td style="border:rgb(68, 183, 243) solid 2px;">{{$agendamento ->nome}}</td>
+                                        <td style="border:rgb(68, 183, 243) solid 2px;">{{$agendamento ->modalidade}}</td>
+                                        <td style="border:rgb(68, 183, 243) solid 2px;">{{ Carbon\Carbon::parse($agendamento ->dia)->format('d/m/Y') }}</td>
+                                        <td style="border:rgb(68, 183, 243) solid 2px;">{{$agendamento ->hora}}</td>
+                                </tr>
     @endforeach
 </body>
 
