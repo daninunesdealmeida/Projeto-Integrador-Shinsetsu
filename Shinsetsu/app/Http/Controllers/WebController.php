@@ -10,9 +10,6 @@ use App\Models\Venda;
 use App\Models\Venda_item;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use App\Http\Requests\AgendamentoRequest;
-use App\Models\Agendamento;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class WebController extends Controller
@@ -75,19 +72,31 @@ class WebController extends Controller
             'produto_id' => $request->idproduto,
             'preco' => $request->preco_produto,
             'quantidade' => $request->quantidade,
-            'imagem' => $request->imagem,
             'id_user' => $user
         ]);
+        
+        $novo_carrinho = $request->all();      
+            //upload da imagem
+            if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
+                $requestImagem = $request->imagem;
+                $extension = $requestImagem->extension();
+                $imagemNome = md5($requestImagem->getClientOriginalName() . strtotime("now")) . "." . $extension;
+                $requestImagem->move(public_path('img/produtos'), $imagemNome);
+                $novo_produto['imagem'] = $imagemNome;
+
+        Carrinho::create($novo_carrinho);
 
         flash('adicionado ao carrinho')->success(); 
 
         return redirect()->back();
     }
+}
 
     public function carrinhoCompra()
     {
-        $carrinhos = Carrinho::all();
+        $carrinhos = DB::select(DB::raw('SELECT t.id,t.produto_id,t.preco,t.quantidade FROM (select id,produto_id,preco, sum(quantidade) quantidade from shinsetsu.carrinhos c where id_user = ? group by produto_id,preco,id) t'),[auth()->user()->id]);
 
+        dd($carrinhos);
         return view('web.carrinho', compact('carrinhos'));
     }
 
@@ -126,7 +135,8 @@ class WebController extends Controller
         $carrinhos = Carrinho::all();
         Carrinho::find($id)->delete();
 
-        return view('web.carrinho', compact('carrinhos'));
+        flash('Removido do carrinho')->error();
+        return redirect()->back();
         
     }
 

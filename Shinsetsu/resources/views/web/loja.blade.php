@@ -71,11 +71,11 @@
                         <!-- ***** Logo Start ***** -->
                         <a href="index.html" class="logo">Acadêmia<em> Shinsetsu</em></a>
                         <ul class="nav">
-                            <li class="scroll-to-section"><a href="{{route('site')}}" class="active">Home</a></li>
-                            <li class="scroll-to-section"><a href="{{route('loja')}}">Loja</a></li>
+                            <li class="scroll-to-section"><a href="{{route('site')}}" >Home</a></li>
+                            <li class="scroll-to-section"><a href="{{route('loja')}}" class="active">Loja</a></li>
                             <li class="scroll-to-section"><a href="{{route('carrinhocompra')}}">Meu Carrinho</a></li>
                             <div>
-                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
                                     Categorias
                                 </a>
 
