@@ -13,6 +13,7 @@
     <!--
         
      jQuery -->
+     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="{{ asset('assets/js/jquery-2.1.0.min.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
     <!-- Bootstrap -->
@@ -100,13 +101,13 @@
     <div class="container" id="top">
         <img src="{{ asset('assets/images/loja.jpeg') }}">
 
-
+        @include('flash::message')
         <div class="pricing4 py-5 bg-light">
             <div class="row">
                 @foreach($produtos as $produto)
                 <div class="col-md-4">
                     <div class="card card-shadow border-0 mb-4">
-                        <img class="card-img-top" src="img/produtos/{{$produto->imagem}}" alt="wrappixel kit">
+                        <img class="card-img-top" src="/img/produtos/{{$produto->imagem}}" alt="wrappixel kit">
                         <div class="p-3">
                             <h5 class="font-weight-medium mb-0">{{$produto->nome}}</h5>
                             <h5 class="font-weight-medium mb-0">Estoque {{$produto->qt_estoque}}</h5>
@@ -130,7 +131,6 @@
                 @endforeach
             </div>
         </div>
-        @include('flash::message')
         <footer>
             <div class="container">
                 <div class="row">

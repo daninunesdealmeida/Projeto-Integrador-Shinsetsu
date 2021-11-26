@@ -55,15 +55,9 @@ class PdfController extends Controller
     public function geraPdfUsers()
     {
         $users = User::all();
+       // dd($users);
         $pdf = PDF::loadView('PDFs\usersPdf', compact('users'));
-        return $pdf->setPaper('a4')->stream('Todas_Users.pdf');
-    }
-
-    public function geraPdfVendaItens()
-    {
-        $venda_Itens = Venda_item::all();
-        $pdf = PDF::loadView('PDFs\vendaItemPdf', compact('venda_Itens'));
-        return $pdf->setPaper('a4')->stream('Todas_venda_Itens.pdf');
+        return $pdf->setPaper('a4')->stream('Todos_Users.pdf');
     }
 
     public function geraPdfVendas()

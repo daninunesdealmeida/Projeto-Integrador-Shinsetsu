@@ -17,7 +17,6 @@
                 <th style="border:grey solid 2px;">Cartão</th>
                 <th style="border:grey solid 2px;">Nome Cartão</th>
                 <th style="border:grey solid 2px;">Data Vencimento</th>
-                <th style="border:grey solid 2px;">Boleto</th>
                 <th style="border:grey solid 2px;">Vendas</th>
             </tr>
             </thead>
@@ -28,8 +27,7 @@
                 <td style="border:rgb(68, 183, 243) solid 2px;">{{$pagamento ->cartao}}</td>
                 <td style="border:rgb(68, 183, 243) solid 2px;">{{$pagamento ->nome_cartao}}</td>
                 <td style="border:rgb(68, 183, 243) solid 2px;"> {{ Carbon\Carbon::parse($pagamento ->dt_vencimento)->format('d/m/Y') }} </td>
-                <td style="border:rgb(68, 183, 243) solid 2px;">{{$pagamento ->boleto}}</td>
-                <td style="border:rgb(68, 183, 243) solid 2px;">{{$pagamento ->vendas->documentos}}</td>
+                <td style="border:rgb(68, 183, 243) solid 2px;">{{$pagamento ->fk_vendas}}</td>
                 <td>
             </tr>
             @endforeach

@@ -35,7 +35,7 @@
                 <td style="border:rgb(68, 183, 243) solid 2px;">{{$pessoa ->CEP}}</td>
                 <td style="border:rgb(68, 183, 243) solid 2px;">{{$pessoa ->CPF}}</td>
                 <td style="border:rgb(68, 183, 243) solid 2px;">{{$pessoa ->RG}}</td>
-                <td style="border:rgb(68, 183, 243) solid 2px;">{{$pessoa ->usuario->nome}}</td>
+                <td style="border:rgb(68, 183, 243) solid 2px;">{{$pessoa ->usuario->name}}</td>
                 <td>
             </tr>
             @endforeach

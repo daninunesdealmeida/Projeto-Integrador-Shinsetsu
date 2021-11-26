@@ -74,6 +74,7 @@ class WebController extends Controller
             'id_user' => $user
         ]);
 
+        flash('adicionado ao carrinho')->success();
         $novo_carrinho = $request->all();
         //upload da imagem
         if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
@@ -85,7 +86,7 @@ class WebController extends Controller
 
             Carrinho::create($novo_carrinho);
 
-            flash('adicionado ao carrinho')->success();
+           
         }
         return redirect()->back();
     }
@@ -145,37 +146,38 @@ class WebController extends Controller
         if (!$carrinhos) {
             return redirect()->back();
         }
-
+        
         DB::select(DB::raw('DELETE from carrinhos where produto_id = ? and id_user = ?'), [$id, auth()->user()->id]);
 
-        flash('Removido do carrinho')->error();
+        
         return response()->json(['data' => 'revovido']);
     }
 
-    public function inserePedido(Request $request)
-    {
-        $user = auth()->user()->id;
+    // public function inserePedido(Request $request)
+    // {
+    //     $user = auth()->user()->id;
 
-        Pedido::create([
-            'produto_id' => $request->idproduto,
-            'preco' => $request->preco_produto,
-            'quantidade' => $request->quantidade,
-            'id_user' => $user
-        ]);
+    //     Pedido::create([
+    //         'produto_id' => $request->idproduto,
+    //         'preco' => $request->preco_produto,
+    //         'quantidade' => $request->quantidade,
+    //         'id_user' => $user
+    //     ]);
+          
 
-        $novo_pedido = $request->all();
-        //upload da imagem
-        if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
-            $requestImagem = $request->imagem;
-            $extension = $requestImagem->extension();
-            $imagemNome = md5($requestImagem->getClientOriginalName() . strtotime("now")) . "." . $extension;
-            $requestImagem->move(public_path('img/produtos'), $imagemNome);
-            $novo_produto['imagem'] = $imagemNome;
+    //     $novo_pedido = $request->all();
+    //     //upload da imagem
+    //     if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
+    //         $requestImagem = $request->imagem;
+    //         $extension = $requestImagem->extension();
+    //         $imagemNome = md5($requestImagem->getClientOriginalName() . strtotime("now")) . "." . $extension;
+    //         $requestImagem->move(public_path('img/produtos'), $imagemNome);
+    //         $novo_produto['imagem'] = $imagemNome;
 
-            Pedido::create($novo_pedido);
+    //         Pedido::create($novo_pedido);
 
-            flash('Pedido removido')->success();
-        }
-        return redirect()->back();
-    }
+          
+    //     }
+    //     return redirect()->back();
+    // }
 }

@@ -21,7 +21,7 @@
     {!! Form::date ('dia', null, ['class' => 'form-control', 'required' ]) !!}
 
     {!! Form::label ('hora', 'Hora:') !!}
-    {!! Form::text ('hora', null, ['class' => 'form-control','id' => 'horas', 'required' ]) !!}
+    {!! Form::select ('hora', array('07:00' => '07:00', '17:00' => '17:00', '18:30' => '18:30', '19:30' => '19:30', '22:00' => '22:00'), '07:00', ['class' => 'form-control','required' ]) !!}
 
 </div>
 
@@ -42,10 +42,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
-<script>
+<!-- <script>
     $(document).ready(function() {
         $('#horas').mask('00:00');
     });
-</script>
+</script> -->
 
 @endsection

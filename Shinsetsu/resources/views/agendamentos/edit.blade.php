@@ -24,11 +24,13 @@
     {!! Form::label ('modalidade', 'Modalidade:') !!}
     {!! Form::select ('modalidade', array('Jiu Jitsu' => 'Jiu Jitsu', 'Judô' => 'Judô'), 'Jiu Jitsu', ['class' => 'form-control' ]) !!}
 
+    
     {!! Form::label ('dia', 'Dia:') !!}
     {!! Form::date ('dia', $agendamentos->dia, ['class' => 'form-control' ]) !!}
 
     {!! Form::label ('hora', 'Hora:') !!}
-    {!! Form::text ('hora', $agendamentos->hora, ['class' => 'form-control', 'id' =>'horas' ]) !!}
+    {!! Form::select ('hora', array('07:00' => '07:00', '17:00' => '17:00', '18:30' => '18:30', '19:30' => '19:30', '22:00' => '22:00'), '07:00', ['class' => 'form-control','required' ]) !!}
+
 
 
 </div>
@@ -45,7 +47,7 @@
 
 @stop
 
-@section('js')
+<!-- @section('js')
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
@@ -57,4 +59,4 @@
     });
 </script>
 
-@endsection
+@endsection -->

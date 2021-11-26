@@ -45,7 +45,7 @@ return [
     |
     */
     'logo' => '<strong>Shinsetsu</strong>',
-    'logo_img' => 'img/produtos/5b386a4635b0cdb571977f24ac7dbd00.jpg',
+    'logo_img' => 'img/produtos/cx.jpeg',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',

@@ -19,7 +19,7 @@ class CreateAgendamentosTable extends Migration
             $table->String('email');
             $table->String('modalidade');
             $table->date('dia');
-            $table->time('hora');
+            $table->String('hora');
             $table->timestamps();
 
         });
