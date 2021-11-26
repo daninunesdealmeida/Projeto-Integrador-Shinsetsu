@@ -26,6 +26,13 @@
     app\Models\Produto::orderbY('nome')->pluck('nome', 'id_produtos')->toArray(),
     $venda_Itens->fk_produtos, ['class' => 'form-control', 'required' ]) !!}    
 
+    {!! Form::label ('fk_vendas', 'Venda:') !!}
+    {!! Form::select('fk_vendas',
+    app\Models\Venda::orderbY('valor_vendas')->pluck('valor_vendas', 'id_vendas')->toArray(),
+    $venda_Itens->fk_vendas, ['class' => 'form-control', 'required' ]) !!} 
+
+    
+
     <div class="form-group">
         {!! Form::submit('Editar Venda Ítens', ['class'=>'btn btn-primary']) !!}
         {!! Form::reset('Limpar', ['class'=>'btn btn-default']) !!}

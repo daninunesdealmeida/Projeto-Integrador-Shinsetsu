@@ -74,6 +74,7 @@
                             <li class="scroll-to-section"><a href="{{route('site')}}" >Home</a></li>
                             <li class="scroll-to-section"><a href="{{route('loja')}}" class="active">Loja</a></li>
                             <li class="scroll-to-section"><a href="{{route('carrinhocompra')}}">Meu Carrinho</a></li>
+                            <!-- <li class="scroll-to-section"><a href="{{route('insereCarrinho')}}">Meus Pedidos</a></li> -->
                             <div>
                                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
                                     Categorias
@@ -113,8 +114,8 @@
                                 @csrf
                                 <input type="hidden" name="idproduto" value="{{$produto->id_produtos}}">
                                 <input type="hidden" name="preco_produto" value="{{$produto->preco}}">
-                                <p class="font-weight-medium mb-0">Quantidade</p>
-                                <input type="number" name="quantidade">
+                                <p class="font-weight-medium mb-0" >Quantidade</p>
+                                <input type="number" min="1" name="quantidade" >
                                 <div class="d-flex mt-3 align-items-center">
                                     <h2 class="price">{{'R$ '.number_format($produto->preco,2,'.',',')}}</h2>
                                     <div class="ml-auto">

@@ -43,7 +43,7 @@
                         <td>{{$venda_Item ->id_vendaItens}}</td>
                         <td>{{$venda_Item ->quantidade}}</td>
                         <td>{{$venda_Item ->vlr_unitário}}</td>
-                        <td>{{$venda_Item ->fk_produtos}}</td>                        
+                        <td>{{$venda_Item ->fk_produtos}}</td>                       
                         <td>
                                 <a href="{{ route('venda_Itens.edit',    ['id_vendaItens'=>\Crypt::encrypt($venda_Item->id_vendaItens)]) }}" class="btn-sm btn-success">Editar</a>
                                 <a href="#" onclick="return ConfirmaExclusao({{$venda_Item->id_vendaItens}})" class="btn-sm btn-danger">Remover</a>

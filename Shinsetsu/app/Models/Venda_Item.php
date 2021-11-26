@@ -15,9 +15,9 @@ class Venda_item extends Model
         return $this->hasMany(Produto::class);
     }   
 
-    public function vendas(){
-        return $this->hasMany(Venda::class);
-    } 
+    public function venda(){
+        return $this->belongsTo(Venda::class, 'fk_vendas');
+    }
     
     
 }

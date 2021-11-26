@@ -17,4 +17,12 @@ class Carrinho extends Model
         'sessao',
         'id_user'
     ];
+
+    public function produto()
+    {
+      return $this->belongsTo(Produto::class, 'produto_id');
+    }
+
+
+
 }

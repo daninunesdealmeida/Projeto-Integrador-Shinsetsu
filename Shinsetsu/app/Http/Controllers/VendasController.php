@@ -24,9 +24,9 @@ class VendasController extends Controller
     public function create()
     {   
      
-        $venda_itens = Venda_item::select(['id_vendaItens', 'quantidade'])->orderBy('quantidade')->get();
         $usuarios = Usuario::select(['id', 'name'])->orderBy('name')->get();
-        return view('vendas.create', compact('venda_itens', $venda_itens, 'usuarios', $usuarios));
+       // dd($usuarios);
+        return view('vendas.create', compact('usuarios', $usuarios));
   
     }
 
@@ -51,9 +51,8 @@ class VendasController extends Controller
     public function edit(Request $request)
     {
         $vendas = Venda::find(\Crypt::decrypt($request->get('id_vendas')));
-        $venda_itens = Venda_item::select(['id_vendaItens', 'quantidade'])->orderBy('quantidade')->get();
         $usuarios = Usuario::select(['id', 'name'])->orderBy('name')->get();     
-        return view('vendas.edit', ['vendas' => $vendas, 'id_vendaItens' => $venda_itens, 'usuarios' => $usuarios]);
+        return view('vendas.edit', ['vendas' => $vendas, 'usuarios' => $usuarios]);
     }
 
     public function update(VendaRequest $request, $id_vendas)

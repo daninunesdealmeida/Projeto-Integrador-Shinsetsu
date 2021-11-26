@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Carrinho Shinsetsu</title>
+    <title>Pedidos Shinsetsu</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!--
@@ -49,11 +49,11 @@
             <div class="col-12">
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
-                    <a href="index.html" class="logo">Acadêmia<em> Shinsetsu</em></a>
+                    <a href="index.html" class="logo">Acad�mia<em> Shinsetsu</em></a>
                     <ul class="nav">
                         <li class="scroll-to-section"><a href="{{route('site')}}">Home</a></li>
                         <li class="scroll-to-section"><a href="{{route('loja')}}">Loja</a></li>
-                        <li class="scroll-to-section"><a href="{{route('carrinhocompra')}}"class="active">Meu Carrinho</a></li>
+                        <li class="scroll-to-section"><a href="{{route('carrinhocompra')}}">Meu Carrinho</a></li>
                         <li class="scroll-to-section"><a href="{{route('insereCarrinho')}}">Meus Pedidos</a></li>
             </div>
 
@@ -66,7 +66,7 @@
 
 <!-- ***** Main Banner Area Start ***** -->
 <div class="container" id="top">
-    <img src="{{ asset('assets/images/carrinho.jpeg') }}">
+    <img src="{{ asset('assets/images/carrinho.jpg') }}">
 
 </div>
 
@@ -105,7 +105,7 @@
                 </div>
             </div>
         @empty
-            <h1>Não tem nada</h1>
+            <h1>N�o tem nada</h1>
         @endforelse
 
 
@@ -113,52 +113,10 @@
 
     <input type="hidden" class="totalValorGeral" name="totalValorGeral">
     <input type="hidden" class="quantidadeGeral" name="quantidadeGeral">
-    <input type="hidden" class="usuario" name="usuario">
 
     <hr>
 
-    <div class="forma-pagamento">
-        <h4>Forma de pagamento</h4>
-    </div>
-
-    <div class="row">
-        <div class="col-md-3 academic-pagamentos">
-            <div class="form-group">
-                <label for="cartao">Bandeira do Cartão</label>
-                <select name="cartao" class="custom-select" id="cartao">
-                    <option value="Mastercard">Mastercard</option>
-                    <option value="Visa">Visa</option>
-                    <option value="Ello">Ello</option>
-                </select>
-            </div>
-        </div>
-
-        <div class="col-md-3 academic-pagamentos">
-            <div class="form-group">
-                <label for="nomecartao">Nome Cartão</label>
-                <input type="text" class="form-control" id="nomecartao" name="nomecartao" placeholder="Digite o nome do Cartão">
-            </div>
-        </div>
-
-        <div class="col-md-3 academic-pagamentos">
-            <div class="form-group">
-                <label for="num_cartao">Número do cartão</label>
-                <input type="text" name="num_cartao" class="form-control" id="num_cartao">
-            </div>
-        </div>
-
-        <div class="col-md-3 academic-pagamentos">
-            <div class="form-group">
-                <label for="dt_vencimento">Vencimento do cartão</label>
-                <input type="date" name="dt_vencimento" class="form-control" id="dt_vencimento">
-            </div>
-
-        </div>
-    </div>
-    <div class="finalizar-compra">
-        <button type="submit" class="btn btn-primary">Finalizar Compra
-        </button>
-    </div>
+    
 </form>
 @include('flash::message')
 <footer>
@@ -203,16 +161,7 @@
 
     })
 
-    function deletaItem(produto){
-        $.ajax({
-            url: '/carrinho/' + produto + '/destroy',
-            type: "DELETE",
-            dataType: 'json',
-            success: function (data) {
-                document.location.reload(true);
-            }
-        })
-    }
+   
 </script>
 </body>
 </html>
@@ -247,38 +196,6 @@
         color: black;
         font-size: 18px;
     }
-    .header-area .main-nav .nav li:last-child a {
-        color: #fff !important;
-    }
-    a#removerItem {
-        color: #fff;
-    }
-    .header-area.header-sticky .nav {
-        margin-right: 70px !important;
-    }
-
-    .header-area .main-nav .nav li a:hover {
-        border-bottom-color: red;
-        border-bottom-style: solid;
-        border-bottom-width: 1px;
-    }
-    .btn-primary {
-        background-color: #dc3545;
-        border-color: #dc3545;
-    }
-
-    .btn-primary:hover {
-        color:#000 !important;
-        background-color: #dc3545 !important;
-        border-color: #dc3545 !important;
-    }
-    .header-area .main-nav .nav li:last-child a {
-        color: #fff !important;
-    }
-    .header-area {
-     background: rgb(237 86 59 / 10%);
-    }
-
 
 </style>
 

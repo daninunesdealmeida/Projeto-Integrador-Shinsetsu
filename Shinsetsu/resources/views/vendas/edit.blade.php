@@ -24,15 +24,10 @@
     {!! Form::label ('valor_vendas', 'valor_vendas:') !!}
     {!! Form::text ('valor_vendas', $vendas->valor_vendas, ['class' => 'form-control']) !!}
 
-    {!! Form::label ('fk_usuarios', 'Usuario:') !!}
-    {!! Form::select('fk_usuarios',
+    {!! Form::label ('fk_users', 'Usuario:') !!}
+    {!! Form::select('fk_users',
     \app\Models\Usuario::orderBy('name')->pluck('name', 'id')->toArray(),
-    $vendas->fk_usuarios, ['class' => 'form-control', 'required' ]) !!}
-
-    {!! Form::label ('fk_itens', 'Venda:') !!}
-    {!! Form::select('fk_itens',
-    \app\Models\Venda_Item::orderBy('id_vendaItens')->pluck('id_vendaItens', 'id_vendaItens')->toArray(),
-    $vendas->fk_itens, ['class' => 'form-control', 'required' ]) !!}
+    $vendas->fk_users, ['class' => 'form-control', 'required' ]) !!}
 
     <div class="form-group">
         {!! Form::submit('Editar Vendas', ['class'=>'btn btn-primary']) !!}

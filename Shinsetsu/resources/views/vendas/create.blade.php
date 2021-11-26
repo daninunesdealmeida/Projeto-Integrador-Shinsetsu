@@ -15,15 +15,11 @@
     {!! Form::label ('valor_vendas', 'Valor da Venda:') !!}
     {!! Form::text ('valor_vendas', null, ['class' => 'form-control']) !!}
 
-    {!! Form::label ('fk_usuarios', 'Usuario:') !!}
-    {!! Form::select('fk_usuarios',
+    {!! Form::label ('fk_users', 'Usuario:') !!}
+    {!! Form::select('fk_users',
     \app\Models\Usuario::orderbY('name')->pluck('name', 'id')->toArray(),
     null, ['class' => 'form-control', 'required' ]) !!}
-
-    {!! Form::label ('fk_itens', 'itens da venda:') !!}
-    {!! Form::select('fk_itens',
-    \app\Models\Venda_Item::orderbY('id_vendaItens')->pluck('quantidade', 'id_vendaItens')->toArray(),
-    null, ['class' => 'form-control', 'required' ]) !!}    
+  
 
 </div>
 

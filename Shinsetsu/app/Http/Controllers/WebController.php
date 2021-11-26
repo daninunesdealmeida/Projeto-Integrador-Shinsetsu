@@ -60,7 +60,7 @@ class WebController extends Controller
             $produtos = Produto::all();
         }
 
-       
+
         return view('web.loja', compact('categorias', 'produtos'));
     }
 
@@ -74,30 +74,35 @@ class WebController extends Controller
             'quantidade' => $request->quantidade,
             'id_user' => $user
         ]);
-        
-        $novo_carrinho = $request->all();      
-            //upload da imagem
-            if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
-                $requestImagem = $request->imagem;
-                $extension = $requestImagem->extension();
-                $imagemNome = md5($requestImagem->getClientOriginalName() . strtotime("now")) . "." . $extension;
-                $requestImagem->move(public_path('img/produtos'), $imagemNome);
-                $novo_produto['imagem'] = $imagemNome;
 
-        Carrinho::create($novo_carrinho);
+        $novo_carrinho = $request->all();
+        //upload da imagem
+        if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
+            $requestImagem = $request->imagem;
+            $extension = $requestImagem->extension();
+            $imagemNome = md5($requestImagem->getClientOriginalName() . strtotime("now")) . "." . $extension;
+            $requestImagem->move(public_path('img/produtos'), $imagemNome);
+            $novo_produto['imagem'] = $imagemNome;
 
-        flash('adicionado ao carrinho')->success(); 
+            Carrinho::create($novo_carrinho);
 
+            flash('adicionado ao carrinho')->success();
+
+
+        }
         return redirect()->back();
     }
-}
 
     public function carrinhoCompra()
     {
-        $carrinhos = DB::select(DB::raw('SELECT t.id,t.produto_id,t.preco,t.quantidade FROM (select id,produto_id,preco, sum(quantidade) quantidade from shinsetsu.carrinhos c where id_user = ? group by produto_id,preco,id) t'),[auth()->user()->id]);
-
-        dd($carrinhos);
+        $carrinhos = DB::select('select c.produto_id,c.preco, sum(c.quantidade) quantidade, max(p.imagem)imagem
+        from carrinhos c 
+        inner join produtos p on c.produto_id = p.id_produtos
+        where c.id_user = ?
+        group by c.produto_id,c.preco, p.imagem', [auth()->user()->id]);
+        //dd($carrinhos);
         return view('web.carrinho', compact('carrinhos'));
+
     }
 
     public function finalizaCompra(Request $request)
@@ -108,6 +113,7 @@ class WebController extends Controller
             'dt_venda' => Carbon::now(),
             'total_itens' => $request->quantidadeGeral,
             'valor_vendas' => $request->totalValorGeral
+            
         ]);
 
         $vendaItens = Venda_item::create([
@@ -132,12 +138,46 @@ class WebController extends Controller
 
     public function destroyCarrinho($id)
     {
-        $carrinhos = Carrinho::all();
-        Carrinho::find($id)->delete();
+        $carrinhos = Carrinho::where('produto_id', $id)->where('id_user', auth()->user()->id)->first();
+
+        if (!$carrinhos) {
+            return redirect()->back();
+        }
+
+        DB::select(DB::raw('DELETE from carrinhos where produto_id = ? and id_user = ?'),[$id,auth()->user()->id]);
 
         flash('Removido do carrinho')->error();
+        return response()->json(['data' => 'revovido']);
+
+    }
+
+    public function inserePedido(Request $request)
+    {
+        $user = auth()->user()->id;
+
+        Pedido::create([
+            'produto_id' => $request->idproduto,
+            'preco' => $request->preco_produto,
+            'quantidade' => $request->quantidade,
+            'id_user' => $user
+        ]);
+
+        $novo_pedido = $request->all();
+        //upload da imagem
+        if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
+            $requestImagem = $request->imagem;
+            $extension = $requestImagem->extension();
+            $imagemNome = md5($requestImagem->getClientOriginalName() . strtotime("now")) . "." . $extension;
+            $requestImagem->move(public_path('img/produtos'), $imagemNome);
+            $novo_produto['imagem'] = $imagemNome;
+
+            Pedido::create($novo_pedido);
+
+            flash('Pedido removido')->success();
+
+
+        }
         return redirect()->back();
-        
     }
 
 

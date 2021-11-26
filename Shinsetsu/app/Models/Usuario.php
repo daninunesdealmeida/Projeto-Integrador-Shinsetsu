@@ -18,7 +18,7 @@ class Usuario extends Model
 
   public function venda()
   {
-    return $this->hasMany(venda::class);
+    return $this->hasMany(Venda::class);
   }
 
   public function pagamento()
