@@ -46,7 +46,6 @@ class WebController extends Controller
         $produtos = Produto::all();
         $carrinhos = Carrinho::all();
         return view('web.loja', compact('categorias', 'produtos', 'carrinhos'));
-
     }
 
     public function pesquisaCategoria($id)
@@ -87,33 +86,35 @@ class WebController extends Controller
             Carrinho::create($novo_carrinho);
 
             flash('adicionado ao carrinho')->success();
-
-
         }
         return redirect()->back();
     }
 
     public function carrinhoCompra()
     {
-        $carrinhos = DB::select('select c.produto_id,c.preco, sum(c.quantidade) quantidade, max(p.imagem)imagem
+        $carrinhos = DB::select('select  p.nome, c.produto_id,c.preco, sum(c.quantidade) quantidade, max(p.imagem)imagem
         from carrinhos c 
         inner join produtos p on c.produto_id = p.id_produtos
         where c.id_user = ?
-        group by c.produto_id,c.preco, p.imagem', [auth()->user()->id]);
+        group by c.produto_id,c.preco, p.nome, p.imagem', [auth()->user()->id]);
         //dd($carrinhos);
         return view('web.carrinho', compact('carrinhos'));
-
     }
 
     public function finalizaCompra(Request $request)
-    {
-        //dd($request->all());
+    {   //dd($request); 
+        if ($request->quantidadeGeral <= 0) {
+            return $this->carrinhoCompra();
+        }
+        $user_id = auth()->user()->id;
+        //dd($request);     
 
         $venda = Venda::create([
             'dt_venda' => Carbon::now(),
             'total_itens' => $request->quantidadeGeral,
-            'valor_vendas' => $request->totalValorGeral
-            
+            'valor_vendas' => $request->totalValorGeral,
+            'fk_users' => $user_id,
+
         ]);
 
         $vendaItens = Venda_item::create([
@@ -128,7 +129,8 @@ class WebController extends Controller
             'nome_cartao' => $request->nomecartao,
             'num_cartao' => $request->num_cartao,
             'dt_vencimento' => $request->dt_vencimento,
-            'fk_vendas' => $venda->id_vendas
+            'fk_vendas' => $venda->id_vendas,
+            'fk_usuarios' => $user_id
         ]);
 
         $deletarCarrinho = DB::select(DB::raw('DELETE from carrinhos where id_user = ?'), [auth()->user()->id]);
@@ -144,11 +146,10 @@ class WebController extends Controller
             return redirect()->back();
         }
 
-        DB::select(DB::raw('DELETE from carrinhos where produto_id = ? and id_user = ?'),[$id,auth()->user()->id]);
+        DB::select(DB::raw('DELETE from carrinhos where produto_id = ? and id_user = ?'), [$id, auth()->user()->id]);
 
         flash('Removido do carrinho')->error();
         return response()->json(['data' => 'revovido']);
-
     }
 
     public function inserePedido(Request $request)
@@ -174,11 +175,7 @@ class WebController extends Controller
             Pedido::create($novo_pedido);
 
             flash('Pedido removido')->success();
-
-
         }
         return redirect()->back();
     }
-
-
 }

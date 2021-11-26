@@ -44,8 +44,8 @@ return [
     | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Basic-Configuration
     |
     */
-
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo' => '<strong>Shinsetsu</strong>',
+    'logo_img' => 'img/produtos/5b386a4635b0cdb571977f24ac7dbd00.jpg',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -298,52 +298,63 @@ return [
             'text' => 'Agendamentos',
             'url'  => 'http://127.0.0.1:8000/pdfAgendamentos',
             'icon' => 'far fa-fw fa-file',
+            'target' => '_blank',
         ],
         [
             'text' => 'Categorias',
             'url'  => 'http://127.0.0.1:8000/pdfCategorias',
             'icon' => 'far fa-fw fa-file',
+            'target' => '_blank',
         ],
         [
             'text' => 'Pagamentos',
             'url'  => 'http://127.0.0.1:8000/pdfPagamentos',
             'icon' => 'far fa-fw fa-file',
+            'target' => '_blank',
         ],
         [
             'text' => 'Pessoas',
             'url'  => 'http://127.0.0.1:8000/pdfPessoas',
             'icon' => 'far fa-fw fa-file',
+            'target' => '_blank',
         ],
         [
             'text' => 'Produtos',
             'url'  => 'http://127.0.0.1:8000/pdfProdutos',
             'icon' => 'far fa-fw fa-file',
+            'target' => '_blank',
+            
         ],
         [
             'text' => 'Usuários',
             'url'  => 'http://127.0.0.1:8000/users',
             'icon' => 'far fa-fw fa-file',
+            'target' => '_blank',
         ],
         [
             'text' => 'Vendas',
             'url'  => 'http://127.0.0.1:8000/pdfVendas',
             'icon' => 'far fa-fw fa-file',
+            'target' => '_blank',
         ],
         [
             'text' => 'Venda_Itens',
             'url'  => 'http://127.0.0.1:8000/pdfVendaItens',
             'icon' => 'far fa-fw fa-file',
+            'target' => '_blank',
         ],
         ['header' => 'account_settings'],
         [
             'text' => 'profile',
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-user',
+            
         ],
         [
             'text' => 'change_password',
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
+            
         ],
     ],
 

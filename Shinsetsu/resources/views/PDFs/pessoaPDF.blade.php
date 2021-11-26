@@ -12,30 +12,30 @@
     <table class="table table-striped">
     <tbody>
             <tr>
-            <<th>Id</th>
-                <th>Nome</th>
-                <th>Telefone</th>
-                <th>Rua</th>
-                <th>Bairro</th>
-                <th>Cidade</th>
-                <th>CEP</th>
-                <th>CPF</th>
-                <th>RG</th>
-                <th>Usuario</th>
+                <th style="border:grey solid 2px;">Id</th>
+                <th style="border:grey solid 2px;">Nome</th>
+                <th style="border:grey solid 2px;">Telefone</th>
+                <th style="border:grey solid 2px;">Rua</th>
+                <th style="border:grey solid 2px;">Bairro</th>
+                <th style="border:grey solid 2px;">Cidade</th>
+                <th style="border:grey solid 2px;">CEP</th>
+                <th style="border:grey solid 2px;">CPF</th>
+                <th style="border:grey solid 2px;">RG</th>
+                <th style="border:grey solid 2px;">Usuario</th>
                 </thead>
         </tr>
             @foreach($pessoas as $pessoa)
             <tr>
-                <td>{{$pessoa ->id_pessoas}}</td>
-                <td>{{$pessoa ->nome}}</td>
-                <td>{{$pessoa ->telefone}}</td>
-                <td>{{$pessoa ->Rua}}</td>
-                <td>{{$pessoa ->Bairro}}</td>
-                <td>{{$pessoa ->Cidade}}</td>
-                <td>{{$pessoa ->CEP}}</td>
-                <td>{{$pessoa ->CPF}}</td>
-                <td>{{$pessoa ->RG}}</td>
-                <td>{{$pessoa ->usuario->nome}}</td>
+                <td style="border:rgb(68, 183, 243) solid 2px;">{{$pessoa ->id_pessoas}}</td>
+                <td style="border:rgb(68, 183, 243) solid 2px;">{{$pessoa ->nome}}</td>
+                <td style="border:rgb(68, 183, 243) solid 2px;">{{$pessoa ->telefone}}</td>
+                <td style="border:rgb(68, 183, 243) solid 2px;">{{$pessoa ->Rua}}</td>
+                <td style="border:rgb(68, 183, 243) solid 2px;">{{$pessoa ->Bairro}}</td>
+                <td style="border:rgb(68, 183, 243) solid 2px;">{{$pessoa ->Cidade}}</td>
+                <td style="border:rgb(68, 183, 243) solid 2px;">{{$pessoa ->CEP}}</td>
+                <td style="border:rgb(68, 183, 243) solid 2px;">{{$pessoa ->CPF}}</td>
+                <td style="border:rgb(68, 183, 243) solid 2px;">{{$pessoa ->RG}}</td>
+                <td style="border:rgb(68, 183, 243) solid 2px;">{{$pessoa ->usuario->nome}}</td>
                 <td>
             </tr>
             @endforeach

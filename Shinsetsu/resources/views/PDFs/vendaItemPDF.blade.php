@@ -12,18 +12,18 @@
     <table class="table table-striped">
         <tbody>
             <tr>
-                <th>Id</th>
-                <th>Quantidade</th>
-                <th>vlr unitário</th>
-                <th>Produtos</th>
+                <th style="border:grey solid 2px;">Id</th>
+                <th style="border:grey solid 2px;">Quantidade</th>
+                <th style="border:grey solid 2px;">vlr unitário</th>
+                <th style="border:grey solid 2px;">Produtos</th>
                 </thead>
             </tr>
             @foreach($venda_Itens as $venda_Item)
             <tr>
-                <td>{{$venda_Item ->id_vendaItens}}</td>
-                <td>{{$venda_Item ->quantidade}}</td>
-                <td>{{$venda_Item ->vlr_unitário}}</td>
-                <td>{{$venda_Item ->fk_produtos}}</td>
+                <td style="border:rgb(68, 183, 243) solid 2px;">{{$venda_Item ->id_vendaItens}}</td>
+                <td style="border:rgb(68, 183, 243) solid 2px;">{{$venda_Item ->quantidade}}</td>
+                <td style="border:rgb(68, 183, 243) solid 2px;">{{$venda_Item ->vlr_unitário}}</td>
+                <td style="border:rgb(68, 183, 243) solid 2px;">{{$venda_Item ->fk_produtos}}</td>
                 <td>
             </tr>
             @endforeach

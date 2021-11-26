@@ -12,22 +12,22 @@
     <table class="table table-striped">
         <tbody>
             <tr>
-                <th>Id</th>
-                <th>Nome</th>
-                <th>Especificações</th>
-                <th>Preço</th>
-                <th>Qt Estoque</th>
-                <th>Estoque Mínimo</th>
+                <th style="border:grey solid 2px;">Id</th>
+                <th style="border:grey solid 2px;">Nome</th>
+                <th style="border:grey solid 2px;">Especificações</th>
+                <th style="border:grey solid 2px;">Preço</th>
+                <th style="border:grey solid 2px;">Qt Estoque</th>
+                <th style="border:grey solid 2px;">Estoque Mínimo</th>
                 </thead>
             </tr>
             @foreach($produtos as $produto)
             <tr>
-                <td>{{$produto ->id_produtos}}</td>
-                <td>{{$produto ->nome}}</td>
-                <td>{{$produto ->especificacao}}</td>
-                <td>{{$produto ->preco}}</td>
-                <td>{{$produto ->qt_estoque}}</td>
-                <td>{{$produto ->estoque_minimo}}</td>
+                <td style="border:rgb(68, 183, 243) solid 2px;">{{$produto ->id_produtos}}</td>
+                <td style="border:rgb(68, 183, 243) solid 2px;">{{$produto ->nome}}</td>
+                <td style="border:rgb(68, 183, 243) solid 2px;">{{$produto ->especificacao}}</td>
+                <td style="border:rgb(68, 183, 243) solid 2px;">{{$produto ->preco}}</td>
+                <td style="border:rgb(68, 183, 243) solid 2px;">{{$produto ->qt_estoque}}</td>
+                <td style="border:rgb(68, 183, 243) solid 2px;">{{$produto ->estoque_minimo}}</td>
                 <td>
             </tr>
             @endforeach

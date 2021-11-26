@@ -13,15 +13,15 @@
         <tbody>
 
             <tr>
-                <th>Id</th>
-                <th>Nome</th>
+                <th style="border:grey solid 2px;">Id</th>
+                <th style="border:grey solid 2px;">Nome</th>
             </tr>
             </thead>
             </tr>
             @foreach($categorias as $categoria)
             <tr>
-                <td>{{$categoria ->id_categorias}}</td>
-                <td>{{$categoria ->nome}}</td>
+                <td style="border:rgb(68, 183, 243) solid 2px;">{{$categoria ->id_categorias}}</td>
+                <td style="border:rgb(68, 183, 243) solid 2px;">{{$categoria ->nome}}</td>
                 <td>
             </tr>
             @endforeach

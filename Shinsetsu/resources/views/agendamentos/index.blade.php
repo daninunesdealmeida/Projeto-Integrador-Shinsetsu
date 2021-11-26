@@ -1,6 +1,6 @@
 @extends('layouts.default')
 
-@section('title', 'EasyService - Agendamentos')
+@section('title', 'Agendamentos')
 
 @section('content_header')
 <h1>Cadastros Agendamentos</h1>

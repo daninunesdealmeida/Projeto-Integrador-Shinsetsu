@@ -49,7 +49,7 @@
             <div class="col-12">
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
-                    <a href="index.html" class="logo">Acadêmia<em> Shinsetsu</em></a>
+                    <a href="{{route('site')}}" class="logo">Acadêmia<em> Shinsetsu</em></a>
                     <ul class="nav">
                         <li class="scroll-to-section"><a href="{{route('site')}}">Home</a></li>
                         <li class="scroll-to-section"><a href="{{route('loja')}}">Loja</a></li>
@@ -79,7 +79,8 @@
                 <div class="card ">
                     <div class="form-group">
                         <label for="">Produto</label>
-                        <input type="text" class="form-control" id="produto_id" name="produto_id" value="{{$carrinho->produto_id}}">
+                        <input type="text" class="form-control" id="produto_nome" name="produto_nome" value="{{$carrinho->nome}}">
+                        <input type="hidden" class="form-control" id="produto_id" name="produto_id" value="{{$carrinho->produto_id}}">
                     </div>
 
                      <div class="form-group">
@@ -156,8 +157,7 @@
         </div>
     </div>
     <div class="finalizar-compra">
-        <button type="submit" class="btn btn-primary">Finalizar Compra
-        </button>
+        <button type="submit" class="btn btn-primary">Finalizar Compra</button>
     </div>
 </form>
 @include('flash::message')

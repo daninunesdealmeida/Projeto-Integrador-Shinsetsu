@@ -12,22 +12,22 @@
     <table class="table table-striped">
         <tbody>
             <tr>
-                <th>Id</th>
-                <th>Data Venda</th>
-                <th>Documento</th>
-                <th>Total Itens</th>
-                <th>Valor Vendas</th>
-                <th>Produtos</th>
+                <th style="border:grey solid 2px;">Id</th>
+                <th style="border:grey solid 2px;">Data Venda</th>
+                <th style="border:grey solid 2px;">Documento</th>
+                <th style="border:grey solid 2px;">Total Itens</th>
+                <th style="border:grey solid 2px;">Valor Vendas</th>
+                <th style="border:grey solid 2px;">Produtos</th>
                 </thead>
             </tr>
             @foreach($vendas as $venda)
             <tr>
-                <td>{{$venda ->id_vendas}}</td>
-                <td> {{ Carbon\Carbon::parse($venda ->dt_venda)->format('d/m/Y') }} </td>
-                <td>{{$venda ->documento}}</td>
-                <td>{{$venda ->total_itens}}</td>
-                <td>{{$venda ->valor_vendas}}</td>
-                <td>{{$venda ->fk_vendasItens}}</td>
+                <td style="border:rgb(68, 183, 243) solid 2px;">{{$venda ->id_vendas}}</td>
+                <td style="border:rgb(68, 183, 243) solid 2px;"> {{ Carbon\Carbon::parse($venda ->dt_venda)->format('d/m/Y') }} </td>
+                <td style="border:rgb(68, 183, 243) solid 2px;">{{$venda ->documento}}</td>
+                <td style="border:rgb(68, 183, 243) solid 2px;">{{$venda ->total_itens}}</td>
+                <td style="border:rgb(68, 183, 243) solid 2px;">{{$venda ->valor_vendas}}</td>
+                <td style="border:rgb(68, 183, 243) solid 2px;">{{$venda ->fk_vendasItens}}</td>
                 <td>
             </tr>
             @endforeach
