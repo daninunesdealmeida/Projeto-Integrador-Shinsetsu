@@ -54,71 +54,36 @@
                         <li class="scroll-to-section"><a href="{{route('site')}}">Home</a></li>
                         <li class="scroll-to-section"><a href="{{route('loja')}}">Loja</a></li>
                         <li class="scroll-to-section"><a href="{{route('carrinhocompra')}}">Meu Carrinho</a></li>
-                        <li class="scroll-to-section"><a href="{{route('insereCarrinho')}}">Meus Pedidos</a></li>
+                        <li class="scroll-to-section"><a href="{{route('meusPedidos')}}">Meus Pedidos</a></li>
+                    </ul>
+                </nav>
             </div>
-
-            </ul>
-            </nav>
         </div>
-    </div>
     </div>
 </header>
 
 <!-- ***** Main Banner Area Start ***** -->
-<div class="container" id="top">
-    <img src="{{ asset('assets/images/carrinho.jpg') }}">
 
-</div>
 
-<form action="{{route('finalizaCompra')}}" method="post">
-    @csrf
-
-    <div class="row">
-        @forelse($carrinhos as $carrinho)
-            <div class="col-md-3 academic-compras">
-                <div class="card ">
+<section class="my-5" style="padding-top: 100px">
+    <div class="container">
+        <div class="row">
+            @forelse($vendas as $venda)
+                <div class="col-md-4">
                     <div class="form-group">
-                        <label for="">Produto</label>
-                        <input type="text" class="form-control" id="produto_id" name="produto_id" value="{{$carrinho->produto_id}}">
+                        <label for="exampleInputEmail1">{{$venda->nome}}</label>
+                        <p>{{$venda->quantidade}}</p>
+                        <p>Valor {{'R$ '. number_format($venda->preco,2,',','.')}}</p>
                     </div>
-
-                     <div class="form-group">
-                        <img class="card-img-top" src="img/produtos/{{$carrinho->imagem}}" alt="wrappixel kit">
-                    </div> 
-
-                    <div class="form-group">
-                        <label for="">Valor</label>
-                        <input type="text" class="form-control" id="valor" value="{{$carrinho->preco}}" name="valor">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="">Quantidade</label>
-                        <input type="text" class="form-control quantidade"  id="quantidade" value="{{$carrinho->quantidade}}" name="quantidade">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="">Valor Total Produto</label>
-                        <input type="text" class="form-control valorTotal" id="valorTotal" name="valorTotal" value=" {{$carrinho->preco * $carrinho->quantidade}}">
-                    </div>
-
-                    <a class="btn-sm btn-danger" style="cursor:pointer;" id="removerItem" onclick="deletaItem({{$carrinho->produto_id}})" data-id="{{$carrinho->produto_id}}">Remover</a>
                 </div>
-            </div>
-        @empty
-            <h1>N�o tem nada</h1>
-        @endforelse
-
-
+            @empty
+                <h1>Você não possui pedidos</h1>
+            @endforelse
+        </div>
     </div>
+</section>
 
-    <input type="hidden" class="totalValorGeral" name="totalValorGeral">
-    <input type="hidden" class="quantidadeGeral" name="quantidadeGeral">
 
-    <hr>
-
-    
-</form>
-@include('flash::message')
 <footer>
     <div class="container">
         <div class="row">
@@ -157,11 +122,9 @@
         $('.totalValorGeral').val(total)
 
 
-
-
     })
 
-   
+
 </script>
 </body>
 </html>

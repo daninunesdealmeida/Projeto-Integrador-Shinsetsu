@@ -15,6 +15,7 @@ Route::get('/login', [WebController::class, 'login'])->name('login');
 Route::post('/carrinho', [WebController::class, 'insereCarrinho'])->name('insereCarrinho');
 Route::delete('/carrinho/{id}/destroy', [WebController::class, 'destroyCarrinho'])->name('destroyCarrinho');
 Route::post('/pedido', [WebController::class, 'insereCarrinho'])->name('insereCarrinho');
+Route::get('/meusPedidos', [WebController::class, 'meusPedidos'])->name('meusPedidos');
 Route::post("/store",       ['as' => 'agendamentos.store',   'uses' => "App\Http\Controllers\AgendamentosController@store"]);
 
 

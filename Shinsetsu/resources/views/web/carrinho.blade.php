@@ -53,14 +53,12 @@
                     <ul class="nav">
                         <li class="scroll-to-section"><a href="{{route('site')}}">Home</a></li>
                         <li class="scroll-to-section"><a href="{{route('loja')}}">Loja</a></li>
-                        <li class="scroll-to-section"><a href="{{route('carrinhocompra')}}"class="active">Meu Carrinho</a></li>
+                        <li class="scroll-to-section"><a href="{{route('carrinhocompra')}}" class="active">Meu Carrinho</a></li>
                         <li class="scroll-to-section"><a href="{{route('insereCarrinho')}}">Meus Pedidos</a></li>
+                    </ul>
+                </nav>
             </div>
-
-            </ul>
-            </nav>
         </div>
-    </div>
     </div>
 </header>
 
@@ -79,13 +77,13 @@
                 <div class="card ">
                     <div class="form-group">
                         <label for="">Produto</label>
-                        <input type="text" class="form-control" id="produto_nome" name="produto_nome" value="{{$carrinho->nome}}">
+                        <p type="text" class="form-control" id="produto_nome" name="produto_nome" value="{{$carrinho->nome}}">{{$carrinho->nome}}</p>
                         <input type="hidden" class="form-control" id="produto_id" name="produto_id" value="{{$carrinho->produto_id}}">
                     </div>
 
-                     <div class="form-group">
+                    <div class="form-group">
                         <img class="card-img-top" src="img/produtos/{{$carrinho->imagem}}" alt="wrappixel kit">
-                    </div> 
+                    </div>
 
                     <div class="form-group">
                         <label for="">Valor</label>
@@ -94,7 +92,7 @@
 
                     <div class="form-group">
                         <label for="">Quantidade</label>
-                        <input type="text" class="form-control quantidade"  id="quantidade" value="{{$carrinho->quantidade}}" name="quantidade">
+                        <input type="text" class="form-control quantidade" id="quantidade" value="{{$carrinho->quantidade}}" name="quantidade">
                     </div>
 
                     <div class="form-group">
@@ -199,11 +197,9 @@
         $('.totalValorGeral').val(total)
 
 
-
-
     })
 
-    function deletaItem(produto){
+    function deletaItem(produto) {
         $.ajax({
             url: '/carrinho/' + produto + '/destroy',
             type: "DELETE",
@@ -247,12 +243,15 @@
         color: black;
         font-size: 18px;
     }
+
     .header-area .main-nav .nav li:last-child a {
         color: #fff !important;
     }
+
     a#removerItem {
         color: #fff;
     }
+
     .header-area.header-sticky .nav {
         margin-right: 70px !important;
     }
@@ -262,21 +261,24 @@
         border-bottom-style: solid;
         border-bottom-width: 1px;
     }
+
     .btn-primary {
         background-color: #dc3545;
         border-color: #dc3545;
     }
 
     .btn-primary:hover {
-        color:#000 !important;
+        color: #000 !important;
         background-color: #dc3545 !important;
         border-color: #dc3545 !important;
     }
+
     .header-area .main-nav .nav li:last-child a {
         color: #fff !important;
     }
+
     .header-area {
-     background: rgb(237 86 59 / 10%);
+        background: rgb(237 86 59 / 10%);
     }
 
 

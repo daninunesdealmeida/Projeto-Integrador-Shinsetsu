@@ -86,7 +86,7 @@ class WebController extends Controller
 
             Carrinho::create($novo_carrinho);
 
-           
+
         }
         return redirect()->back();
     }
@@ -94,7 +94,7 @@ class WebController extends Controller
     public function carrinhoCompra()
     {
         $carrinhos = DB::select('select  p.nome, c.produto_id,c.preco, sum(c.quantidade) quantidade, max(p.imagem)imagem
-        from carrinhos c 
+        from carrinhos c
         inner join produtos p on c.produto_id = p.id_produtos
         where c.id_user = ?
         group by c.produto_id,c.preco, p.nome, p.imagem', [auth()->user()->id]);
@@ -103,12 +103,12 @@ class WebController extends Controller
     }
 
     public function finalizaCompra(Request $request)
-    {   //dd($request); 
+    {   //dd($request);
         if ($request->quantidadeGeral <= 0) {
             return $this->carrinhoCompra();
         }
         $user_id = auth()->user()->id;
-        //dd($request);     
+        //dd($request);
 
         $venda = Venda::create([
             'dt_venda' => Carbon::now(),
@@ -146,11 +146,24 @@ class WebController extends Controller
         if (!$carrinhos) {
             return redirect()->back();
         }
-        
+
         DB::select(DB::raw('DELETE from carrinhos where produto_id = ? and id_user = ?'), [$id, auth()->user()->id]);
 
-        
+
         return response()->json(['data' => 'revovido']);
+    }
+
+    public function meusPedidos()
+    {
+       $vendas = DB::table('vendas')
+           ->join('venda_itens','venda_itens.fk_vendas','=','vendas.id_vendas')
+           ->join('produtos','produtos.id_produtos','=','venda_itens.fk_produtos')
+           ->where('vendas.fk_users',auth()->user()->id)
+           ->select('id_vendas','total_itens','quantidade','nome','preco','imagem')
+           ->get();
+    //mudar para tosql para ver o sql no dd($vendas)
+
+        return view('web.pedido',compact('vendas'));
     }
 
     // public function inserePedido(Request $request)
@@ -163,7 +176,7 @@ class WebController extends Controller
     //         'quantidade' => $request->quantidade,
     //         'id_user' => $user
     //     ]);
-          
+
 
     //     $novo_pedido = $request->all();
     //     //upload da imagem
@@ -176,7 +189,7 @@ class WebController extends Controller
 
     //         Pedido::create($novo_pedido);
 
-          
+
     //     }
     //     return redirect()->back();
     // }

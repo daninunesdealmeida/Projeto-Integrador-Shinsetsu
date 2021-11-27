@@ -56,7 +56,8 @@
                             <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
                             <li class="scroll-to-section"><a href="#features">Sobre Nós</a></li>
                             <li class="scroll-to-section"><a href="#schedule">Horários</a></li>
-                            <li class="scroll-to-section"><a href="#contact-us">Agendamentos</a></li>
+                            <li class="scroll-to-section"><a href="#">Agendamentos</a></li>
+                            <li class="scroll-to-section"><a href="{{route('meusPedidos')}}">Meus Pedidos</a></li>
                             <li class="scroll-to-section"><a href="{{route('loja')}}">Loja</a></li>
                             <li class="main-button"><a href="{{route('login')}}">Entrar</a></li>
 
