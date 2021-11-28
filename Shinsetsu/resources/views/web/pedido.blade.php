@@ -49,7 +49,7 @@
             <div class="col-12">
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
-                    <a href="index.html" class="logo">Acad�mia<em> Shinsetsu</em></a>
+                    <a class="logo">Acadêmia<em> Shinsetsu</em></a>
                     <ul class="nav">
                         <li class="scroll-to-section"><a href="{{route('site')}}">Home</a></li>
                         <li class="scroll-to-section"><a href="{{route('loja')}}">Loja</a></li>
@@ -73,6 +73,7 @@
                     <div class="form-group">
                         <label for="exampleInputEmail1">{{$venda->nome}}</label>
                         <p>{{$venda->quantidade}}</p>
+                        <img class="card-img-top" src="/img/produtos/{{$venda->imagem}}" alt="wrappixel kit">
                         <p>Valor {{'R$ '. number_format($venda->preco,2,',','.')}}</p>
                     </div>
                 </div>

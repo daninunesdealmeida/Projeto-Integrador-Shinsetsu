@@ -49,12 +49,12 @@
             <div class="col-12">
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
-                    <a href="{{route('site')}}" class="logo">Acadêmia<em> Shinsetsu</em></a>
+                    <a class="logo">Acadêmia<em> Shinsetsu</em></a>
                     <ul class="nav">
                         <li class="scroll-to-section"><a href="{{route('site')}}">Home</a></li>
                         <li class="scroll-to-section"><a href="{{route('loja')}}">Loja</a></li>
                         <li class="scroll-to-section"><a href="{{route('carrinhocompra')}}" class="active">Meu Carrinho</a></li>
-                        <li class="scroll-to-section"><a href="{{route('insereCarrinho')}}">Meus Pedidos</a></li>
+                        <li class="scroll-to-section"><a href="{{route('meusPedidos')}}">Meus Pedidos</a></li>
                     </ul>
                 </nav>
             </div>
@@ -104,7 +104,7 @@
                 </div>
             </div>
         @empty
-            <h1>Não tem nada</h1>
+            <h1>Carrinho Vazio</h1>
         @endforelse
 
 

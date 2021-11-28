@@ -49,7 +49,7 @@
                 <div class="col-12">
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
-                        <a href="index.html" class="logo">Acadêmia<em> Shinsetsu</em></a>
+                        <a class="logo">Acadêmia<em> Shinsetsu</em></a>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
@@ -57,7 +57,6 @@
                             <li class="scroll-to-section"><a href="#features">Sobre Nós</a></li>
                             <li class="scroll-to-section"><a href="#schedule">Horários</a></li>
                             <li class="scroll-to-section"><a href="#">Agendamentos</a></li>
-                            <li class="scroll-to-section"><a href="{{route('meusPedidos')}}">Meus Pedidos</a></li>
                             <li class="scroll-to-section"><a href="{{route('loja')}}">Loja</a></li>
                             <li class="main-button"><a href="{{route('login')}}">Entrar</a></li>
 
@@ -247,6 +246,7 @@
                                     <div class="col-md-12 col-sm-12">
                                         <fieldset>
                                             <input name="hora" type="text" id="horas" placeholder="Horário que deseja marcar a aula:">
+                                            <datalist id="horas">
                                         </fieldset>
                                     </div>
                                     <div class="col-lg-12">

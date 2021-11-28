@@ -136,7 +136,7 @@ class WebController extends Controller
 
         $deletarCarrinho = DB::select(DB::raw('DELETE from carrinhos where id_user = ?'), [auth()->user()->id]);
 
-        return view('web.site');
+        return redirect('meusPedidos');
     }
 
     public function destroyCarrinho($id)
@@ -150,7 +150,7 @@ class WebController extends Controller
         DB::select(DB::raw('DELETE from carrinhos where produto_id = ? and id_user = ?'), [$id, auth()->user()->id]);
 
 
-        return response()->json(['data' => 'revovido']);
+        return response()->json(['data' => 'removido']);
     }
 
     public function meusPedidos()
