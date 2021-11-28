@@ -12,7 +12,7 @@ class Venda_item extends Model
     protected $fillable = ['id_vendaItens', 'quantidade', 'vlr_unitário', 'fk_produtos', 'fk_vendas'];
 
     public function produto(){
-        return $this->hasMany(Produto::class);
+        return $this->hasMany(Produto::class, 'fk_produtos');
     }   
 
     public function venda(){

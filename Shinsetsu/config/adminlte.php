@@ -44,13 +44,15 @@ return [
     | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Basic-Configuration
     |
     */
-    'logo' => '<strong>Shinsetsu</strong>',
-    'logo_img' => 'img/produtos/cx.jpeg',
-    'logo_img_class' => 'brand-image img-circle elevation-3',
-    'logo_img_xl' => null,
-    'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => 'Shinsetsu',
+    // //'logo' => '<strong>Shinsetsu</strong>',
+    // 'logo_img' => '/public/assets/images/cx.jpeg',
+    // 'logo_img_class' => 'brand-image img-circle elevation-3',
+    // 'logo_img_xl' => null,
+    // 'logo_img_xl_class' => 'brand-image-xs',
+    // //'logo_img_alt' => 'Shinsetsu',
 
+    'logo_img' => '/assets/images/cx.jpeg',
+    'logo' => '<strong>Shinsetsu</strong>',
     /*
     |--------------------------------------------------------------------------
     | User Menu
@@ -225,134 +227,128 @@ return [
 
     'menu' => [
         // Navbar items:
-        [
-            'type'         => 'navbar-search',
-            'text'         => 'search',
-            'topnav_right' => true,
-        ],
-        [
-            'type'         => 'fullscreen-widget',
-            'topnav_right' => true,
-        ],
+        // [
+        //     'type'         => 'navbar-search',
+        //     'text'         => 'search',
+        //     'topnav_right' => true,
+        // ],
+        // [
+        //     'type'         => 'fullscreen-widget',
+        //     'topnav_right' => true,
+        // ],
 
         // Sidebar items:
-        [
-            'type' => 'sidebar-menu-search',
-            'text' => 'search',
-        ],
-        [
-            'text' => 'blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
-        ],
+        // [
+        //     'type' => 'sidebar-menu-search',
+        //     'text' => 'search',
+        // ],
+        // [
+        //     'text' => 'blog',
+        //     'url'  => 'admin/blog',
+        //     'can'  => 'manage-blog',
+        // ],
         [
             'text'        => 'Agendamentos',
-            'url'         => 'http://127.0.0.1:8000/agendamentos',
+            'url'         => '/agendamentos',
             'icon'        => 'fas fa-meteor',
             'label_color' => 'success',
         ],
         [
             'text'        => 'Categorias',
-            'url'         => 'http://127.0.0.1:8000/categorias',
+            'url'         => '/categorias',
             'icon'        => 'fas fa-hammer',
             'label_color' => 'success',
         ],
         [
             'text'        => 'Pagamentos',
-            'url'         => 'http://127.0.0.1:8000/pagamentos',
+            'url'         => '/pagamentos',
             'icon'        => 'far fa-money-bill-alt',
             'label_color' => 'success',
         ],
         [
             'text'        => 'Pessoas',
-            'url'         => 'http://127.0.0.1:8000/pessoas',
+            'url'         => '/pessoas',
             'icon'        => 'fab fa-ello',
             'label_color' => 'success',
         ],
         [
             'text'        => 'Produtos',
-            'url'         => 'http://127.0.0.1:8000/produtos',
+            'url'         => '/produtos',
             'icon'        => 'fas fa-dolly',
             'label_color' => 'success',
         ],
         [
             'text'        => 'Usuários',
-            'url'         => 'http://127.0.0.1:8000/users',
+            'url'         => '/users',
             'icon'        => 'fas fa-user-friends',
             'label_color' => 'success',
         ],
         [
             'text'        => 'Vendas',
-            'url'         => 'http://127.0.0.1:8000/vendas',
+            'url'         => '/vendas',
             'icon'        => 'fas fa-shopping-cart',
             'label_color' => 'success',
         ],
         [
             'text'        => 'Venda_Itens',
-            'url'         => 'http://127.0.0.1:8000/venda_Itens',
+            'url'         => '/venda_Itens',
             'icon'        => 'fas fa-archive',
             'label_color' => 'success',
         ],
         ['header' => 'Relatórios'],
         [
             'text' => 'Agendamentos',
-            'url'  => 'http://127.0.0.1:8000/pdfAgendamentos',
+            'url'  => '/pdfAgendamentos',
             'icon' => 'far fa-fw fa-file',
             'target' => '_blank',
         ],
         [
             'text' => 'Categorias',
-            'url'  => 'http://127.0.0.1:8000/pdfCategorias',
+            'url'  => '/pdfCategorias',
             'icon' => 'far fa-fw fa-file',
             'target' => '_blank',
         ],
         [
             'text' => 'Pagamentos',
-            'url'  => 'http://127.0.0.1:8000/pdfPagamentos',
+            'url'  => '/pdfPagamentos',
             'icon' => 'far fa-fw fa-file',
             'target' => '_blank',
         ],
         [
             'text' => 'Pessoas',
-            'url'  => 'http://127.0.0.1:8000/pdfPessoas',
+            'url'  => '/pdfPessoas',
             'icon' => 'far fa-fw fa-file',
             'target' => '_blank',
         ],
         [
             'text' => 'Produtos',
-            'url'  => 'http://127.0.0.1:8000/pdfProdutos',
+            'url'  => '/pdfProdutos',
             'icon' => 'far fa-fw fa-file',
             'target' => '_blank',
             
         ],
         [
             'text' => 'Usuários',
-            'url'  => 'http://127.0.0.1:8000/users',
+            'url'  => '/users',
             'icon' => 'far fa-fw fa-file',
             'target' => '_blank',
         ],
         [
             'text' => 'Vendas',
-            'url'  => 'http://127.0.0.1:8000/pdfVendas',
+            'url'  => '/pdfVendas',
             'icon' => 'far fa-fw fa-file',
             'target' => '_blank',
-        ],
-        [
-            'text' => 'Venda_Itens',
-            'url'  => 'http://127.0.0.1:8000/pdfVendaItens',
-            'icon' => 'far fa-fw fa-file',
-            'target' => '_blank',
-        ],
-        ['header' => 'account_settings'],
-        [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
+        ],        
+        ['header' => 'Alterações da conta'],
+        // [
+        //     'text' => 'profile',
+        //     'url'  => 'admin/settings',
+        //     'icon' => 'fas fa-fw fa-user',
             
-        ],
+        // ],
         [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
+            'text' => 'Trocar senha',
+            'url'  => '/password/reset',
             'icon' => 'fas fa-fw fa-lock',
             
         ],

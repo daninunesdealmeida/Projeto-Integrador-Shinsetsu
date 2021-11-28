@@ -92,20 +92,25 @@ class WebController extends Controller
     }
 
     public function carrinhoCompra()
-    {
+    {        
         $carrinhos = DB::select('select  p.nome, c.produto_id,c.preco, sum(c.quantidade) quantidade, max(p.imagem)imagem
         from carrinhos c
         inner join produtos p on c.produto_id = p.id_produtos
         where c.id_user = ?
         group by c.produto_id,c.preco, p.nome, p.imagem', [auth()->user()->id]);
         //dd($carrinhos);
-        return view('web.carrinho', compact('carrinhos'));
+        if (empty($carrinhos)) {
+           // return $this->loja()->with('success', 'your message,here');
+            return back()->with('success', '!!Carrinho vazio.');
+        }
+       // return view('web.carrinho', compact('carrinhos'));
+
     }
 
     public function finalizaCompra(Request $request)
     {   //dd($request);
         if ($request->quantidadeGeral <= 0) {
-            return $this->carrinhoCompra();
+            return $this->loja();
         }
         $user_id = auth()->user()->id;
         //dd($request);

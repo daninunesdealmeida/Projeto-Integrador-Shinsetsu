@@ -13,6 +13,7 @@ class Venda_ItensController extends Controller
 {
     public function index(Request $filter)
     {
+        // dd($filter);
         $search = $filter->get('desc_filtro');
         if ($search == null) {
             $venda_Itens = Venda_Item::orderBy('id_vendaItens')->paginate(10);

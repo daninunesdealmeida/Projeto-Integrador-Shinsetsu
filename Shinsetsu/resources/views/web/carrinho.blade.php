@@ -116,6 +116,11 @@
 
     <hr>
 
+    <div class="form-group">
+        <label for="">Valor Total de Produtos</label>
+        <input type="text" class="form-control valorTotal" id="valorTotal" name="valorTotal" value=" {{$carrinho->preco * $carrinho->quantidade}}">
+    </div>
+
     <div class="forma-pagamento">
         <h4>Forma de pagamento</h4>
     </div>
@@ -174,9 +179,13 @@
     </div>
 </footer>
 
-
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="{{ asset('assets/js/jquery-2.1.0.min.js') }}"></script>
-<script>
+
+<script>   
     $(function () {
 
         $.ajaxSetup({
@@ -208,11 +217,21 @@
                 document.location.reload(true);
             }
         })
-    }
+    }    
 </script>
 </body>
 </html>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#num_cartao').mask('0000 0000 0000 0000');
+    });
+</script>
 <style>
+
     .academic-compras {
         padding: 30px;
         margin: 10px;

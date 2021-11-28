@@ -62,8 +62,7 @@
     </div>
     <!-- ***** Preloader End ***** -->
 
-    <!-- ***** Header Area Start ***** -->
-
+    <!-- ***** Header Area Start ***** -->   
     <header class="header-area header-sticky" style="position: fixed">
         <div class="container">
             <div class="row">
@@ -97,7 +96,17 @@
         </div>
     </header>
     <!-- ***** Header Area End ***** -->
-
+    @if (\Session::has('success'))
+    <div class="card-body">
+        <div class="alert alert-danger alert-dismissible">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+          <ul>
+            <li>{!! \Session::get('success') !!}</li>
+        </ul>          
+        </div>
+    </div>
+    @endif
+    
     <!-- ***** Main Banner Area Start ***** -->
     <div class="container" id="top">
         <img src="{{ asset('assets/images/loja.jpeg') }}">

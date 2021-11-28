@@ -56,7 +56,7 @@
                             <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
                             <li class="scroll-to-section"><a href="#features">Sobre Nós</a></li>
                             <li class="scroll-to-section"><a href="#schedule">Horários</a></li>
-                            <li class="scroll-to-section"><a href="#">Agendamentos</a></li>
+                            <li class="scroll-to-section"><a href="#contact-us">Agendamentos</a></li>
                             <li class="scroll-to-section"><a href="{{route('loja')}}">Loja</a></li>
                             <li class="main-button"><a href="{{route('login')}}">Entrar</a></li>
 
@@ -245,7 +245,7 @@
                                     </div>
                                     <div class="col-md-12 col-sm-12">
                                         <fieldset>
-                                            <input name="hora" type="text" id="horas" placeholder="Horário que deseja marcar a aula:">
+                                            <input name="hora" type="time" min="08:00" max="22:00" id="horas" placeholder="Horário que deseja marcar a aula:">
                                             <datalist id="horas">
                                         </fieldset>
                                     </div>
