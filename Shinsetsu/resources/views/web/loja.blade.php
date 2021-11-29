@@ -98,10 +98,10 @@
     <!-- ***** Header Area End ***** -->
     @if (\Session::has('success'))
     <div class="card-body">
-        <div class="alert alert-danger alert-dismissible">
-          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <div class="alert alert-danger alert-dismissible alerta-carrinho">
+          <button type="button" class="close alerta-carrinho" data-dismiss="alert" aria-hidden="true">×</button>
           <ul>
-            <li>{!! \Session::get('success') !!}</li>
+            <li class="title-alert-valor">{!! \Session::get('success') !!}</li>
         </ul>          
         </div>
     </div>

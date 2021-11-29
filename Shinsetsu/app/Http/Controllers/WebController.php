@@ -101,9 +101,9 @@ class WebController extends Controller
         //dd($carrinhos);
         if (empty($carrinhos)) {
            // return $this->loja()->with('success', 'your message,here');
-            return back()->with('success', '!!Carrinho vazio.');
+            return back();
         }
-       // return view('web.carrinho', compact('carrinhos'));
+        return view('web.carrinho', compact('carrinhos'));
 
     }
 
