@@ -53,8 +53,7 @@
                     <ul class="nav">
                         <li class="scroll-to-section"><a href="{{route('site')}}">Home</a></li>
                         <li class="scroll-to-section"><a href="{{route('loja')}}">Loja</a></li>
-                        <li class="scroll-to-section"><a href="{{route('carrinhocompra')}}">Meu Carrinho</a></li>
-                        <li class="scroll-to-section"><a href="{{route('meusPedidos')}}">Meus Pedidos</a></li>
+                        <li class="scroll-to-section"><a href="{{route('carrinhoCompra')}}">Meu Carrinho</a></li>
                     </ul>
                 </nav>
             </div>
