@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -40,41 +39,40 @@
 
     <link rel="stylesheet" href="{{ asset('assets/css/templatemo-training-studio.css') }}">
 </head>
-
 <body>
 
-    <!-- ***** Header Area Start ***** -->
+<!-- ***** Header Area Start ***** -->
 
-    <header class="header-area header-sticky" style="position: fixed">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <nav class="main-nav">
-                        <!-- ***** Logo Start ***** -->
-                        <a class="logo">Acadêmia<em> Shinsetsu</em></a>
-                        <ul class="nav">
-                            <li class="scroll-to-section"><a href="{{route('site')}}">Home</a></li>
-                            <li class="scroll-to-section"><a href="{{route('loja')}}">Loja</a></li>
-                            <li class="scroll-to-section"><a href="{{route('carrinhoCompra')}}" class="active">Meu Carrinho</a></li>
-                            <li class="scroll-to-section"><a href="{{route('meusPedidos')}}">Meus Pedidos</a></li>
-                        </ul>
-                    </nav>
-                </div>
+<header class="header-area header-sticky" style="position: fixed">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a class="logo">Acadêmia<em> Shinsetsu</em></a>
+                    <ul class="nav">
+                        <li class="scroll-to-section"><a href="{{route('site')}}">Home</a></li>
+                        <li class="scroll-to-section"><a href="{{route('loja')}}">Loja</a></li>
+                        <li class="scroll-to-section"><a href="{{route('carrinhocompra')}}" class="active">Meu Carrinho</a></li>
+                        <li class="scroll-to-section"><a href="{{route('meusPedidos')}}">Meus Pedidos</a></li>
+                    </ul>
+                </nav>
             </div>
         </div>
-    </header>
-
-    <!-- ***** Main Banner Area Start ***** -->
-    <div class="container" id="top">
-        <img src="{{ asset('assets/images/carrinho.jpeg') }}">
-
     </div>
+</header>
 
-    <form action="{{route('finalizaCompra')}}" method="post">
-        @csrf
+<!-- ***** Main Banner Area Start ***** -->
+<div class="container" id="top">
+    <img src="{{ asset('assets/images/carrinho.jpeg') }}">
 
-        <div class="row">
-            @forelse($carrinhos as $carrinho)
+</div>
+
+<form action="{{route('finalizaCompra')}}" method="post">
+    @csrf
+
+    <div class="row">
+        @forelse($carrinhos as $carrinho)
             <div class="col-md-3 academic-compras">
                 <div class="card ">
                     <div class="form-group">
@@ -105,125 +103,123 @@
                     <a class="btn-sm btn-danger" style="cursor:pointer;" id="removerItem" onclick="deletaItem({{$carrinho->produto_id}})" data-id="{{$carrinho->produto_id}}">Remover</a>
                 </div>
             </div>
-            @empty
+        @empty
             <h1>Carrinho Vazio</h1>
-            @endforelse
+        @endforelse
+
+
+    </div>
+
+    <input type="hidden" class="totalValorGeral" name="totalValorGeral">
+    <input type="hidden" class="quantidadeGeral" name="quantidadeGeral">
+    <input type="hidden" class="usuario" name="usuario">
+
+    <hr>
+
+    <div class="form-group">
+        <label for="">Valor Total de Produtos</label>
+        <input type="text" class="form-control valorTotal" id="valorTotal" name="valorTotal" value=" {{$carrinho->preco * $carrinho->quantidade}}">
+    </div>
+
+    <div class="forma-pagamento">
+        <h4>Forma de pagamento</h4>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3 academic-pagamentos">
+            <div class="form-group">
+                <label for="cartao">Bandeira do Cartão</label>
+                <select name="cartao" class="custom-select" id="cartao">
+                    <option value="Mastercard">Mastercard</option>
+                    <option value="Visa">Visa</option>
+                    <option value="Ello">Ello</option>
+                </select>
+            </div>
         </div>
 
-        <label for="">Total a Pagar</label>
-        <input type="text" class="form-control valorTotalSum" id="valorTotalPagar" name="valorTotalPagar">
-
-        <input type="hidden" class="totalValorGeral" name="totalValorGeral">
-        <input type="hidden" class="quantidadeGeral" name="quantidadeGeral">
-        <input type="hidden" class="usuario" name="usuario">
-
-        <hr>
-
-        <div class="forma-pagamento">
-            <h4>Forma de pagamento</h4>
+        <div class="col-md-3 academic-pagamentos">
+            <div class="form-group">
+                <label for="nomecartao">Nome Cartão</label>
+                <input type="text" class="form-control" id="nomecartao" name="nomecartao" placeholder="Digite o nome do Cartão">
+            </div>
         </div>
 
+        <div class="col-md-3 academic-pagamentos">
+            <div class="form-group">
+                <label for="num_cartao">Número do cartão</label>
+                <input type="text" name="num_cartao" class="form-control" id="num_cartao">
+            </div>
+        </div>
+
+        <div class="col-md-3 academic-pagamentos">
+            <div class="form-group">
+                <label for="dt_vencimento">Vencimento do cartão</label>
+                <input type="date" name="dt_vencimento" class="form-control" id="dt_vencimento">
+            </div>
+
+        </div>
+    </div>
+    <div class="finalizar-compra">
+        <button type="submit" class="btn btn-primary">Finalizar Compra</button>
+    </div>
+</form>
+@include('flash::message')
+<footer>
+    <div class="container">
         <div class="row">
-            <div class="col-md-3 academic-pagamentos">
-                <div class="form-group">
-                    <label for="cartao">Bandeira do Cartão</label>
-                    <select name="cartao" class="custom-select" id="cartao">
-                        <option value="Mastercard">Mastercard</option>
-                        <option value="Visa">Visa</option>
-                        <option value="Ello">Ello</option>
-                    </select>
-                </div>
-            </div>
+            <div class="col-lg-12">
+                <p>Copyright &copy; Shinsetsu
 
-            <div class="col-md-3 academic-pagamentos">
-                <div class="form-group">
-                    <label for="nomecartao">Nome Cartão</label>
-                    <input type="text" class="form-control" id="nomecartao" name="nomecartao" placeholder="Digite o nome do Cartão">
-                </div>
-            </div>
+                    - Designed by <a rel="nofollow" href="https://templatemo.com" class="tm-text-link" target="_parent">TemplateMo</a></p>
 
-            <div class="col-md-3 academic-pagamentos">
-                <div class="form-group">
-                    <label for="num_cartao">Número do cartão</label>
-                    <input type="text" name="num_cartao" class="form-control" id="num_cartao">
-                </div>
-            </div>
-
-            <div class="col-md-3 academic-pagamentos">
-                <div class="form-group">
-                    <label for="dt_vencimento">Vencimento do cartão</label>
-                    <input type="date" name="dt_vencimento" class="form-control" id="dt_vencimento">
-                </div>
+                <!-- You shall support us a little via PayPal to info@templatemo.com -->
 
             </div>
         </div>
-        <div class="finalizar-compra">
-            <button type="submit" class="btn btn-primary">Finalizar Compra</button>
-        </div>
-    </form>
-    @include('flash::message')
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Copyright &copy; Shinsetsu
+    </div>
+</footer>
 
-                        - Designed by <a rel="nofollow" href="https://templatemo.com" class="tm-text-link" target="_parent">TemplateMo</a></p>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="{{ asset('assets/js/jquery-2.1.0.min.js') }}"></script>
 
-                    <!-- You shall support us a little via PayPal to info@templatemo.com -->
+<script>   
+    $(function () {
 
-                </div>
-            </div>
-        </div>
-    </footer>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
 
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="{{ asset('assets/js/jquery-2.1.0.min.js') }}"></script>
-
-    <script>
-        $(function() {
-
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-
-            var total = 0
-            var quantidade = 0
-            var totalSum = 0
-            $('.valorTotal').each(function(i, v) {
-                total += parseFloat(v.value)
-            })
-            $('.quantidade').each(function(i, v) {
-                quantidade += parseFloat(v.value)
-            })
-            $('.valorTotal').each(function(i, v) {
-                totalSum += parseFloat(v.value)
-            })
-            $('.quantidadeGeral').val(quantidade)
-            $('.totalValorGeral').val(total)
-            $('.valorTotalSum').val(totalSum)
-
-
+        var total = 0
+        var quantidade = 0
+        $('.valorTotal').each(function (i, v) {
+            total += parseFloat(v.value)
         })
+        $('.quantidade').each(function (i, v) {
+            quantidade += parseFloat(v.value)
+        })
+        $('.quantidadeGeral').val(quantidade)
+        $('.totalValorGeral').val(total)
 
-        function deletaItem(produto) {
-            $.ajax({
-                url: '/carrinho/' + produto + '/destroy',
-                type: "DELETE",
-                dataType: 'json',
-                success: function(data) {
-                    document.location.reload(true);
-                }
-            })
-        }
-    </script>
+
+    })
+
+    function deletaItem(produto) {
+        $.ajax({
+            url: '/carrinho/' + produto + '/destroy',
+            type: "DELETE",
+            dataType: 'json',
+            success: function (data) {
+                document.location.reload(true);
+            }
+        })
+    }    
+</script>
 </body>
-
 </html>
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
@@ -235,14 +231,14 @@
     });
 </script>
 <style>
+
     .academic-compras {
         padding: 30px;
         margin: 10px;
         text-align: center;
     }
 
-    .academic-pagamentos,
-    .forma-pagamento {
+    .academic-pagamentos, .forma-pagamento {
         padding: 30px;
         margin: 10px;
     }
@@ -256,8 +252,7 @@
         margin-left: 0px !important;
     }
 
-    .valor-total,
-    input#quantidadeItens {
+    .valor-total, input#quantidadeItens {
         /* text-align: center; */
         margin-left: 28%;
     }
@@ -304,4 +299,7 @@
     .header-area {
         background: rgb(237 86 59 / 10%);
     }
+
+
 </style>
+

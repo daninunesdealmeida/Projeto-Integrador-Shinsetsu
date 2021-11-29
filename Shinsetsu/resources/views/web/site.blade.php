@@ -53,6 +53,7 @@
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
+                            <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
                             <li class="scroll-to-section"><a href="#features">Sobre Nós</a></li>
                             <li class="scroll-to-section"><a href="#schedule">Horários</a></li>
                             <li class="scroll-to-section"><a href="#contact-us">Agendamentos</a></li>

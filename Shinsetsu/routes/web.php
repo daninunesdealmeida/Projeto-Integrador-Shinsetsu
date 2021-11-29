@@ -22,7 +22,7 @@ Route::post("/store",       ['as' => 'agendamentos.store',   'uses' => "App\Http
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/loja', [WebController::class, 'loja'])->name('loja');
-    Route::get('/carrinhoCompra', [WebController::class, 'carrinhoCompra'])->name('carrinhoCompra');
+    Route::get('/carrinhocompra', [WebController::class, 'carrinhoCompra'])->name('carrinhocompra');
     Route::post('/finalizaCompra', [WebController::class, 'finalizaCompra'])->name('finalizaCompra');
     // Rotas do model agendamentos
     Route::group(["prefix" => "agendamentos", "where" => ["id" => "[0-9]+"]], function () {
