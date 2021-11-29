@@ -70,11 +70,11 @@
         <div class="row">
             @forelse($vendas as $venda)
                 <div class="col-md-4">
-                    <div class="form-group">
+                    <div class="form-group list-pedidos">
                         <label for="exampleInputEmail1">{{$venda->nome}}</label>
-                        <p>{{$venda->quantidade}}</p>
+                        <p class="quantidade-pedido-list">Quantidade de Itens: {{$venda->quantidade}}</p>
                         <img class="card-img-top" src="/img/produtos/{{$venda->imagem}}" alt="wrappixel kit">
-                        <p>Valor {{'R$ '. number_format($venda->preco,2,',','.')}}</p>
+                        <p class="valor-final-pedidos">Valor {{'R$ '. number_format($venda->preco,2,',','.')}}</p>
                     </div>
                 </div>
             @empty
@@ -160,6 +160,32 @@
         color: black;
         font-size: 18px;
     }
-
+    /* .has-border-right {
+      border-right: 1px solid #930913;
+    } */
+    .card-img-top {
+        width: 60%;
+    }
+    img.card-img-top {
+        margin-top: 11px;
+        padding: 10px;
+        border: solid 1px #ed563b;
+    }
+    p.valor-final-pedidos {
+        color: #ed563b;
+        font-size: 16px;
+        font-family: ui-serif;
+        margin-left: 54px;
+        margin-top: 4px;
+    }
+    .quantidade-pedido-list{
+        line-height: 5px;
+        font-size: 18px;
+    }
+    .quantidade-pedido-list {
+        font-size: 14px;
+        color: #000;
+        font-family: revert;
+    }
 </style>
 
