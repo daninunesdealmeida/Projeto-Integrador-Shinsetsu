@@ -62,4 +62,4 @@
 
 @section('table-delete')
         "vendas"
-        @endsection
+@endsection
