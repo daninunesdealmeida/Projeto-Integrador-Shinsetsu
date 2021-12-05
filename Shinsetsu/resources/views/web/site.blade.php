@@ -143,58 +143,58 @@
                 <div class="row">
                     <div class="col-lg-10 offset-lg-1">
                         <div class="schedule-table filtering">
-                        <div class="col-lg-12">
-                        <div class="filters">
-                            <ul class="schedule-filter">
-                                <li class="active" data-tsfilter="monday">Segunda-Feira</li>
-                                <li data-tsfilter="tuesday">Terça-Feira</li>
-                                <li data-tsfilter="wednesday">Quarta-Feira</li>
-                                <li data-tsfilter="thursday">Quinta-Feria</li>
-                                <li data-tsfilter="friday">Sexta-Feira</li>
-                            </ul>
-                        </div>
-                    </div>
+                            <div class="col-lg-12">
+                                <div class="filters">
+                                    <ul class="schedule-filter">
+                                        <li class="active" data-tsfilter="monday">Segunda-Feira</li>
+                                        <li data-tsfilter="tuesday">Terça-Feira</li>
+                                        <li data-tsfilter="wednesday">Quarta-Feira</li>
+                                        <li data-tsfilter="thursday">Quinta-Feria</li>
+                                        <li data-tsfilter="friday">Sexta-Feira</li>
+                                    </ul>
+                                </div>
+                            </div>
                             <table>
                                 <tbody>
                                     <tr>
                                         <td class="day-time">Segunda-Feira</td>
-                                        <td class="monday ts-item show" data-tsmeta="monday"> Jiu-Jitsu 07:00 - 08:00 </td>
-                                        <td class="monday ts-item show" data-tsmeta="monday"> Judô Infantil 17:00 - 18:30 </td>
-                                        <td class="monday ts-item show" data-tsmeta="monday"> Jiu Jitsu 19:30 - 21:00 </td>
-                                        <td class="monday ts-item show" data-tsmeta="monday"> </td>
-                                        <td class="monday ts-item show" data-tsmeta="monday"> Jiu-Jitsu 22:00 - 23:00 </td>
+                                        <td id = "cor" class="monday ts-item show" data-tsmeta="monday"> Jiu-Jitsu 07:00 - 08:00 </td>
+                                        <td id = "cor" class="monday ts-item show" data-tsmeta="monday"> Judô Infantil 17:00 - 18:30 </td>
+                                        <td id = "cor" class="monday ts-item show" data-tsmeta="monday"> Jiu Jitsu 19:30 - 21:00 </td>
+                                        <td id = "cor" class="monday ts-item show" data-tsmeta="monday"> </td>
+                                        <td id = "cor" class="monday ts-item show" data-tsmeta="monday"> Jiu-Jitsu 22:00 - 23:00 </td>
                                     </tr>
                                     <tr>
                                         <td class="day-time">Terça-Feira</td>
-                                        <td class="tuesday ts-item show" data-tsmeta="tuesday"> Jiu-Jitsu 07:00 - 08:00 </td>
-                                        <td class="tuesday ts-item show" data-tsmeta="tuesday"> </td>
-                                        <td class="tuesday ts-item show" data-tsmeta="tuesday"> Jiu Jitsu 19:30 - 21:00 </td>
-                                        <td class="tuesday ts-item show" data-tsmeta="tuesday"> Judô 18:30 - 19-30 </td>
-                                        <td class="tuesday ts-item show" data-tsmeta="tuesday"> Jiu Jitsu 19:30 - 21:00 </td>
+                                        <td id = "cor" class="tuesday ts-item show" data-tsmeta="tuesday"> Jiu-Jitsu 07:00 - 08:00 </td>
+                                        <td id = "cor" class="tuesday ts-item show" data-tsmeta="tuesday"> </td>
+                                        <td id = "cor" class="tuesday ts-item show" data-tsmeta="tuesday"> Jiu Jitsu 19:30 - 21:00 </td>
+                                        <td id = "cor" class="tuesday ts-item show" data-tsmeta="tuesday"> Judô 18:30 - 19-30 </td>
+                                        <td id = "cor" class="tuesday ts-item show" data-tsmeta="tuesday"> Jiu Jitsu 19:30 - 21:00 </td>
                                     </tr>
                                     <tr>
                                         <td class="day-time">Quarta-Feira</td>
-                                        <td class="wednesday ts-item show" data-tsmeta="wednesday"> </td>
-                                        <td class="wednesday ts-item show" data-tsmeta="wednesday"> Judô Infantil 17:00 - 18:30 </td>
-                                        <td class="wednesday ts-item show" data-tsmeta="wednesday"> Jiu Jitsu 19:30 - 21:00 </td>
-                                        <td class="wednesday ts-item show" data-tsmeta="wednesday"> </td>
-                                        <td class="wednesday ts-item show" data-tsmeta="wednesday"> Jiu Jitsu 19:30 - 21:00 </td>
+                                        <td id = "cor" class="wednesday ts-item show" data-tsmeta="wednesday"> </td>
+                                        <td id = "cor" class="wednesday ts-item show" data-tsmeta="wednesday"> Judô Infantil 17:00 - 18:30 </td>
+                                        <td id = "cor" class="wednesday ts-item show" data-tsmeta="wednesday"> Jiu Jitsu 19:30 - 21:00 </td>
+                                        <td id = "cor" class="wednesday ts-item show" data-tsmeta="wednesday"> </td>
+                                        <td id = "cor" class="wednesday ts-item show" data-tsmeta="wednesday"> Jiu Jitsu 19:30 - 21:00 </td>
                                     </tr>
                                     <tr>
                                         <td class="day-time">Quinta-Feira</td>
-                                        <td class="thursday ts-item show" data-tsmeta="thursday"> Jiu-Jitsu 07:00 - 08:00 </td>
-                                        <td class="thursday ts-item show" data-tsmeta="thursday"> Judô Infantil 17:00 - 18:30 </td>
-                                        <td class="thursday ts-item show" data-tsmeta="thursday"> Jiu Jitsu 19:30 - 21:00 </td>
-                                        <td class="thursday ts-item show" data-tsmeta="thursday"> Judô 18:30 - 19-30 </td>
-                                        <td class="thursday ts-item show" data-tsmeta="thursday"> Jiu Jitsu 19:30 - 21:00 </td>
+                                        <td id = "cor" class="thursday ts-item show" data-tsmeta="thursday"> Jiu-Jitsu 07:00 - 08:00 </td>
+                                        <td id = "cor" class="thursday ts-item show" data-tsmeta="thursday"> Judô Infantil 17:00 - 18:30 </td>
+                                        <td id = "cor" class="thursday ts-item show" data-tsmeta="thursday"> Jiu Jitsu 19:30 - 21:00 </td>
+                                        <td id = "cor" class="thursday ts-item show" data-tsmeta="thursday"> Judô 18:30 - 19-30 </td>
+                                        <td id = "cor" class="thursday ts-item show" data-tsmeta="thursday"> Jiu Jitsu 19:30 - 21:00 </td>
                                     </tr>
                                     <tr>
                                         <td class="day-time">Sexta-Feira</td>
-                                        <td class="friday ts-item show" data-tsmeta="friday"> Jiu-Jitsu 07:00 - 08:00 </td>
-                                        <td class="friday ts-item show" data-tsmeta="friday"> Judô Infantil 17:00 - 18:30 </td>
-                                        <td class="friday ts-item show" data-tsmeta="friday">  </td>
-                                        <td class="friday ts-item show" data-tsmeta="friday"> Judô 18:30 - 19-30 </td>
-                                        <td class="friday ts-item show" data-tsmeta="friday"> Jiu Jitsu 19:30 - 21:00 </td>
+                                        <td id = "cor" class="friday ts-item show" data-tsmeta="friday"> Jiu-Jitsu 07:00 - 08:00 </td>
+                                        <td id = "cor" class="friday ts-item show" data-tsmeta="friday"> Judô Infantil 17:00 - 18:30 </td>
+                                        <td id = "cor" class="friday ts-item show" data-tsmeta="friday"> </td>
+                                        <td id = "cor" class="friday ts-item show" data-tsmeta="friday"> Judô 18:30 - 19-30 </td>
+                                        <td id = "cor" class="friday ts-item show" data-tsmeta="friday"> Jiu Jitsu 19:30 - 21:00 </td>
                                     </tr>
 
 
@@ -231,10 +231,10 @@
                                     </div>
                                     <div class="col-md-12 col-sm-12">
                                         <fieldset>
-                                            <input list="modalidade" name="modalidade" id="modalidade:"  placeholder="Modalidade:">
+                                            <input list="modalidade" name="modalidade" id="modalidade:" placeholder="Modalidade:">
                                             <datalist id="modalidade">
-                                              <option value="Jiu Jitsu">
-                                              <option value="Judô">
+                                                <option value="Jiu Jitsu">
+                                                <option value="Judô">
                                         </fieldset>
                                     </div>
                                     <div class="col-md-12 col-sm-12">
@@ -250,8 +250,9 @@
                                     </div>
                                     <div class="col-lg-12">
                                         <fieldset>
-                                            <button type="submit" id="form-submit" class="main-button">Agende sua aula</button>
+                                            <button type="submit" id="agendarAula" class="main-button">Agende sua aula</button>
                                         </fieldset>
+
                                     </div>
                                 </div>
                             </form>
@@ -279,6 +280,7 @@
         </footer>
 
         <!-- jQuery -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
         <script src="{{ asset('assets/js/jquery-2.1.0.min.js') }}"></script>
 
         <!-- Bootstrap -->
@@ -293,14 +295,21 @@
         <script src="{{ asset('assets/js/mixitup.js') }}"></script>
         <script src="{{ asset('assets/js/accordions.js') }}"></script>
 
-        <!-- Global Init -->
-        <script src="{{ asset('assets/js/custom.js') }}"></script>
+
+        <style>
+            .day-time, #cor{
+                background-color: #ed563b;
+                color: gold;
+                padding: 10px;
+                font-family: Arial, Helvetica, sans-serif
+            }
+        </style>
 
 </body>
 
 </html>
 
-
+<script src="{{ asset('assets/js/custom.js') }}"></script>
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
@@ -310,4 +319,16 @@
     $(document).ready(function() {
         $('#horas').mask('00:00');
     });
+</script>
+
+<script>
+    document.getElementById("agendarAula").addEventListener("click", exibeMensagem);
+
+    function exibeMensagem() {
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Treino Agendado com Sucesso',
+        });
+    }
 </script>

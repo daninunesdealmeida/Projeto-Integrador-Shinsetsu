@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Pagamento extends Model
 {
     protected $table = "pagamentos";
-    protected $fillable = ['id_pagamentos', 'cartao', 'nome_cartao', 'num_cartao', 'dt_vencimento','fk_vendas', 'fk_usuarios'];
+    protected $fillable = ['id_pagamentos', 'telefone','fk_vendas', 'fk_users'];
     protected $primaryKey = 'id_pagamentos';
 
     public function venda(){
@@ -17,7 +17,7 @@ class Pagamento extends Model
 
     public function usuario()
     {
-      return $this->belongsTo(Usuario::class, 'id_pagamentos', 'fk_usuarios');
+      return $this->belongsTo(Usuario::class, 'id_pagamentos', 'name', 'fk_users');
     }
 
 }

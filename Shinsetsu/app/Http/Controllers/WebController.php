@@ -131,12 +131,9 @@ class WebController extends Controller
         ]);
 
         $pagamento = Pagamento::create([
-            'cartao' => $request->cartao,
-            'nome_cartao' => $request->nomecartao,
-            'num_cartao' => $request->num_cartao,
-            'dt_vencimento' => $request->dt_vencimento,
+            'telefone' => $request->telefone,
             'fk_vendas' => $venda->id_vendas,
-            'fk_usuarios' => $user_id
+            'fk_users' => $user_id
         ]);
 
         $deletarCarrinho = DB::select(DB::raw('DELETE from carrinhos where id_user = ?'), [auth()->user()->id]);

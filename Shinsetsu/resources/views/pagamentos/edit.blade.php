@@ -15,25 +15,16 @@
 
 <div class="form-group">
 
-{!! Form::label ('cartao', 'Tipo_cartao:') !!}
-{!! Form::select ('cartao', array('Jiu Jitsu' => 'Jiu Jitsu', 'Judô' => 'Judô'), 'Jiu Jitsu', ['class' => 'form-control' ]) !!}
-
-{!! Form::label ('nome_cartao', 'Nome_cartao:') !!}
-{!! Form::text ('nome_cartao', $pagamentos->nome_cartao, ['class' => 'form-control']) !!}
-
-{!! Form::label ('num_cartao', 'Num_cartao:') !!}
-{!! Form::text ('num_cartao', $pagamentos->num_cartao, ['class' => 'form-control']) !!}
-
-{!! Form::label ('dt_vencimento', 'Dt_vencimento:') !!}
-{!! Form::date ('dt_vencimento', $pagamentos->Dt_vencimento, ['class' => 'form-control']) !!}
+{!! Form::label ('telefone', 'telefone:') !!}
+{!! Form::text ('telefone', $pagamentos->telefone, ['class' => 'form-control', 'id' => 'fone']) !!}
 
 {!! Form::label ('fk_vendas', 'Venda:') !!}
 {!! Form::select('fk_vendas',
 \app\Models\Venda::orderBy('id_vendas')->pluck('id_vendas', 'id_vendas')->toArray(),
 $pagamentos->fk_vendas, ['class' => 'form-control', 'required' ]) !!}
 
-{!! Form::label ('fk_usuarios', 'Usuario:') !!}
-    {!! Form::select('fk_usuarios',
+{!! Form::label ('fk_users', 'Usuario:') !!}
+    {!! Form::select('fk_users',
     \app\Models\Usuario::orderBy('name')->pluck('name', 'id')->toArray(),
     $pagamentos->fk_usuarios, ['class' => 'form-control', 'required' ]) !!}
 
@@ -59,7 +50,7 @@ $pagamentos->fk_vendas, ['class' => 'form-control', 'required' ]) !!}
 
 <script>
 $(document).ready(function(){
-    $('#num_cartao').mask('0000 0000 0000 0000');
+    $('#fone').mask('(00)000000000');
 });
 </script>
 

@@ -6,19 +6,10 @@
 
 <div class="form-group">
 
-    {!! Form::label ('cartao', 'Tipo Cartâo:') !!}
-    <!-- {!! Form::text ('cartao', null, ['class' => 'form-control']) !!} -->
-    {!! Form::select ('cartao', array('Mastercard' => 'Mastercard', 'Visa' => 'Visa', 'Ello' => 'Ello'), 'Mastercard', ['class' => 'form-control', 'required' ]) !!}
+   
+    {!! Form::label ('telefone', 'Número do telefone:') !!}
+    {!! Form::text ('telefone', null, ['class' => 'form-control', 'id'=>'fone']) !!}
 
-
-    {!! Form::label ('nome_cartao', 'Nome Cartâo:') !!}
-    {!! Form::text ('nome_cartao', null, ['class' => 'form-control']) !!}
-
-    {!! Form::label ('num_cartao', 'Número Cartão:') !!}
-    {!! Form::text ('num_cartao', null, ['class' => 'form-control']) !!}
-
-    {!! Form::label ('dt_vencimento', 'Data de Vencimento:') !!}
-    {!! Form::date ('dt_vencimento', null, ['class' => 'form-control']) !!}
 
     {!! Form::label ('fk_vendas', 'Venda:') !!}
     {!! Form::select('fk_vendas',
@@ -52,8 +43,8 @@
 
 <script>
     $(document).ready(function() {
-        $('#num_cartao').mask('0000 0000 0000 0000');
+        $('#fone').mask('(00)000000000');
     });
-</script>
+</script> 
 
 @endsection

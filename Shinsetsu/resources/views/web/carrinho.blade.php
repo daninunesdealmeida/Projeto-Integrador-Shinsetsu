@@ -120,46 +120,23 @@
         <hr>
 
         <div class="forma-pagamento">
-            <h4>Forma de pagamento</h4>
+            <h4>Pagamento via PIX</h4>
         </div>
 
         <div class="row">
+
             <div class="col-md-3 academic-pagamentos">
                 <div class="form-group">
-                    <label for="cartao">Bandeira do Cartão</label>
-                    <select name="cartao" class="custom-select" id="cartao">
-                        <option value="Mastercard">Mastercard</option>
-                        <option value="Visa">Visa</option>
-                        <option value="Ello">Ello</option>
-                    </select>
+                    <label for="telefone">Telefone</label>
+                    <input type="text" class="form-control" id="telefone" name="telefone" placeholder="Digite o seu número de Telefone">
                 </div>
             </div>
-
-            <div class="col-md-3 academic-pagamentos">
-                <div class="form-group">
-                    <label for="nomecartao">Nome Cartão</label>
-                    <input type="text" class="form-control" id="nomecartao" name="nomecartao" placeholder="Digite o nome do Cartão">
-                </div>
-            </div>
-
-            <div class="col-md-3 academic-pagamentos">
-                <div class="form-group">
-                    <label for="num_cartao">Número do cartão</label>
-                    <input type="text" name="num_cartao" class="form-control" id="num_cartao">
-                </div>
-            </div>
-
-            <div class="col-md-3 academic-pagamentos">
-                <div class="form-group">
-                    <label for="dt_vencimento">Vencimento do cartão</label>
-                    <input type="date" name="dt_vencimento" class="form-control" id="dt_vencimento">
-                </div>
-
+            <div class="finalizar-compra">
+                <button type="submit" class="btn btn-primary">Finalizar Compra</button>
             </div>
         </div>
-        <div class="finalizar-compra">
-            <button type="submit" class="btn btn-primary">Finalizar Compra</button>
-        </div>
+        
+
     </form>
     @include('flash::message')
     <footer>
@@ -231,7 +208,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script>
     $(document).ready(function() {
-        $('#num_cartao').mask('0000 0000 0000 0000');
+        $('#telefone').mask('(00)0000000-00');
     });
 </script>
 <style>

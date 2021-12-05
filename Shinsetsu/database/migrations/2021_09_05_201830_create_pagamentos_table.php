@@ -15,15 +15,12 @@ class CreatePagamentosTable extends Migration
     {
         Schema::create('pagamentos', function (Blueprint $table) {
             $table->bigIncrements('id_pagamentos');
-            $table->String('cartao');
-            $table->String('nome_cartao');
-            $table->String('num_cartao');
-            $table->Date('dt_vencimento');
+            $table->String('telefone');
             $table->unsignedBigInteger('fk_vendas');
-            $table->unsignedBigInteger('fk_usuarios');
+            $table->unsignedBigInteger('fk_users');
             $table->timestamps();
             
-            $table->foreign('fk_usuarios')->references('id')->on('users');
+            $table->foreign('fk_users')->references('id')->on('users');
             $table->foreign('fk_vendas')->references('id_vendas')->on('vendas');
         });
     }

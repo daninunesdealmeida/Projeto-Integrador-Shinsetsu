@@ -34,23 +34,17 @@
                 <tbody>
                         <tr>
                                 <th>Id</th>
-                                <th>Cartão</th>
-                                <th>Nome_Cartão</th>
-                                <th>Numero_Cartão</th>
-                                <th>Data_Vencimento</th>
-                                <th>Vendas</th>
+                                <th>Número do Telefone</th>
                                 <th>Usuario</th>
+                                <th>Vendas</th>
                                 <th>Ações</th>
                                 </thead>
                 <tbody>
                         @foreach($pagamentos as $pagamento)
                         <tr>
                                 <td>{{$pagamento ->id_pagamentos}}</td>
-                                <td>{{$pagamento ->cartao}}</td>
-                                <td>{{$pagamento ->nome_cartao}}</td>
-                                <td>{{$pagamento ->num_cartao}}</td>
-                                <td> {{ Carbon\Carbon::parse($pagamento ->dt_vencimento)->format('d/m/Y') }} </td>
-                                <td>{{$pagamento ->fk_usuarios}}</td> 
+                                <td>{{$pagamento ->telefone}}</td>
+                                <td>{{$pagamento ->fk_users}}</td> 
                                 <td>{{$pagamento ->fk_vendas}}</td>  
         
                                 <td>

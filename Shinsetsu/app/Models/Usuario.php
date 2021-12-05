@@ -23,7 +23,7 @@ class Usuario extends Model
 
   public function pagamento()
   {
-    return $this->hasMany(Pagamento::class);
+    return $this->hasMany(Pagamento::class, 'name');
   }
 
   public function setPlancRateioAttribute($value)
