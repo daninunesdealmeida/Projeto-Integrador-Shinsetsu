@@ -33,11 +33,11 @@
                         <tbody>
                                 <tr>
         <th>Id</th>
-        <th>Data_Venda</th>     
-        <th>Total_Itens</th>
-        <th>Valor_Vendas</th>
-        <th>Usuarios</th>          
-        <th>Ações</th>
+        <th>Data da Venda</th>     
+        <th>Total de Itens</th>
+        <th>Valor das Vendas</th>
+        <th>Usuários</th>          
+       
 </thead>
 <tbody>
 @foreach($vendas as $venda)
@@ -46,14 +46,18 @@
         <td> {{ Carbon\Carbon::parse($venda ->dt_venda)->format('d/m/Y') }} </td>   
         <td>{{$venda ->total_itens}}</td>
         <td>{{$venda ->valor_vendas}}</td>   
-        <td>{{$venda ->fk_users}}</td>               
+        <td>{{$venda ->usuario->name}}</td>       
         <td>
+        
+</td>   
+@endforeach
 
+        {{-- <tbody>
         <a href="{{ route('vendas.edit',    ['id_vendas'=>\Crypt::encrypt($venda->id_vendas)]) }}" class="btn-sm btn-success">Editar</a>                                     
          <a href="#" onclick="return ConfirmaExclusao({{$venda->id_vendas}})" class="btn-sm btn-danger">Remover</a>
         </td>
-        <br>
-        @endforeach
+        <br> --}}
+
         </tbody>
 </table>
 {{$vendas->links()}}

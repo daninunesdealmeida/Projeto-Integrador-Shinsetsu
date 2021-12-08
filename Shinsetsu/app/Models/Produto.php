@@ -16,7 +16,7 @@ class Produto extends Model
   }
 
   public function venda_itens(){
-    return $this->belongsTo(Venda_item::class);
+    return $this->belongsTo(Venda_item::class, 'nome');
   }
 
   public function pagamento(){

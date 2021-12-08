@@ -36,8 +36,8 @@
                                 <th>Nome</th>
                                 <th>Especificações</th>
                                 <th>Preço</th>
-                                <th>Qt_Estoque</th>
-                                <th>Estoque_Mínimo</th>
+                                <th>Quantidade em Estoque</th>
+                                <th>Estoque Mínimo</th>
                                 <th>Categoria</th>
                                 <th>Imagem</th>
                                 <th>Ações</th>

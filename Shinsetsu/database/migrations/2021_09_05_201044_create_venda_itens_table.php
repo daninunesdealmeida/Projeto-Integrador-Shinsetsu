@@ -15,10 +15,10 @@ class CreateVendaItensTable extends Migration
     {
         Schema::create('venda_itens', function (Blueprint $table) {
             $table->bigIncrements('id_vendaItens');
-            $table->Integer('quantidade');
-            $table->String('vlr_unitário');
-            $table->unsignedBigInteger('fk_produtos'); 
-            $table->unsignedBigInteger('fk_vendas');        
+            $table->Integer('quantidade')->nullable();
+            $table->String('vlr_unitário')->nullable();
+            $table->unsignedBigInteger('fk_produtos')->nullable(); 
+            $table->unsignedBigInteger('fk_vendas')->nullable();        
             $table->timestamps();
 
             $table->foreign('fk_produtos')->references('id_produtos')->on('produtos');

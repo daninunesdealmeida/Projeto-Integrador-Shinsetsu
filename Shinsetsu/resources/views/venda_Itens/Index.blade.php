@@ -32,10 +32,10 @@
         <tbody>
                 <tr>
                         <th>Id</th>
-                        <th>quantidade</th>
-                        <th>vlr_unitário</th>
+                        <th>Quantidade</th>
+                        <th>Valor Unitário</th>
                         <th>Produtos</th>
-                        <th>Venda</th>
+                        <th>Vendas</th>
                         <th>Ações</th>
                         </thead>
         <tbody>

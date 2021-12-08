@@ -35,7 +35,7 @@
                         <tr>
                                 <th>Id</th>
                                 <th>Número do Telefone</th>
-                                <th>Usuario</th>
+                                <th>Usuário</th>
                                 <th>Vendas</th>
                                 <th>Ações</th>
                                 </thead>
@@ -44,7 +44,7 @@
                         <tr>
                                 <td>{{$pagamento ->id_pagamentos}}</td>
                                 <td>{{$pagamento ->telefone}}</td>
-                                <td>{{$pagamento ->fk_users}}</td> 
+                                <td>{{$pagamento ->usuario->name}}</td> 
                                 <td>{{$pagamento ->fk_vendas}}</td>  
         
                                 <td>
