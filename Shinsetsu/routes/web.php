@@ -116,14 +116,14 @@ Route::group(['middleware' => 'auth'], function () {
 
 
     //Rotas do model PDF
-    Route::get("pdfAgendamentos",              ['as' => 'pdfAgendamentos',         'uses' => "App\Http\Controllers\PdfController@geraPdfAgendamentos"]);
-    Route::get("pdfCategorias",              ['as' => 'pdfCategorias',         'uses' => "App\Http\Controllers\PdfController@geraPdfCategorias"]);
-    Route::get("pdfPagamentos",              ['as' => 'pdfPagamentos',         'uses' => "App\Http\Controllers\PdfController@geraPdfPagamentos"]);
-    Route::get("pdfPessoas",              ['as' => 'pdfPessoas',         'uses' => "App\Http\Controllers\PdfController@geraPdfPessoa"]);
-    Route::get("pdfProdutos",              ['as' => 'pdfProdutos',         'uses' => "App\Http\Controllers\PdfController@geraPdfProdutos"]);
-    Route::get("pdfUsers",              ['as' => 'pdfUsers',         'uses' => "App\Http\Controllers\PdfController@geraPdfUsers"]);
-    Route::get("pdfVendaItens",              ['as' => 'pdfVendaItens',         'uses' => "App\Http\Controllers\PdfController@geraPdfVendaItens"]);
-    Route::get("pdfVendas",              ['as' => 'pdfVendas',         'uses' => "App\Http\Controllers\PdfController@geraPdfVendas"]);
+    Route::post("pdfAgendamentos",              ['as' => 'pdfAgendamentos',         'uses' => "App\Http\Controllers\PdfController@geraPdfAgendamentos"]);
+    //Route::post("pdfCategorias",              ['as' => 'pdfCategorias',         'uses' => "App\Http\Controllers\PdfController@geraPdfCategorias"]);
+    //Route::get("pdfPagamentos",              ['as' => 'pdfPagamentos',         'uses' => "App\Http\Controllers\PdfController@geraPdfPagamentos"]);
+    //Route::get("pdfPessoas",              ['as' => 'pdfPessoas',         'uses' => "App\Http\Controllers\PdfController@geraPdfPessoa"]);
+    Route::post("pdfProdutos",              ['as' => 'pdfProdutos',         'uses' => "App\Http\Controllers\PdfController@geraPdfProdutos"]);
+    //Route::get("pdfUsers",              ['as' => 'pdfUsers',         'uses' => "App\Http\Controllers\PdfController@geraPdfUsers"]);
+    //Route::get("pdfVendaItens",              ['as' => 'pdfVendaItens',         'uses' => "App\Http\Controllers\PdfController@geraPdfVendaItens"]);
+    Route::post("pdfVendas",              ['as' => 'pdfVendas',         'uses' => "App\Http\Controllers\PdfController@geraPdfVendas"]);
 });
 
 Auth::routes();

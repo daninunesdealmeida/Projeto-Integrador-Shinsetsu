@@ -14,7 +14,7 @@
                 <div class="row">
                         <div class="col-md-8">
                                 <a href="{{ route('categorias.create') }}" class="btn btn-primary" style="margin-bottom: 5px;">Novo</a>
-                        </div>
+                        </div>                                                   
                         {!! Form::open(['name'=> 'form_name', 'route'=>'categorias']) !!}
                         <div class="sidebar-form">
                                 <div class="input-group">
@@ -40,7 +40,7 @@
                         @foreach($categorias as $categoria)
                         <tr>
                                 <td>{{$categoria ->id_categorias}}</td>
-                                <td>{{$categoria ->nome}}</td>
+                                <td>{{ucfirst($categoria ->nome)}}</td>
                                 <td>
                                         <a href="{{ route('categorias.edit',    ['id'=>$categoria->id_categorias]) }}" class="btn-sm btn-success">Editar</a>
                                         <a href="#" onclick="return ConfirmaExclusao({{$categoria->id_categorias}})" class="btn-sm btn-danger">Remover</a>

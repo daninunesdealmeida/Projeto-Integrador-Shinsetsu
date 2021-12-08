@@ -46,12 +46,12 @@
                         @foreach($produtos as $produto)
                         <tr>
                                 <td>{{$produto ->id_produtos}}</td>
-                                <td>{{$produto ->nome}}</td>
-                                <td>{{$produto ->especificacao}}</td>
-                                <td>{{$produto ->preco}}</td>
+                                <td>{{ucfirst($produto ->nome)}}</td>
+                                <td>{{ucfirst($produto ->especificacao)}}</td>
+                                <td>{{'R$ '.number_format($produto ->preco, 2, ',', '.')}}</td>
                                 <td>{{$produto ->qt_estoque}}</td>
                                 <td>{{$produto ->estoque_minimo}}</td>
-                                <td>{{$produto ->categoria->nome}}</td> 
+                                <td>{{ucfirst($produto ->categoria->nome)}}</td> 
                                 <td><img class="card-img-top" src="img/produtos/{{$produto->imagem}}" width="100%" alt="100px" style="height:100px"></td>                               
                              <td>
 

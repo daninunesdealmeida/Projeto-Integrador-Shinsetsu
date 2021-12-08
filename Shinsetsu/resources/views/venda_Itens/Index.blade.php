@@ -27,7 +27,6 @@
                 {!! Form::close() !!}
         </div>
 </div>
-
 <table class="table table-striped">
         <tbody>
                 <tr>
@@ -43,7 +42,7 @@
                 <tr>
                         <td>{{$venda_Item ->id_vendaItens}}</td>
                         <td>{{$venda_Item ->quantidade}}</td>
-                        <td>{{$venda_Item ->vlr_unitário}}</td>
+                        <td>{{'R$ '.number_format($venda_Item ->vlr_unitário, 2, ',', '.')}}</td>
                         <td>{{$venda_Item ->fk_produtos}}</td>
                         <td>{{$venda_Item ->fk_vendas}}</td>                        
                         <td>

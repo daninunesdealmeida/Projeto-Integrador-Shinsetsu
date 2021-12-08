@@ -89,7 +89,7 @@
 
                     <div class="form-group">
                         <label for="">Valor</label>
-                        <input type="text" class="form-control" id="valor" value="{{$carrinho->preco}}" name="valor">
+                        <input type="text" class="form-control" id="valor" value="{{'R$ '.number_format($carrinho->preco, 2, ',', '.')}}" name="valor">
                     </div>
 
                     <div class="form-group">
@@ -99,7 +99,7 @@
 
                     <div class="form-group">
                         <label for="">Valor Total Produto</label>
-                        <input type="text" class="form-control valorTotal" id="valorTotal" name="valorTotal" value=" {{$carrinho->preco * $carrinho->quantidade}}">
+                        <input type="text" class="form-control valorTotal" id="valorTotal" name="valorTotal" value=" {{'R$ '.number_format($carrinho->preco * $carrinho->quantidade, 2, ',', '.')}}">
                     </div>
 
                     <a class="btn-sm btn-danger" style="cursor:pointer;" id="removerItem" onclick="deletaItem({{$carrinho->produto_id}})" data-id="{{$carrinho->produto_id}}">Remover</a>

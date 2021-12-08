@@ -132,7 +132,7 @@
                                         <button class="btn btn-danger-gradiant rounded-pill text-white btn-md border-0" type="submit" style=" border: solid 1px #000 !important;
                                     color: #000 !important;">Adicionar ao Carrinho </button>
                                     </div>
-                                </div>
+                                </div>  
                             </form>
                         </div>
                     </div>
