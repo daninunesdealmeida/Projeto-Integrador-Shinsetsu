@@ -2,7 +2,7 @@
     # Mensagem
 
     <p>Nome:</p>
-    <p>{{$name}}</p>
+    <p>Olá,{{$name}}</p>
     <p>Mensagem:</p>
     <p>{{ $message }}</p>
 

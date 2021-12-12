@@ -267,12 +267,14 @@
     .btn-primary {
         background-color: #dc3545;
         border-color: #dc3545;
+        margin-top: 73px !important;
     }
 
     .btn-primary:hover {
         color: #000 !important;
         background-color: #dc3545 !important;
         border-color: #dc3545 !important;
+      
     }
 
     .header-area .main-nav .nav li:last-child a {

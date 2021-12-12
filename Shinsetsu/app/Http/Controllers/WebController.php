@@ -185,7 +185,9 @@ class WebController extends Controller
         $data = [
             'reply_name' => auth()->user()->name,
             'reply_email' => auth()->user()->email,
-            'message' => 'Mensagem vai aqui'
+            'message' => 'Ficamos muito felizes de você comprar com a gente.
+            Olha só, assim que o pagamento for aprovado vamos te enviar um novo e-mail.
+            Esse processo pode levar até 3 dias úteis.'
         ];
 
         Mail::send(new EmailClient($data));
