@@ -97,7 +97,7 @@ class WebController extends Controller
     public function carrinhoCompra()
     {
         $user = substr(session()->get('usuario'),1,11);
-
+        //dd($user);
         $carrinhos = DB::select('select  p.nome, c.produto_id,c.preco, sum(c.quantidade) quantidade, max(p.imagem)imagem
         from carrinhos c
         inner join produtos p on c.produto_id = p.id_produtos
@@ -144,9 +144,10 @@ class WebController extends Controller
         ]);
 
         $this->sendEmail();
-
+       // dd($request);
         $session = substr(session()->get('usuario'),1,11);
         $deletarCarrinho = DB::select(DB::raw('DELETE from carrinhos where id_user = ?'), [$session]);
+        
 
         return redirect('meusPedidos');
     }

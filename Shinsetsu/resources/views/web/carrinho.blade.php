@@ -209,7 +209,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script>
     $(document).ready(function() {
-        $('#telefone').mask('(00)0000000-00');
+        $('#telefone').mask('(00)00000-0000');
     });
 </script>
 <style>
