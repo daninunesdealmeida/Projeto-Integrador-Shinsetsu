@@ -15,14 +15,14 @@ Route::get('/login', [WebController::class, 'login'])->name('login');
 Route::post('/carrinho', [WebController::class, 'insereCarrinho'])->name('insereCarrinho');
 Route::delete('/carrinho/{id}/destroy', [WebController::class, 'destroyCarrinho'])->name('destroyCarrinho');
 Route::post('/pedido', [WebController::class, 'insereCarrinho'])->name('insereCarrinho');
-Route::get('/meusPedidos', [WebController::class, 'meusPedidos'])->name('meusPedidos');
+
 Route::post("/store",       ['as' => 'agendamentos.store',   'uses' => "App\Http\Controllers\AgendamentosController@store"]);
-
-
+Route::get('/loja', [WebController::class, 'loja'])->name('loja');
+Route::get('/carrinhoCompra', [WebController::class, 'carrinhoCompra'])->name('carrinhoCompra');
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/loja', [WebController::class, 'loja'])->name('loja');
-    Route::get('/carrinhoCompra', [WebController::class, 'carrinhoCompra'])->name('carrinhoCompra');
+
+    Route::get('/meusPedidos', [WebController::class, 'meusPedidos'])->name('meusPedidos');
     Route::post('/finalizaCompra', [WebController::class, 'finalizaCompra'])->name('finalizaCompra');
     // Rotas do model agendamentos
     Route::group(["prefix" => "agendamentos", "where" => ["id" => "[0-9]+"]], function () {

@@ -18,8 +18,8 @@
     {!! Form::label ('quantidade', 'quantidade:') !!}
     {!! Form::text ('quantidade', $venda_Itens->quantidade, ['class' => 'form-control']) !!}
 
-    {!! Form::label ('vlr_unitário', 'vlr_unitário:') !!}
-    {!! Form::text ('vlr_unitário', $venda_Itens->vlr_unitário, ['class' => 'form-control', 'id' => 'money']) !!}
+    {!! Form::label ('vlr_unitario', 'vlr_unitário:') !!}
+    {!! Form::text ('vlr_unitario', $venda_Itens->vlr_unitário, ['class' => 'form-control', 'id' => 'money']) !!}
 
     {!! Form::label ('fk_produtos', 'Produto:') !!}
     {!! Form::select('fk_produtos',

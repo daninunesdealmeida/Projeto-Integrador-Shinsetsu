@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\EmailClient;
 use App\Models\Carrinho;
 use App\Models\Categoria;
 use App\Models\Pagamento;
@@ -11,6 +12,7 @@ use App\Models\Venda_item;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class WebController extends Controller
 {
@@ -29,7 +31,7 @@ class WebController extends Controller
     {
         $random = md5(uniqid(rand(), true));
 
-        session()->put('usuario', substr($random, 1, 40));
+        session()->put('usuario', substr($random, 1, 11));
 
 
         return view('web.site');
@@ -65,7 +67,8 @@ class WebController extends Controller
 
     public function insereCarrinho(Request $request)
     {
-        $user = auth()->user()->id;
+        //dd($request);
+        $user = substr(session()->get('usuario'),1,11);
 
         Carrinho::create([
             'produto_id' => $request->idproduto,
@@ -92,12 +95,14 @@ class WebController extends Controller
     }
 
     public function carrinhoCompra()
-    {        
+    {
+        $user = substr(session()->get('usuario'),1,11);
+
         $carrinhos = DB::select('select  p.nome, c.produto_id,c.preco, sum(c.quantidade) quantidade, max(p.imagem)imagem
         from carrinhos c
         inner join produtos p on c.produto_id = p.id_produtos
         where c.id_user = ?
-        group by c.produto_id,c.preco, p.nome, p.imagem', [auth()->user()->id]);
+        group by c.produto_id,c.preco, p.nome, p.imagem', [$user]);
         //dd($carrinhos);
         if (empty($carrinhos)) {
            // return $this->loja()->with('success', 'your message,here');
@@ -112,6 +117,8 @@ class WebController extends Controller
         if ($request->quantidadeGeral <= 0) {
             return $this->loja();
         }
+
+        //dd($request->all());
         $user_id = auth()->user()->id;
         //dd($request);
 
@@ -125,7 +132,7 @@ class WebController extends Controller
 
         $vendaItens = Venda_item::create([
             'quantidade' => $request->quantidade,
-            'vlr_unitário' => $request->valor,
+            'vlr_unitario' => str_replace('R$','',str_replace(',','.',str_replace('.','',$request->valor))),
             'fk_produtos' => $request->produto_id,
             'fk_vendas' => $venda->id_vendas
         ]);
@@ -136,20 +143,24 @@ class WebController extends Controller
             'fk_users' => $user_id
         ]);
 
-        $deletarCarrinho = DB::select(DB::raw('DELETE from carrinhos where id_user = ?'), [auth()->user()->id]);
+        $this->sendEmail();
+
+        $session = substr(session()->get('usuario'),1,11);
+        $deletarCarrinho = DB::select(DB::raw('DELETE from carrinhos where id_user = ?'), [$session]);
 
         return redirect('meusPedidos');
     }
 
     public function destroyCarrinho($id)
     {
-        $carrinhos = Carrinho::where('produto_id', $id)->where('id_user', auth()->user()->id)->first();
+        $session = substr(session()->get('usuario'),1,11);
+        $carrinhos = Carrinho::where('produto_id', $id)->where('id_user', $session)->first();
 
         if (!$carrinhos) {
             return redirect()->back();
         }
 
-        DB::select(DB::raw('DELETE from carrinhos where produto_id = ? and id_user = ?'), [$id, auth()->user()->id]);
+        DB::select(DB::raw('DELETE from carrinhos where produto_id = ? and id_user = ?'), [$session]);
 
 
         return response()->json(['data' => 'removido']);
@@ -166,6 +177,20 @@ class WebController extends Controller
     //mudar para tosql para ver o sql no dd($vendas)
 
         return view('web.pedido',compact('vendas'));
+    }
+
+    public function sendEmail()
+    {
+
+        $data = [
+            'reply_name' => auth()->user()->name,
+            'reply_email' => auth()->user()->email,
+            'message' => 'Mensagem vai aqui'
+        ];
+
+        Mail::send(new EmailClient($data));
+
+        return redirect()->route('meusPedidos');
     }
 
     // public function inserePedido(Request $request)

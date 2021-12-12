@@ -9,8 +9,8 @@
     {!! Form::label ('quantidade', 'quantidade:') !!}
     {!! Form::text ('quantidade', null, ['class' => 'form-control']) !!}
 
-    {!! Form::label ('vlr_unitário', 'Valor unitário:') !!}
-    {!! Form::text ('vlr_unitário', null, ['class' => 'form-control', 'id' => 'money']) !!}
+    {!! Form::label ('vlr_unitario', 'Valor unitário:') !!}
+    {!! Form::text ('vlr_unitario', null, ['class' => 'form-control', 'id' => 'money']) !!}
 
     {!! Form::label ('fk_produtos', 'Produto:') !!}
     {!! Form::select('fk_produtos',

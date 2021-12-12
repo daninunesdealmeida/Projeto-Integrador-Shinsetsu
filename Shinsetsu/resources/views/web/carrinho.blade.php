@@ -135,7 +135,7 @@
                 <button type="submit" class="btn btn-primary">Finalizar Compra</button>
             </div>
         </div>
-        
+
 
     </form>
     @include('flash::message')
@@ -173,17 +173,18 @@
             var quantidade = 0
             var totalSum = 0
             $('.valorTotal').each(function(i, v) {
-                total += parseFloat(v.value)
+                var valor = v.value.replace('R$','').replace('.','').replace(',','.')
+                totalSum += parseFloat(valor)
             })
             $('.quantidade').each(function(i, v) {
                 quantidade += parseFloat(v.value)
             })
-            $('.valorTotal').each(function(i, v) {
-                totalSum += parseFloat(v.value)
-            })
+            // $('.valorTotal').each(function(i, v) {
+            //     totalSum += parseFloat(v.value)
+            // })
             $('.quantidadeGeral').val(quantidade)
-            $('.totalValorGeral').val(total)
-            $('.valorTotalSum').val(totalSum)
+            $('.totalValorGeral').val(totalSum)
+            $('#valorTotalPagar').val(totalSum.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}))
 
 
         })
