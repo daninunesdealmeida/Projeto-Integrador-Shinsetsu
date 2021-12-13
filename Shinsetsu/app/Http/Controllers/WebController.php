@@ -97,7 +97,7 @@ class WebController extends Controller
     public function carrinhoCompra()
     {
         $user = substr(session()->get('usuario'),1,11);
-        //dd($user);
+
         $carrinhos = DB::select('select  p.nome, c.produto_id,c.preco, sum(c.quantidade) quantidade, max(p.imagem)imagem
         from carrinhos c
         inner join produtos p on c.produto_id = p.id_produtos
@@ -106,7 +106,8 @@ class WebController extends Controller
         //dd($carrinhos);
         if (empty($carrinhos)) {
            // return $this->loja()->with('success', 'your message,here');
-            return back();
+            //return back();
+            return redirect("/loja");
         }
         return view('web.carrinho', compact('carrinhos'));
 
@@ -144,24 +145,23 @@ class WebController extends Controller
         ]);
 
         $this->sendEmail();
-       // dd($request);
+
         $session = substr(session()->get('usuario'),1,11);
         $deletarCarrinho = DB::select(DB::raw('DELETE from carrinhos where id_user = ?'), [$session]);
-        
 
         return redirect('meusPedidos');
     }
 
     public function destroyCarrinho($id)
     {
-        $session = substr(session()->get('usuario'),1,11);
-        $carrinhos = Carrinho::where('produto_id', $id)->where('id_user', $session)->first();
+        // $session = substr(session()->get('usuario'),1,11);
+        // $carrinhos = Carrinho::where('produto_id', $id)->where('id_user', $session)->first();
 
-        if (!$carrinhos) {
-            return redirect()->back();
-        }
-
-        DB::select(DB::raw('DELETE from carrinhos where produto_id = ? and id_user = ?'), [$session]);
+        // if (!$carrinhos) {
+        //     return redirect()->back();
+        // }
+        
+        DB::select(DB::raw('DELETE from carrinhos where produto_id = ?'), [$id]);
 
 
         return response()->json(['data' => 'removido']);

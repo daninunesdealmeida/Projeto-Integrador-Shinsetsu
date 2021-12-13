@@ -102,7 +102,7 @@
                         <input type="text" class="form-control valorTotal" id="valorTotal" name="valorTotal" value=" {{'R$ '.number_format($carrinho->preco * $carrinho->quantidade, 2, ',', '.')}}">
                     </div>
 
-                    <a class="btn-sm btn-danger" style="cursor:pointer;" id="removerItem" onclick="deletaItem({{$carrinho->produto_id}})" data-id="{{$carrinho->produto_id}}">Remover</a>
+                   <a class="btn-sm btn-danger" style="cursor:pointer;" id="removerItem" onclick="deletaItem({{$carrinho->produto_id}})" data-id="{{$carrinho->produto_id}}">Remover</a>                    
                 </div>
             </div>
             @empty
@@ -138,6 +138,7 @@
 
 
     </form>
+    
     @include('flash::message')
     <footer>
         <div class="container">
@@ -187,8 +188,9 @@
             $('#valorTotalPagar').val(totalSum.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}))
 
 
-        })
-
+        })        
+    </script>  
+    <script>
         function deletaItem(produto) {
             $.ajax({
                 url: '/carrinho/' + produto + '/destroy',
@@ -196,10 +198,13 @@
                 dataType: 'json',
                 success: function(data) {
                     document.location.reload(true);
+                },
+                error: function (data) {
+                console.log(data);                
                 }
             })
         }
-    </script>
+    </script>  
 </body>
 
 </html>
